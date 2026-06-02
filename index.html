@@ -409,17 +409,30 @@
             border: 2px solid var(--gold-dark);
         }
 
-        /* Čitljiv info natpis prilagođen mobilnim ekranima - čisti hrvatski jezik */
+        /* 1) VIZUALIZATOR: Dobija fiksnu visinu da stubići ne guraju tekst ispod sebe */
+        .visualizer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 5px;
+            height: 45px; /* Fiksna visina kaveza - stubići skaču UNUTAR ovoga */
+            margin: 1rem auto 0;
+            overflow: hidden;
+        }
+
+        /* 2) DONJI TEKST: Potpuno fiksiran i odvojen, nema više drhtanja stranice */
         .info-hint {
             color: #ffffff !important;
-            font-size: 0.88rem !important; /* Prilagođena veličina za čist jednodijelni prikaz */
+            font-size: 0.88rem !important;
             font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-            display: block; /* Složeno u block radi ljepšeg prijeloma na mobitelu */
-            margin-top: 1.2rem;
+            display: block !important;
+            margin-top: 1.5rem !important; /* Odmaknut od vizualizatora */
             text-align: center;
             line-height: 1.5;
-            padding: 0 10px;
+            padding: 0 15px;
+            width: 100%;
+            pointer-events: none; /* Kursor lakše prolazi, nema blokiranja */
         }
 
         /* Čvrsti UŽIVO badge s boljim kontrastom */
