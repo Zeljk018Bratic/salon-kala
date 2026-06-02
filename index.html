@@ -332,24 +332,42 @@
             transform: scale(1.04); /* Blagi zoom bez bježanja glava iz kadra */
         }
 
-        /* Stil za badge na kartici (sada je dio tekstualnog bloka da se ne spaja s alt-tekstom) */
+        /* VRAĆAMO ZLATNI BEDŽ NA SLIKU DA NE SJEBE NASLOVE ISPOD */
         .trend-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #fff;
-            padding: 0.35rem 0.6rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-            margin-bottom: 0.6rem;
+            position: absolute !important;
+            top: 15px !important;
+            left: 15px !important; /* Može i right: 15px, kako ti je ljepše */
+            background: rgba(27, 94, 94, 0.95) !important; /* Tvoja prepoznatljiva Teal boja */
+            color: #ffffff !important;
+            padding: 4px 12px !important;
+            border-radius: 20px !important;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            z-index: 10 !important; /* Gura bedž ispred slike da se uvijek vidi */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* Osigurava da se alt-tekst ne ispisuje u linijskom toku i da slika zauzima cijeli prostor */
         .trend-img-wrapper img { display: block; }
 
-        /* Odvojak između slike i tekstualnog sadržaja kartice */
-        .trend-info { padding: 1rem; margin-top: 0.6rem; }
+        /* ČISTI I ODVOJENI NASLOVI KARTICA */
+        .trend-info {
+            padding: 1.2rem 1rem !important;
+            text-align: center !important;
+            background: var(--cream-dark) !important;
+        }
+
+        .trend-name {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            color: var(--gold-dark) !important;
+            margin-top: 0.5rem !important; /* Daje disati naslovu od slike */
+            line-height: 1.3 !important;
+        }
 
         /* ===== POZAĐINA I OKVIRI U SCAN & CONNECT REZOLUCIJI ===== */
         .qr-container {
