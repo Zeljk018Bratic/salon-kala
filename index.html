@@ -332,6 +332,25 @@
             transform: scale(1.04); /* Blagi zoom bez bježanja glava iz kadra */
         }
 
+        /* Stil za badge na kartici (sada je dio tekstualnog bloka da se ne spaja s alt-tekstom) */
+        .trend-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 0.35rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            margin-bottom: 0.6rem;
+        }
+
+        /* Osigurava da se alt-tekst ne ispisuje u linijskom toku i da slika zauzima cijeli prostor */
+        .trend-img-wrapper img { display: block; }
+
+        /* Odvojak između slike i tekstualnog sadržaja kartice */
+        .trend-info { padding: 1rem; margin-top: 0.6rem; }
+
         /* ===== POZAĐINA I OKVIRI U SCAN & CONNECT REZOLUCIJI ===== */
         .qr-container {
             display: flex;
