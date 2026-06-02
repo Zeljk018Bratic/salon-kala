@@ -409,30 +409,39 @@
             border: 2px solid var(--gold-dark);
         }
 
-        /* 1) VIZUALIZATOR: Dobija fiksnu visinu da stubići ne guraju tekst ispod sebe */
+        /* ===== MUZIČKI VIZUALIZATOR (KAO NA POJAČALU) ===== */
         .visualizer {
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            gap: 5px;
-            height: 45px; /* Fiksna visina kaveza - stubići skaču UNUTAR ovoga */
-            margin: 1rem auto 0;
+            gap: 4px;
+            height: 40px; /* Fiksna visina pojačala - drži sve zaključano */
+            margin: 1.2rem auto 0;
             overflow: hidden;
+            width: fit-content;
         }
 
-        /* 2) DONJI TEKST: Potpuno fiksiran i odvojen, nema više drhtanja stranice */
+        /* Tvoji originalni stupići s pojačala - zlatni gradijent */
+        .bar {
+            width: 4px;
+            background: linear-gradient(to top, var(--gold), var(--gold-light));
+            border-radius: 2px;
+            transition: height 0.1s ease; /* Brz i gladak odziv na ritam */
+            opacity: 0.85;
+            height: 4px; /* Početna visina kad radio šuti */
+        }
+
+        /* Popravljeni info tekst ispod koji više ne može drhtati */
         .info-hint {
             color: #ffffff !important;
             font-size: 0.88rem !important;
             font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
             display: block !important;
-            margin-top: 1.5rem !important; /* Odmaknut od vizualizatora */
+            margin-top: 1.5rem !important;
             text-align: center;
             line-height: 1.5;
             padding: 0 15px;
-            width: 100%;
-            pointer-events: none; /* Kursor lakše prolazi, nema blokiranja */
         }
 
         /* Čvrsti UŽIVO badge s boljim kontrastom */
