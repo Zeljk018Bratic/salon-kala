@@ -20,7 +20,6 @@
         :root {
             --gold: #b38f40;
             --gold-light: #dbb46a;
-            --gold-dark: #8c6a2b;   /* tamniji zlatni za jači kontrast */
             --gold-dark: #7a5e24;   /* pojačano tamno zlato za oštrije rubove */
             --teal: #1b5e5e;
             --teal-light: #3aa3a3;
@@ -351,6 +350,15 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
             text-align: center;
+        }
+
+        /* Ograničava veličinu QR slike da ne razbija raspored */
+        .qr-card img {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 180px !important;
+            margin: 0 auto !important;
+            display: block !important;
         }
 
         /* ===== ATELIER TV I POPRAVAK PRIJELOMA TEKSTA NA MOBITELU ===== */
