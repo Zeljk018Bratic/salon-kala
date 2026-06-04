@@ -20,11 +20,11 @@
         :root {
             --gold: #b38f40;
             --gold-light: #dbb46a;
-            --gold-dark: #7a5e24;   /* pojačano tamno zlato za oštrije rubove */
+            --gold-dark: #7a5e24;
             --teal: #1b5e5e;
             --teal-light: #3aa3a3;
             --cream: #fffdf9;
-            --cream-dark: #fcf6eb;  /* elegantna krem unutrašnjost */
+            --cream-dark: #fcf6eb;
             --text: #1a1815;
             --text-light: #59534c;
         }
@@ -89,90 +89,144 @@
             z-index: 2;
         }
 
-        /* 👑 NOVA KRUNA + K L A DESIGN */
-        .crown-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            color: var(--gold);
-            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
-            transition: all 0.4s ease;
-            animation: crownFloat 3s ease-in-out infinite;
-            cursor: pointer;
-            margin-bottom: 0.5rem;
-        }
-
-        @keyframes crownFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .crown-icon:hover {
-            transform: scale(1.15) translateY(-8px);
-            filter: drop-shadow(0 10px 20px rgba(179, 143, 64, 0.5));
-        }
-
-        .crown-icon svg { width: 100%; height: 100%; }
-
-        .salon-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            font-weight: 700;
-            letter-spacing: 8px;
+        /* ===== ROYAL LOGO CONTAINER ===== */
+        .royal-logo-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.3rem;
-            flex-wrap: wrap;
-            background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-            background-clip: text;
+            padding: 20px;
+            background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 50%, #0b0b0b 100%);
+            border-radius: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(179, 143, 64, 0.1);
+            border: 2px solid var(--gold-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* KRUNA ANIMACIJA - POJAVLJUJE SE/NESTAJE + LEBDI */
+        .royal-crown {
+            width: 80px;
+            height: 60px;
+            margin-bottom: 15px;
+            animation: crownPulse 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+
+        @keyframes crownPulse {
+            0% { opacity: 0.3; transform: translateY(10px) scale(0.8); }
+            25% { opacity: 1; transform: translateY(-5px) scale(1); }
+            50% { opacity: 1; transform: translateY(0px) scale(1); }
+            75% { opacity: 1; transform: translateY(-5px) scale(1); }
+            100% { opacity: 0.3; transform: translateY(10px) scale(0.8); }
+        }
+
+        .royal-crown:hover {
+            animation: none;
+            transform: scale(1.2) translateY(-8px);
+            filter: drop-shadow(0 0 20px rgba(253, 246, 186, 0.9));
+        }
+
+        .royal-crown svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+        }
+
+        /* GLAVNI BREND - VERTIKALNI K L A */
+        .royal-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .brand-letter {
+            font-size: 65px;
+            font-weight: 900;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.3rem;
-        }
-
-        .salon-name span {
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .salon-name span:hover {
-            transform: scale(1.1) skewY(-2deg);
-            filter: drop-shadow(0 4px 8px rgba(179, 143, 64, 0.4));
-        }
-
-        /* 🔪 LJEPŠE ŠKARE – SVG sa elegancijom */
-        .scissors-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3.8rem;
-            height: 3.8rem;
-            color: var(--gold);
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: rotate(-45deg) scaleX(-1);
+            background-clip: text;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            user-select: none;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
             cursor: pointer;
+            line-height: 0.9;
+        }
+
+        .brand-letter:hover {
+            transform: scale(1.15) rotate(-3deg);
+            filter: drop-shadow(0 6px 12px rgba(179, 143, 64, 0.5));
+        }
+
+        /* SCISSORS WRAPPER - SA SKRIVENIM B I N */
+        .scissors-wrapper {
             position: relative;
+            width: 90px;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .scissors-icon svg { 
-            width: 100%; 
+        .scissors-wrapper:hover {
+            transform: scale(1.18) rotate(2deg);
+        }
+
+        .scissors-svg {
+            width: 100%;
             height: 100%;
-            stroke: currentColor;
-            stroke-width: 1.5;
-            fill: none;
+            filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+            transition: filter 0.3s ease;
         }
 
-        .scissors-icon:hover { 
-            transform: rotate(-45deg) scaleX(-1) scale(1.15);
-            filter: drop-shadow(0 8px 16px rgba(179, 143, 64, 0.6));
+        .scissors-wrapper:hover .scissors-svg {
+            filter: drop-shadow(0 0 15px rgba(253, 246, 186, 0.7));
         }
 
-        .scissors-icon:active {
-            transform: rotate(-45deg) scaleX(-1) scale(0.95);
+        /* SKRIVENI LABIN - B I N */
+        .hidden-labin {
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 8px;
+            z-index: 5;
+        }
+
+        .sub-letter {
+            font-size: 16px;
+            font-weight: 800;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #fcf6ba, #b38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        }
+
+        .scissors-wrapper:hover .sub-letter {
+            filter: drop-shadow(0 0 8px rgba(253, 246, 186, 0.9));
+            transform: scale(1.1);
+        }
+
+        /* PODNASLOV */
+        .royal-subtitle {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #c5a880;
+            opacity: 0.85;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .gold-divider {
@@ -325,20 +379,7 @@
         }
         .map-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* ===== POJAČANI LUKSUZNI KONTRAST I RUBOVI SEKCIJA ===== */
-        :root {
-            --gold: #b38f40;
-            --gold-light: #dbb46a;
-            --gold-dark: #7a5e24; /* Pojačano tamno zlato za oštrije rubove */
-            --teal: #1b5e5e;
-            --teal-light: #3aa3a3;
-            --cream: #fffdf9;
-            --cream-dark: #fcf6eb; /* Nježna blijeda krem za unutrašnjost polja */
-            --text: #1a1815;
-            --text-light: #5c564f;
-        }
-
-        /* Glavne cjeline dobivaju jasniji tamno-zlatni vanjski okvir */
+        /* ===== TRENDS SECTION ===== */
         .trends-section, .qr-section, .music-section {
             background: var(--cream) !important;
             border-radius: 40px;
@@ -355,7 +396,7 @@
         }
 
         .trend-card {
-            background: var(--cream-dark) !important; /* Unutrašnjost kartica */
+            background: var(--cream-dark) !important;
             border-radius: 28px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.04);
@@ -365,11 +406,10 @@
             flex-direction: column;
         }
 
-        /* 🛠️ KLJUČNI POPRAVAK ZA SLIKE: Smanjenje za 25% i prikaz cijelog kolaža bez rezanja */
         .trend-img-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 110%; /* Prilagođen omjer da se ne gubi visina */
+            padding-top: 110%;
             background-color: #f3eae0;
             overflow: hidden;
         }
@@ -377,22 +417,21 @@
         .trend-img-wrapper img {
             position: absolute;
             top: 5%; left: 5%;
-            width: 90%; height: 90%; /* Smanjena ukupna slika unutar polja */
-            object-fit: contain; /* Zamijenjen 'cover' s 'contain' da se vidi CIJELA slika i svi rubovi */
+            width: 90%; height: 90%;
+            object-fit: contain;
             border-radius: 16px;
             transition: transform 0.5s ease;
         }
 
         .trend-card:hover .trend-img-wrapper img {
-            transform: scale(1.04); /* Blagi zoom bez bježanja glava iz kadra */
+            transform: scale(1.04);
         }
 
-        /* VRAĆAMO ZLATNI BEDŽ NA SLIKU DA NE SJEBE NASLOVE ISPOD */
         .trend-badge {
             position: absolute !important;
             top: 15px !important;
-            left: 15px !important; /* Može i right: 15px, kako ti je ljepše */
-            background: rgba(27, 94, 94, 0.95) !important; /* Tvoja prepoznatljiva Teal boja */
+            left: 15px !important;
+            background: rgba(27, 94, 94, 0.95) !important;
             color: #ffffff !important;
             padding: 4px 12px !important;
             border-radius: 20px !important;
@@ -400,15 +439,13 @@
             font-weight: 600 !important;
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
-            z-index: 10 !important; /* Gura bedž ispred slike da se uvijek vidi */
+            z-index: 10 !important;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Osigurava da se alt-tekst ne ispisuje u linijskom toku i da slika zauzima cijeli prostor */
         .trend-img-wrapper img { display: block; }
 
-        /* ČISTI I ODVOJENI NASLOVI KARTICA */
         .trend-info {
             padding: 1.2rem 1rem !important;
             text-align: center !important;
@@ -420,11 +457,11 @@
             font-size: 1.4rem !important;
             font-weight: 700 !important;
             color: var(--gold-dark) !important;
-            margin-top: 0.5rem !important; /* Daje disati naslovu od slike */
+            margin-top: 0.5rem !important;
             line-height: 1.3 !important;
         }
 
-        /* ===== POZAĐINA I OKVIRI U SCAN & CONNECT REZOLUCIJI ===== */
+        /* ===== QR SECTION ===== */
         .qr-container {
             display: flex;
             justify-content: center;
@@ -434,8 +471,8 @@
         }
 
         .qr-card {
-            background: var(--cream-dark) !important; /* Blijeda krem unutrašnjost iza koda */
-            border: 2px solid var(--gold) !important; /* Izraženi zlatni okvir oko svakog QR polja */
+            background: var(--cream-dark) !important;
+            border: 2px solid var(--gold) !important;
             border-radius: 28px;
             padding: 1.5rem;
             width: 230px;
@@ -444,7 +481,6 @@
             text-align: center;
         }
 
-        /* Ograničava veličinu QR slike da ne razbija raspored */
         .qr-card img {
             width: 100% !important;
             height: auto !important;
@@ -453,7 +489,7 @@
             display: block !important;
         }
 
-        /* ===== ATELIER TV I POPRAVAK PRIJELOMA TEKSTA NA MOBITELU ===== */
+        /* ===== SLIDESHOW ===== */
         #salon-slideshow {
             position: relative;
             width: 100%;
@@ -464,7 +500,6 @@
             border: 2px solid var(--gold-dark);
         }
 
-        /* 🎬 SLIDE FADE ANIMATION - DINAMIČNIJI EFEKT */
         .slide {
             position: absolute;
             top: 0;
@@ -521,26 +556,25 @@
             max-width: 500px;
         }
 
-        /* ===== MUZIČKI VIZUALIZATOR (KAO NA POJAČALU) ===== */
+        /* ===== VISUALIZER ===== */
         .visualizer {
             display: flex;
             align-items: flex-end;
             justify-content: center;
             gap: 4px;
-            height: 50px; /* Pojačana visina za dinamičniji prikaz */
+            height: 50px;
             margin: 1.5rem auto 0;
             overflow: hidden;
             width: fit-content;
         }
 
-        /* Tvoji originalni stupići s pojačala - zlatni gradijent - POJAČANI */
         .bar {
             width: 5px;
             background: linear-gradient(to top, var(--gold), var(--gold-light));
             border-radius: 2px;
-            transition: height 0.08s ease; /* Brži odziv za dinamičniji efekt */
+            transition: height 0.08s ease;
             opacity: 0.9;
-            height: 4px; /* Početna visina kad radio šuti */
+            height: 4px;
             box-shadow: 0 0 8px rgba(179, 143, 64, 0.6);
         }
 
@@ -549,7 +583,6 @@
             box-shadow: 0 0 12px rgba(219, 180, 106, 0.8);
         }
 
-        /* Popravljeni info tekst ispod koji više ne može drhtati */
         .info-hint {
             color: var(--text) !important;
             font-size: 0.88rem !important;
@@ -562,13 +595,12 @@
             padding: 0 15px;
         }
 
-        /* Čvrsti UŽIVO badge s boljim kontrastom */
         .badge-pip {
             font-size: 0.85rem !important;
             font-weight: 700 !important;
             letter-spacing: 1px;
             padding: 0.4rem 1rem !important;
-            background: rgba(27, 94, 94, 0.9) !important; /* Jaka uočljiva salonska Teal boja */
+            background: rgba(27, 94, 94, 0.9) !important;
             border: 2px solid var(--teal-light) !important;
             color: #ffffff !important;
             border-radius: 30px;
@@ -596,7 +628,6 @@
             transform: translateY(0);
         }
 
-        /* Popravljeni, čitljivi footer */
         footer {
             text-align: center;
             font-size: 0.85rem !important;
@@ -610,9 +641,23 @@
         }
 
         @media (max-width: 768px) {
-            .salon-name { font-size: 3rem; }
-            .crown-icon { width: 3rem; height: 3rem; }
-            .scissors-icon { width: 2.8rem; height: 2.8rem; }
+            .royal-logo-container {
+                padding: 15px;
+            }
+            .royal-crown {
+                width: 60px;
+                height: 45px;
+            }
+            .brand-letter {
+                font-size: 50px;
+            }
+            .scissors-wrapper {
+                width: 70px;
+                height: 85px;
+            }
+            .sub-letter {
+                font-size: 14px;
+            }
             .salon-card, .trends-section, .qr-section { padding: 1.5rem; }
             .trends-title { font-size: 2rem; }
             .qr-card { width: 170px; padding: 1rem; }
@@ -624,8 +669,23 @@
             .visualizer { height: 40px; }
         }
         @media (max-width: 480px) {
-            .salon-name { font-size: 2.2rem; }
-            .crown-icon { width: 2.5rem; height: 2.5rem; }
+            .royal-logo-container {
+                padding: 12px;
+            }
+            .royal-crown {
+                width: 50px;
+                height: 38px;
+            }
+            .brand-letter {
+                font-size: 40px;
+            }
+            .scissors-wrapper {
+                width: 60px;
+                height: 75px;
+            }
+            .sub-letter {
+                font-size: 12px;
+            }
             #salon-slideshow { height: 300px; }
         }
     </style>
@@ -636,32 +696,76 @@
     <!-- ===== SALON INFO CARD ===== -->
     <div class="salon-card">
         <div class="salon-header">
-            <!-- 👑 KRUNA NA VRHU -->
-            <div class="crown-icon" title="Royal Salon">
-                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 4c0-.5.5-1 1-1h12c.5 0 1 .5 1 1v2l2-1v3l-1 4h-3l-3 5-3-5H2l-1-4v-3l2 1V4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-                    <path d="M8 8l2 6M16 8l-2 6M12 6v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
-            </div>
-
-            <!-- K L A NAZIV -->
-            <div class="salon-name">
-                <span>K</span>
-                <span class="scissors-icon" title="Frizerski alat">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Lijeva oštrica -->
-                        <path d="M6 8C8.21 8 10 6.21 10 4C10 1.79 8.21 0 6 0C3.79 0 2 1.79 2 4C2 6.21 3.79 8 6 8Z" fill="currentColor"/>
-                        <!-- Desna oštrica -->
-                        <path d="M18 8C20.21 8 22 6.21 22 4C22 1.79 20.21 0 18 0C15.79 0 14 1.79 14 4C14 6.21 15.79 8 18 8Z" fill="currentColor"/>
-                        <!-- Rukobrati i oštrice -->
-                        <path d="M6 10C5.45 10 5 10.45 5 11V18C5 18.55 5.45 19 6 19C6.55 19 7 18.55 7 18V11C7 10.45 6.55 10 6 10Z"/>
-                        <path d="M18 10C17.45 10 17 10.45 17 11V18C17 18.55 17.45 19 18 19C18.55 19 19 18.55 19 18V11C19 10.45 18.55 10 18 10Z"/>
-                        <!-- Srednja spojnica -->
-                        <path d="M12 9C11 11 10.5 13 11.5 15C12.5 13 13 11 12 9Z" fill="currentColor"/>
+            <!-- 👑 NOVI ROYAL LOGO CONTAINER -->
+            <div class="royal-logo-container">
+                <!-- KRUNA - POJAVLJUJE SE/NESTAJE SA ANIMACIJOM -->
+                <div class="royal-crown">
+                    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gold-grad-crown" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#bf953f" />
+                                <stop offset="25%" stop-color="#fcf6ba" />
+                                <stop offset="50%" stop-color="#b38728" />
+                                <stop offset="75%" stop-color="#fbf5b7" />
+                                <stop offset="100%" stop-color="#aa771c" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Oštra, moćna kruna -->
+                        <path d="M10 50 L20 20 L40 35 L50 10 L60 35 L80 20 L90 50 Z" fill="url(#gold-grad-crown)" stroke="url(#gold-grad-crown)" stroke-width="2" stroke-linejoin="round"/>
+                        <!-- Dragulji na vrhovima krune -->
+                        <circle cx="20" cy="18" r="3.5" fill="url(#gold-grad-crown)" />
+                        <circle cx="50" cy="8" r="5" fill="url(#gold-grad-crown)" />
+                        <circle cx="80" cy="18" r="3.5" fill="url(#gold-grad-crown)" />
+                        <!-- Donji rub krune -->
+                        <rect x="10" y="52" width="80" height="5" rx="2.5" fill="url(#gold-grad-crown)" />
                     </svg>
-                </span>
-                <span>L</span>
-                <span>A</span>
+                </div>
+
+                <!-- GLAVNA BREND STRUKTURA: K L A VERTIKALNO SA ŠKARAMA -->
+                <div class="royal-brand">
+                    <!-- K -->
+                    <div class="brand-letter">K</div>
+
+                    <!-- ŠKARE SA SKRIVENIM B I N -->
+                    <div class="scissors-wrapper">
+                        <svg class="scissors-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gold-grad-scissors" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#bf953f" />
+                                    <stop offset="25%" stop-color="#fcf6ba" />
+                                    <stop offset="50%" stop-color="#b38728" />
+                                    <stop offset="75%" stop-color="#fbf5b7" />
+                                    <stop offset="100%" stop-color="#aa771c" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Oštrice koje idu prema gore i čine slovo A -->
+                            <path d="M50 50 L30 10 M50 50 L70 10" stroke="url(#gold-grad-scissors)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Centralni šaraf/spojnica -->
+                            <circle cx="50" cy="50" r="5" fill="none" stroke="url(#gold-grad-scissors)" stroke-width="3"/>
+                            <!-- Ručke škara koje idu prema dolje -->
+                            <path d="M50 50 L35 85 M50 50 L65 85" stroke="url(#gold-grad-scissors)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Dva velika prstena na dnu -->
+                            <circle cx="30" cy="105" r="15" fill="none" stroke="url(#gold-grad-scissors)" stroke-width="6" stroke-linecap="round"/>
+                            <circle cx="70" cy="105" r="15" fill="none" stroke="url(#gold-grad-scissors)" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
+
+                        <!-- SKRIVENI LABIN - B I N -->
+                        <div class="hidden-labin">
+                            <span class="sub-letter">B</span>
+                            <span class="sub-letter">I</span>
+                            <span class="sub-letter">N</span>
+                        </div>
+                    </div>
+
+                    <!-- L -->
+                    <div class="brand-letter">L</div>
+
+                    <!-- A -->
+                    <div class="brand-letter">A</div>
+                </div>
+
+                <!-- PODNASLOV -->
+                <div class="royal-subtitle">frizerski salon • labin</div>
             </div>
 
             <div class="gold-divider"></div>
@@ -708,7 +812,7 @@
         </div>
     </div>
 
-    <!-- ===== INSPIRACIJA & TRENDOVI – POPRAVLJENE SLIKE (CIJELE FRIZURE) ===== -->
+    <!-- ===== INSPIRACIJA & TRENDOVI ===== -->
     <div class="trends-section">
         <h2 class="trends-title">Inspiracija & Trendovi</h2>
         <div class="trends-subtitle">2025 – 2026 | Najnovije frizure godine</div>
@@ -730,7 +834,7 @@
         </div>
     </div>
 
-    <!-- ===== SCAN & CONNECT – LUZUKSNI ZLATNI OKVIRI ===== -->
+    <!-- ===== SCAN & CONNECT ===== -->
     <div class="qr-section">
         <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-dark);">✨ Scan & Connect</h3>
         <div class="gold-divider"></div>
@@ -749,7 +853,7 @@
         </div>
     </div>
 
-    <!-- ===== ATELIER TV (AMBIJENTALNE FOTOGRAFIJE + RADIO) ===== -->
+    <!-- ===== ATELIER TV ===== -->
     <div class="music-section">
         <div id="salon-slideshow">
             <div style="position: absolute; top: 25px; right: 25px; z-index: 25; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
@@ -758,33 +862,26 @@
                 <button id="playRadioBtn" class="play-btn-main">▶ POKRENI SALONSKI RADIO</button>
             </div>
 
-            <!-- ===== HYBRID: VISOKA MODA + BARBER SHARP ===== -->
-            
-            <!-- Slide 1: Visoka moda i glamur -->
             <div class="slide active">
                 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=800&fit=crop" alt="Premium Lookbook">
                 <div class="slide-caption"><h4>Prestižni Stil 2026</h4><p>Kreiramo transformacije inspirirane najnovijim svjetskim modnim pistama.</p></div>
             </div>
 
-            <!-- Slide 2: Ekskluzivni detalj i njega -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1532746302884-6a47fb0ae60f?w=1200&h=800&fit=crop" alt="Luksuzni sjaj">
                 <div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Dubinski rituali i vrhunska njega koji vašoj kosi vraćaju prirodan sjaj.</p></div>
             </div>
 
-            <!-- Slide 3: Precizni muški rezovi -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1599351751059-c21eba3fb11d?w=1200&h=800&fit=crop" alt="Sharp Fade">
                 <div class="slide-caption"><h4>Sharp Look & Barbering</h4><p>Precizne linije, moderni fade rezovi i besprijekorna njega brade.</p></div>
             </div>
 
-            <!-- Slide 4: Vrhunski alati na djelu -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1585747860715-cd4628902d4a?w=1200&h=800&fit=crop" alt="Frizerski alati">
                 <div class="slide-caption"><h4>Umjetnost u Svakom Pokretu</h4><p>Kombinacija tradicije i modernih tehnika prilagođena vašem karakteru.</p></div>
             </div>
 
-            <!-- Slide 5: Specijalna ponuda -->
             <div class="slide">
                 <div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
                     <span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span>
@@ -793,25 +890,21 @@
                 </div>
             </div>
 
-            <!-- Slide 6: Tretman kose (visoka moda) -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&h=800&fit=crop" alt="Tretman kose">
                 <div class="slide-caption"><h4>Rituali Njege & Hidracije</h4><p>Premium salonska kozmetika za maksimalan sjaj.</p></div>
             </div>
 
-            <!-- Slide 7: Muški barber stil -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=800&fit=crop" alt="Muški stil">
                 <div class="slide-caption"><h4>Muškar sa Stilom</h4><p>Klasični i modernih stila za mušku klientelu.</p></div>
             </div>
 
-            <!-- Slide 8: Frizerski alati -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=1200&h=800&fit=crop" alt="Frizerski alati">
                 <div class="slide-caption"><h4>Savršena Preciznost</h4><p>Profesionalni alati za profesionalne rezultate.</p></div>
             </div>
 
-            <!-- Slide 9: Rezervacija -->
             <div class="slide">
                 <div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
                     <div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem;">✂️</div>
@@ -820,7 +913,6 @@
                 </div>
             </div>
 
-            <!-- Slide 10: Bojenje kose (visoka moda) -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&h=800&fit=crop" alt="Bojenje kose">
                 <div class="slide-caption"><h4>Profesionalna Koloristika</h4><p>Nijanse koje ističu vašu osobnost i stil.</p></div>
@@ -840,7 +932,6 @@
 </div>
 
 <script>
-    // RADIO + SLAJDER + VIZUALIZATOR - POJAČANA DINAMIKA
     const radio = document.getElementById('bg-radio');
     const playBtn = document.getElementById('playRadioBtn');
     const visualizer = document.getElementById('visualizer');
@@ -880,7 +971,7 @@
 
     function startSlideshow() {
         if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000); /* POJAČANO: 5s umjesto 6.5s */
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
     function stopSlideshow() {
@@ -895,7 +986,7 @@
                     playBtn.innerHTML = '⏸ PAUZIRAJ RADIO';
                     playBtn.style.background = 'linear-gradient(135deg, #8c6a2b, #6b4f20)';
                     startSlideshow();
-                    if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 60); /* Brži refresh */
+                    if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 60);
                 }).catch(() => {
                     radio.play();
                     playBtn.innerHTML = '⏸ PAUZIRAJ RADIO';
