@@ -409,26 +409,89 @@
             border: 2px solid var(--gold-dark);
         }
 
+        /* 🎬 SLIDE FADE ANIMATION - DINAMIČNIJI EFEKT */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            text-align: left;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .slide-caption h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold-light);
+        }
+
+        .slide-caption p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.4;
+            max-width: 500px;
+        }
+
         /* ===== MUZIČKI VIZUALIZATOR (KAO NA POJAČALU) ===== */
         .visualizer {
             display: flex;
             align-items: flex-end;
             justify-content: center;
             gap: 4px;
-            height: 40px; /* Fiksna visina pojačala - drži sve zaključano */
-            margin: 1.2rem auto 0;
+            height: 50px; /* Pojačana visina za dinamičniji prikaz */
+            margin: 1.5rem auto 0;
             overflow: hidden;
             width: fit-content;
         }
 
-        /* Tvoji originalni stupići s pojačala - zlatni gradijent */
+        /* Tvoji originalni stupići s pojačala - zlatni gradijent - POJAČANI */
         .bar {
-            width: 4px;
+            width: 5px;
             background: linear-gradient(to top, var(--gold), var(--gold-light));
             border-radius: 2px;
-            transition: height 0.1s ease; /* Brz i gladak odziv na ritam */
-            opacity: 0.85;
+            transition: height 0.08s ease; /* Brži odziv za dinamičniji efekt */
+            opacity: 0.9;
             height: 4px; /* Početna visina kad radio šuti */
+            box-shadow: 0 0 8px rgba(179, 143, 64, 0.6);
+        }
+
+        .bar:nth-child(odd) {
+            width: 6px;
+            box-shadow: 0 0 12px rgba(219, 180, 106, 0.8);
         }
 
         /* Popravljeni info tekst ispod koji više ne može drhtati */
@@ -456,6 +519,28 @@
             border-radius: 30px;
         }
 
+        .play-btn-main {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 30px;
+            padding: 0.6rem 1.4rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(179, 143, 64, 0.4);
+        }
+
+        .play-btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(179, 143, 64, 0.6);
+        }
+
+        .play-btn-main:active {
+            transform: translateY(0);
+        }
+
         /* Popravljeni, čitljivi footer */
         footer {
             text-align: center;
@@ -480,6 +565,7 @@
             .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; }
             .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; }
             .info-hint { font-size: 0.8rem !important; }
+            .visualizer { height: 40px; }
         }
         @media (max-width: 480px) {
             .salon-name { font-size: 2.2rem; }
@@ -497,7 +583,7 @@
                 <span>K</span>
                 <span class="scissors-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18ZM18 10C19.1046 10 20 9.10457 20 8C20 6.89543 19.1046 6 18 6C16.8954 6 16 6.89543 16 8C16 9.10457 16.8954 10 18 10ZM18 18C19.1046 18 20 17.1046 20 16C20 14.8954 19.1046 14 18 14C16.8954 14 16 14.8954 16 16C16 17.1046 16.8954 18 18 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
                 <span>L</span>
@@ -541,7 +627,7 @@
                     ✨ dobrodošli u salon s tradicijom ✨
                 </div>
                 <div class="map-container" id="mapContainer">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.6!2d14.1196!3d45.0956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47624d9e5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sRudarska%207%2C%2052220%20Labin!5e0!3m2!1shr!2shr!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.6!2d14.1196!3d45.0956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47624d9e5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sRudarska%207%2C%2052220%20Labin!5e0!3m2!1shr!2shr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -552,14 +638,14 @@
         <h2 class="trends-title">Inspiracija & Trendovi</h2>
         <div class="trends-subtitle">2025 – 2026 | Najnovije frizure godine</div>
         <div class="trends-grid">
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenske_frizure_2026.png" alt="Ženske frizure 2026"><span class="trend-badge">hit sezone</span></div><div class="trend-info"><div class="trend-name">Ženski trendovi</div><div class="trend-desc">Moderni rezovi i njega – inspiracija za svaki tip kose.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="top_zenske_frizure_2026.jpg" alt="Top ženske frizure"><span class="trend-badge">must have</span></div><div class="trend-info"><div class="trend-name">Top ženske frizure</div><div class="trend-desc">Najtraženiji stilovi na društvenim mrežama.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="trend_2026_zenska_frizura.jpg" alt="Trend 2026 ženska"><span class="trend-badge">elegantno</span></div><div class="trend-info"><div class="trend-name">Elegantni klasici</div><div class="trend-desc">Bezvremenski rezovi uz dašak modernog.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenska_frizura_2026.jpg" alt="Ženska frizura 2026"><span class="trend-badge">svakodnevni</span></div><div class="trend-info"><div class="trend-name">Ležerni valovi</div><div class="trend-desc">Prirodni volumen i meka tekstura.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><span class="trend-badge">barber style</span></div><div class="trend-info"><div class="trend-name">Muške frizure</div><div class="trend-desc">Klasične i moderne – od fade do textured crop.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="muske_frizure_2026.jpg" alt="Muški trendovi"><span class="trend-badge">sharp look</span></div><div class="trend-info"><div class="trend-name">Muški trendovi</div><div class="trend-desc">Njegovana brada i precizne linije.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="muski_barber_2026.png" alt="Barber 2026"><span class="trend-badge">barber</span></div><div class="trend-info"><div class="trend-name">Barber stil</div><div class="trend-desc">Fade, undercut i klasično brijanje.</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_2026_trends.webp" alt="Frizure 2026 trends"><span class="trend-badge">inspiracija</span></div><div class="trend-info"><div class="trend-name">Najnoviji trendovi</div><div class="trend-desc">Pogledajte što nosi 2026.</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenske_frizure_2026.png" alt="Ženske frizure 2026"><span class="trend-badge">hit sezone</span></div><div class="trend-info"><div class="trend-name">Elegantna Ženskost</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="top_zenske_frizure_2026.jpg" alt="Top ženske frizure"><span class="trend-badge">must have</span></div><div class="trend-info"><div class="trend-name">Sofisticirani Bob</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="trend_2026_zenska_frizura.jpg" alt="Trend 2026 ženska"><span class="trend-badge">elegantno</span></div><div class="trend-info"><div class="trend-name">Wavy Glam</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenska_frizura_2026.jpg" alt="Ženska frizura 2026"><span class="trend-badge">svakodnevni</span></div><div class="trend-info"><div class="trend-name">Prirodna Ljepota</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><span class="trend-badge">barber style</span></div><div class="trend-info"><div class="trend-name">Fade Mastery</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="muske_frizure_2026.jpg" alt="Muški trendovi"><span class="trend-badge">sharp look</span></div><div class="trend-info"><div class="trend-name">Sharp & Clean</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="muski_barber_2026.png" alt="Barber 2026"><span class="trend-badge">barber</span></div><div class="trend-info"><div class="trend-name">Barber Perfection</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_2026_trends.webp" alt="Frizure 2026 trends"><span class="trend-badge">inspiracija</span></div><div class="trend-info"><div class="trend-name">Future Vibes</div></div></div>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
             <p style="font-size: 0.85rem; color: var(--gold-dark);">Više inspiracije:
@@ -581,7 +667,7 @@
                 <span>Otvori web stranicu i trendove</span>
             </div>
             <div class="qr-card">
-                <img src="qr_code_wifi.png" alt="SCAN & CONNECT" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'140\' height=\'140\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%239e7a32\' stroke-width=\'1\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M5 12.55a11 11 0 0 1 14.08 0\'%3E%3C/path%3E%3Cpath d=\'M1.42 9a16 16 0 0 1 21.16 0\'%3E%3C/path%3E%3Cpath d=\'M8.53 16.11a6 6 0 0 1 6.95 0\'%3E%3C/path%3E%3Cline x1=\'12\' y1=\'20\' x2=\'12\' y2=\'20\'%3E%3C/line%3E%3C/svg%3E';">
+                <img src="qr_code_wifi.png" alt="SCAN & CONNECT" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22%3E%3Crect fill=%22%23f3eae0%22 width=%22140%22 height=%22140%22/%3E%3C/svg%3E';">
                 <p>📶 SCAN & CONNECT</p>
                 <span>Wi-Fi (uskoro)</span>
             </div>
@@ -597,11 +683,33 @@
                 <button id="playRadioBtn" class="play-btn-main">▶ POKRENI SALONSKI RADIO</button>
             </div>
 
-            <!-- Ambientalni slajdovi (bez ponavljanja frizura) -->
+            <!-- ===== HYBRID: VISOKA MODA + BARBER SHARP ===== -->
+            
+            <!-- Slide 1: Visoka moda i glamur -->
             <div class="slide active">
-                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=800&fit=crop" alt="Salonska atmosfera">
-                <div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Prostor u kojem vaša kosa dobiva pažnju kakvu zaslužuje.</p></div>
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=800&fit=crop" alt="Premium Lookbook">
+                <div class="slide-caption"><h4>Prestižni Stil 2026</h4><p>Kreiramo transformacije inspirirane najnovijim svjetskim modnim pistama.</p></div>
             </div>
+
+            <!-- Slide 2: Ekskluzivni detalj i njega -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1532746302884-6a47fb0ae60f?w=1200&h=800&fit=crop" alt="Luksuzni sjaj">
+                <div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Dubinski rituali i vrhunska njega koji vašoj kosi vraćaju prirodan sjaj.</p></div>
+            </div>
+
+            <!-- Slide 3: Precizni muški rezovi -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1599351751059-c21eba3fb11d?w=1200&h=800&fit=crop" alt="Sharp Fade">
+                <div class="slide-caption"><h4>Sharp Look & Barbering</h4><p>Precizne linije, moderni fade rezovi i besprijekorna njega brade.</p></div>
+            </div>
+
+            <!-- Slide 4: Vrhunski alati na djelu -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1585747860715-cd4628902d4a?w=1200&h=800&fit=crop" alt="Frizerski alati">
+                <div class="slide-caption"><h4>Umjetnost u Svakom Pokretu</h4><p>Kombinacija tradicije i modernih tehnika prilagođena vašem karakteru.</p></div>
+            </div>
+
+            <!-- Slide 5: Specijalna ponuda -->
             <div class="slide">
                 <div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
                     <span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span>
@@ -609,31 +717,45 @@
                     <p style="color: #fff; max-width: 500px;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p>
                 </div>
             </div>
+
+            <!-- Slide 6: Tretman kose (visoka moda) -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&h=800&fit=crop" alt="Tretman kose">
                 <div class="slide-caption"><h4>Rituali Njege & Hidracije</h4><p>Premium salonska kozmetika za maksimalan sjaj.</p></div>
             </div>
+
+            <!-- Slide 7: Muški barber stil -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=800&fit=crop" alt="Muški stil">
+                <div class="slide-caption"><h4>Muškar sa Stilom</h4><p>Klasični i modernih stila za mušku klientelu.</p></div>
+            </div>
+
+            <!-- Slide 8: Frizerski alati -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=1200&h=800&fit=crop" alt="Frizerski alati">
-                <div class="slide-caption"><h4>Umetnost u Svakom Pokretu</h4><p>Precizni rezovi i stiliziranje po mjeri.</p></div>
+                <div class="slide-caption"><h4>Savršena Preciznost</h4><p>Profesionalni alati za profesionalne rezultate.</p></div>
             </div>
+
+            <!-- Slide 9: Rezervacija -->
             <div class="slide">
                 <div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
-                    <div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem;">✂️</div>
+                    <div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem;">✂️</div>
                     <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2>
                     <p style="color: rgba(255,255,255,0.9); max-width: 450px;">Nazovite i osigurajte svoje vrijeme na stolici.</p>
                 </div>
             </div>
+
+            <!-- Slide 10: Bojenje kose (visoka moda) -->
             <div class="slide">
                 <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&h=800&fit=crop" alt="Bojenje kose">
-                <div class="slide-caption"><h4>Profesionalna Koloristika</h4><p>Nijanse koje ističu vašu osobnost.</p></div>
+                <div class="slide-caption"><h4>Profesionalna Koloristika</h4><p>Nijanse koje ističu vašu osobnost i stil.</p></div>
             </div>
         </div>
 
         <div class="visualizer" id="visualizer"></div>
         <div class="info-hint">
             🎬 <strong>KLA TV</strong> automatski vrti ambijent i ponude |
-            👉 Kliknite gore desno na gumb <strong>“POKRENI SALONSKI RADIO”</strong> pokraj <strong style="color:#ff5a5a;">🔴 UŽIVO</strong> za pokretanje lounge radija!
+            👉 Kliknite gore desno na gumb <strong>"POKRENI SALONSKI RADIO"</strong> pokraj <strong style="color:#ff5a5a;">🔴 UŽIVO</strong> za pokretanje lounge radija!
         </div>
     </div>
 
@@ -643,7 +765,7 @@
 </div>
 
 <script>
-    // RADIO + SLAJDER + VIZUALIZATOR
+    // RADIO + SLAJDER + VIZUALIZATOR - POJAČANA DINAMIKA
     const radio = document.getElementById('bg-radio');
     const playBtn = document.getElementById('playRadioBtn');
     const visualizer = document.getElementById('visualizer');
@@ -653,7 +775,7 @@
     const slides = document.querySelectorAll('#salon-slideshow .slide');
 
     if (visualizer && visualizer.children.length === 0) {
-        for (let i = 0; i < 24; i++) {
+        for (let i = 0; i < 28; i++) {
             const bar = document.createElement('div');
             bar.className = 'bar';
             bar.style.height = '4px';
@@ -667,8 +789,10 @@
             bars.forEach(bar => bar.style.height = '4px');
             return;
         }
-        bars.forEach(bar => {
-            bar.style.height = (Math.random() * 35 + 4) + 'px';
+        bars.forEach((bar, idx) => {
+            const baseHeight = 6 + Math.random() * 30;
+            const variation = Math.sin(idx * 0.3 + Date.now() * 0.005) * 8;
+            bar.style.height = (baseHeight + variation) + 'px';
         });
     }
 
@@ -681,7 +805,7 @@
 
     function startSlideshow() {
         if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 6500);
+        slideInterval = setInterval(nextSlide, 5000); /* POJAČANO: 5s umjesto 6.5s */
     }
 
     function stopSlideshow() {
@@ -696,7 +820,7 @@
                     playBtn.innerHTML = '⏸ PAUZIRAJ RADIO';
                     playBtn.style.background = 'linear-gradient(135deg, #8c6a2b, #6b4f20)';
                     startSlideshow();
-                    if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 90);
+                    if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 60); /* Brži refresh */
                 }).catch(() => {
                     radio.play();
                     playBtn.innerHTML = '⏸ PAUZIRAJ RADIO';
