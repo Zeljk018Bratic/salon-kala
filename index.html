@@ -89,36 +89,91 @@
             z-index: 2;
         }
 
+        /* 👑 NOVA KRUNA + K L A DESIGN */
+        .crown-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            color: var(--gold);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+            transition: all 0.4s ease;
+            animation: crownFloat 3s ease-in-out infinite;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .crown-icon:hover {
+            transform: scale(1.15) translateY(-8px);
+            filter: drop-shadow(0 10px 20px rgba(179, 143, 64, 0.5));
+        }
+
+        .crown-icon svg { width: 100%; height: 100%; }
+
         .salon-name {
             font-family: 'Cormorant Garamond', serif;
             font-size: 5rem;
             font-weight: 700;
-            letter-spacing: 6px;
-            display: inline-flex;
+            letter-spacing: 8px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.2rem;
+            gap: 0.3rem;
             flex-wrap: wrap;
             background: linear-gradient(145deg, var(--gold), var(--gold-dark));
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
         }
 
+        .salon-name span {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .salon-name span:hover {
+            transform: scale(1.1) skewY(-2deg);
+            filter: drop-shadow(0 4px 8px rgba(179, 143, 64, 0.4));
+        }
+
+        /* 🔪 LJEPŠE ŠKARE – SVG sa elegancijom */
         .scissors-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 3.5rem;
-            height: 3.5rem;
-            color: var(--teal);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-            transition: all 0.3s ease;
-            transform: rotate(-60deg) scaleX(-1);
+            width: 3.8rem;
+            height: 3.8rem;
+            color: var(--gold);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: rotate(-45deg) scaleX(-1);
             cursor: pointer;
+            position: relative;
         }
-        .scissors-icon svg { width: 100%; height: 100%; }
-        .scissors-icon:hover { transform: rotate(-60deg) scaleX(-1) scale(1.1); }
+
+        .scissors-icon svg { 
+            width: 100%; 
+            height: 100%;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .scissors-icon:hover { 
+            transform: rotate(-45deg) scaleX(-1) scale(1.15);
+            filter: drop-shadow(0 8px 16px rgba(179, 143, 64, 0.6));
+        }
+
+        .scissors-icon:active {
+            transform: rotate(-45deg) scaleX(-1) scale(0.95);
+        }
 
         .gold-divider {
             width: 120px;
@@ -556,7 +611,8 @@
 
         @media (max-width: 768px) {
             .salon-name { font-size: 3rem; }
-            .scissors-icon { width: 2.5rem; height: 2.5rem; }
+            .crown-icon { width: 3rem; height: 3rem; }
+            .scissors-icon { width: 2.8rem; height: 2.8rem; }
             .salon-card, .trends-section, .qr-section { padding: 1.5rem; }
             .trends-title { font-size: 2rem; }
             .qr-card { width: 170px; padding: 1rem; }
@@ -569,6 +625,7 @@
         }
         @media (max-width: 480px) {
             .salon-name { font-size: 2.2rem; }
+            .crown-icon { width: 2.5rem; height: 2.5rem; }
             #salon-slideshow { height: 300px; }
         }
     </style>
@@ -579,16 +636,34 @@
     <!-- ===== SALON INFO CARD ===== -->
     <div class="salon-card">
         <div class="salon-header">
+            <!-- 👑 KRUNA NA VRHU -->
+            <div class="crown-icon" title="Royal Salon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 4c0-.5.5-1 1-1h12c.5 0 1 .5 1 1v2l2-1v3l-1 4h-3l-3 5-3-5H2l-1-4v-3l2 1V4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                    <path d="M8 8l2 6M16 8l-2 6M12 6v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <!-- K L A NAZIV -->
             <div class="salon-name">
                 <span>K</span>
-                <span class="scissors-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18ZM18 10C19.1046 10 20 9.10457 20 8C20 6.89543 19.1046 6 18 6C16.8954 6 16 6.89543 16 8C16 9.10457 16.8954 10 18 10ZM18 18C19.1046 18 20 17.1046 20 16C20 14.8954 19.1046 14 18 14C16.8954 14 16 14.8954 16 16C16 17.1046 16.8954 18 18 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="scissors-icon" title="Frizerski alat">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lijeva oštrica -->
+                        <path d="M6 8C8.21 8 10 6.21 10 4C10 1.79 8.21 0 6 0C3.79 0 2 1.79 2 4C2 6.21 3.79 8 6 8Z" fill="currentColor"/>
+                        <!-- Desna oštrica -->
+                        <path d="M18 8C20.21 8 22 6.21 22 4C22 1.79 20.21 0 18 0C15.79 0 14 1.79 14 4C14 6.21 15.79 8 18 8Z" fill="currentColor"/>
+                        <!-- Rukobrati i oštrice -->
+                        <path d="M6 10C5.45 10 5 10.45 5 11V18C5 18.55 5.45 19 6 19C6.55 19 7 18.55 7 18V11C7 10.45 6.55 10 6 10Z"/>
+                        <path d="M18 10C17.45 10 17 10.45 17 11V18C17 18.55 17.45 19 18 19C18.55 19 19 18.55 19 18V11C19 10.45 18.55 10 18 10Z"/>
+                        <!-- Srednja spojnica -->
+                        <path d="M12 9C11 11 10.5 13 11.5 15C12.5 13 13 11 12 9Z" fill="currentColor"/>
                     </svg>
                 </span>
                 <span>L</span>
                 <span>A</span>
             </div>
+
             <div class="gold-divider"></div>
             <div class="salon-tagline">frizerski atelier · iskonska elegancija</div>
             <div class="owner-badge">
