@@ -11,554 +11,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #b38f40;
-            --gold-light: #dbb46a;
-            --gold-dark: #7a5e24;
-            --teal: #1b5e5e;
-            --teal-light: #3aa3a3;
-            --cream: #fffdf9;
-            --cream-dark: #fcf6eb;
-            --text: #1a1815;
-            --text-light: #59534c;
-        }
-
-        body {
-            background: linear-gradient(135deg, #e9e0d3 0%, #d6cbbc 50%, #e9e0d3 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            font-family: 'Montserrat', sans-serif;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-            color: var(--text);
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .main-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .salon-card {
-            background: rgba(255, 253, 249, 0.97);
-            border-radius: 40px;
-            box-shadow: 0 30px 60px -15px rgba(140, 106, 43, 0.25), 0 0 0 1px rgba(179, 143, 64, 0.2);
-            padding: 2.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .salon-card::before,
-        .salon-card::after {
-            content: "✦";
-            position: absolute;
-            font-size: 4rem;
-            color: var(--gold);
-            opacity: 0.08;
-            pointer-events: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --gold:#b38f40; --gold-light:#dbb46a; --gold-dark:#7a5e24; --teal:#1b5e5e; --teal-light:#3aa3a3; --cream:#fffdf9; --cream-dark:#fcf6eb; --text:#1a1815; --text-light:#59534c; }
+        body { background: linear-gradient(135deg, #e9e0d3 0%, #d6cbbc 50%, #e9e0d3 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite; font-family: 'Montserrat', sans-serif; padding: 2rem 1rem; min-height: 100vh; color: var(--text); }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .main-wrapper { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem; }
+        .salon-card { background: rgba(255, 253, 249, 0.97); border-radius: 40px; box-shadow: 0 30px 60px -15px rgba(140, 106, 43, 0.25), 0 0 0 1px rgba(179, 143, 64, 0.2); padding: 2.5rem 2rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); animation: fadeInUp 0.8s ease; }
+        .salon-card::before, .salon-card::after { content: "✦"; position: absolute; font-size: 4rem; color: var(--gold); opacity: 0.08; pointer-events: none; }
         .salon-card::before { top: 1rem; left: 2rem; }
         .salon-card::after { bottom: 1rem; right: 2rem; transform: rotate(45deg); }
-
-        .salon-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .salon-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            font-weight: 700;
-            letter-spacing: 6px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.2rem;
-            flex-wrap: wrap;
-            background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .scissors-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3.5rem;
-            height: 3.5rem;
-            color: var(--teal);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-            transition: all 0.3s ease;
-            transform: rotate(-60deg) scaleX(-1);
-            cursor: pointer;
-        }
+        .salon-header { text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+        .brand-logo { max-width: 240px; width: 48vw; height: auto; display: block; margin: 0 auto 0.75rem; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
+        .salon-name { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; letter-spacing: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 0.2rem; flex-wrap: wrap; background: linear-gradient(145deg, var(--gold), var(--gold-dark)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .scissors-icon { display: inline-flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; color: var(--teal); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); transition: all 0.3s ease; transform: rotate(-60deg) scaleX(-1); cursor: pointer; }
         .scissors-icon svg { width: 100%; height: 100%; }
         .scissors-icon:hover { transform: rotate(-60deg) scaleX(-1) scale(1.1); }
-
-        .gold-divider {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-            margin: 0.8rem auto;
-            position: relative;
-        }
-        .gold-divider::before,
-        .gold-divider::after {
-            content: "•";
-            position: absolute;
-            top: -8px;
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
+        .gold-divider { width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); margin: 0.8rem auto; position: relative; }
+        .gold-divider::before, .gold-divider::after { content: "•"; position: absolute; top: -8px; color: var(--gold); font-size: 1.2rem; }
         .gold-divider::before { left: 20px; }
         .gold-divider::after { right: 20px; }
-
-        .salon-tagline {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold-dark);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .owner-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--cream-dark), #faf5ed);
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            border: 1px solid rgba(179, 143, 64, 0.25);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .address-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1.5rem auto;
-            background: rgba(252, 247, 240, 0.9);
-            width: fit-content;
-            padding: 0.7rem 2rem;
-            border-radius: 60px;
-            border: 1px solid rgba(179, 143, 64, 0.25);
-            font-weight: 500;
-        }
-
-        .map-btn {
-            background: none;
-            border: 1.5px solid var(--gold);
-            border-radius: 40px;
-            padding: 0.3rem 1.2rem;
-            cursor: pointer;
-            color: var(--gold-dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
+        .salon-tagline { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-top: 0.5rem; }
+        .owner-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--cream-dark), #faf5ed); padding: 0.5rem 1.8rem; border-radius: 60px; font-size: 0.95rem; margin-top: 1rem; border: 1px solid rgba(179, 143, 64, 0.25); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+        .address-row { display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem auto; background: rgba(252, 247, 240, 0.9); width: fit-content; padding: 0.7rem 2rem; border-radius: 60px; border: 1px solid rgba(179, 143, 64, 0.25); font-weight: 500; }
+        .map-btn { background: none; border: 1.5px solid var(--gold); border-radius: 40px; padding: 0.3rem 1.2rem; cursor: pointer; color: var(--gold-dark); font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
         .map-btn:hover { background: var(--gold); color: white; }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0 0.5rem;
-        }
-
-        .work-hours,
-        .contact-details {
-            background: var(--cream);
-            padding: 1.8rem;
-            border-radius: 28px;
-            border: 1px solid rgba(179, 143, 64, 0.2);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-        }
-        .work-hours:hover,
-        .contact-details:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
-
-        .work-hours h3,
-        .contact-details h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--gold-dark);
-            margin-bottom: 1.2rem;
-        }
-
-        .hours-table p {
-            display: flex;
-            justify-content: space-between;
-            margin: 0.6rem 0;
-            font-size: 0.9rem;
-            padding: 0.4rem 0;
-            border-bottom: 1px dashed rgba(179, 143, 64, 0.2);
-        }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0 0.5rem; }
+        .work-hours, .contact-details { background: var(--cream); padding: 1.8rem; border-radius: 28px; border: 1px solid rgba(179, 143, 64, 0.2); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03); transition: all 0.3s ease; }
+        .work-hours:hover, .contact-details:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
+        .work-hours h3, .contact-details h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold-dark); margin-bottom: 1.2rem; }
+        .hours-table p { display: flex; justify-content: space-between; margin: 0.6rem 0; font-size: 0.9rem; padding: 0.4rem 0; border-bottom: 1px dashed rgba(179, 143, 64, 0.2); }
         .hours-table p:last-child { border-bottom: none; }
-
-        .today {
-            background: linear-gradient(135deg, rgba(179, 143, 64, 0.15), rgba(179, 143, 64, 0.05)) !important;
-            font-weight: 600;
-            border-left: 4px solid var(--gold) !important;
-            padding-left: 0.5rem !important;
-        }
-
+        .today { background: linear-gradient(135deg, rgba(179, 143, 64, 0.15), rgba(179, 143, 64, 0.05)) !important; font-weight: 600; border-left: 4px solid var(--gold) !important; padding-left: 0.5rem !important; }
         .phone { margin: 0.8rem 0; }
-        .phone a {
-            background: linear-gradient(135deg, #efe2d0, #f3e9de);
-            padding: 0.5rem 1.4rem;
-            border-radius: 40px;
-            color: var(--teal);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(179, 143, 64, 0.2);
-            transition: all 0.3s ease;
-        }
+        .phone a { background: linear-gradient(135deg, #efe2d0, #f3e9de); padding: 0.5rem 1.4rem; border-radius: 40px; color: var(--teal); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(179, 143, 64, 0.2); transition: all 0.3s ease; }
         .phone a:hover { background: var(--teal); color: white; }
-
-        .appointment {
-            background: linear-gradient(135deg, #e8ddcf, #ddd0c0);
-            border-radius: 24px;
-            padding: 0.7rem;
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .map-container {
-            margin-top: 1.5rem;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(179, 143, 64, 0.2);
-            height: 200px;
-            display: none;
-        }
+        .appointment { background: linear-gradient(135deg, #e8ddcf, #ddd0c0); border-radius: 24px; padding: 0.7rem; text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text); font-weight: 500; }
+        .map-container { margin-top: 1.5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 2px solid rgba(179, 143, 64, 0.2); height: 200px; display: none; }
         .map-container iframe { width: 100%; height: 100%; border: none; }
-
-        .trends-section, .qr-section, .music-section {
-            background: var(--cream) !important;
-            border-radius: 40px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12), 0 0 0 2px var(--gold-dark) !important;
-            padding: 2.5rem 2rem;
-            backdrop-filter: blur(10px);
-            margin-bottom: 2rem;
-        }
-
-        .trends-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            color: var(--gold-dark);
-            text-align: center;
-        }
-
-        .trends-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        .trends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-
-        .trend-card {
-            background: var(--cream-dark) !important;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-            border: 1.5px solid rgba(122, 94, 36, 0.2);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .trend-img-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 110%;
-            background-color: #f3eae0;
-            overflow: hidden;
-        }
-
-        .trend-img-wrapper img {
-            position: absolute;
-            top: 5%; left: 5%;
-            width: 90%; height: 90%;
-            object-fit: contain;
-            border-radius: 16px;
-            transition: transform 0.5s ease;
-            display: block;
-        }
-
-        .trend-card:hover .trend-img-wrapper img {
-            transform: scale(1.04);
-        }
-
-        .trend-badge {
-            position: absolute !important;
-            top: 15px !important;
-            left: 15px !important;
-            background: rgba(27, 94, 94, 0.95) !important;
-            color: #ffffff !important;
-            padding: 4px 12px !important;
-            border-radius: 20px !important;
-            font-size: 0.75rem !important;
-            font-weight: 600 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            z-index: 10 !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .trend-info {
-            padding: 1.2rem 1rem !important;
-            text-align: center !important;
-            background: var(--cream-dark) !important;
-        }
-
-        .trend-name {
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: 1.4rem !important;
-            font-weight: 700 !important;
-            color: var(--gold-dark) !important;
-            margin-top: 0.5rem !important;
-            line-height: 1.3 !important;
-        }
-
-        .qr-container {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .qr-card {
-            background: var(--cream-dark) !important;
-            border: 2px solid var(--gold) !important;
-            border-radius: 28px;
-            padding: 1.5rem;
-            width: 230px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .qr-card img {
-            width: 100% !important;
-            height: auto !important;
-            max-width: 180px !important;
-            margin: 0 auto !important;
-            display: block !important;
-        }
-
-        #salon-slideshow {
-            position: relative;
-            width: 100%;
-            height: 440px;
-            background: #111;
-            border-radius: 36px;
-            overflow: hidden;
-            border: 2px solid var(--gold-dark);
-        }
-
-        .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transform: scale(1.02);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .slide.active {
-            opacity: 1;
-            z-index: 1;
-            transform: scale(1);
-        }
-
-        .slide::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.65) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .slide-caption {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 1.2rem 1.4rem;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78));
-            color: white;
-            z-index: 2;
-        }
-
-        .slide-caption h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .visualizer {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 4px;
-            height: 40px;
-            margin: 1.2rem auto 0;
-            overflow: hidden;
-            width: fit-content;
-        }
-
-        .bar {
-            width: 4px;
-            background: linear-gradient(to top, var(--gold), var(--gold-light));
-            border-radius: 2px;
-            transition: height 0.1s ease;
-            opacity: 0.85;
-            height: 4px;
-        }
-
-        .info-hint {
-            margin-top: 15px;
-            font-size: 13px;
-            line-height: 1.6;
-            text-align: center;
-            padding: 15px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #141414, #1c1a17);
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            color: #e6e6e6;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        .info-hint strong {
-            color: #fcf6ba;
-            font-weight: bold;
-        }
-
-        .badge-pip {
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 1px;
-            padding: 0.4rem 1rem !important;
-            background: rgba(27, 94, 94, 0.9) !important;
-            border: 2px solid var(--teal-light) !important;
-            color: #ffffff !important;
-            border-radius: 30px;
-        }
-
-        .play-btn-main {
-            border: none;
-            border-radius: 999px;
-            padding: 0.7rem 1.4rem;
-            cursor: pointer;
-            color: #fff;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
-
-        .play-btn-main:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.05);
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            text-align: center;
-            color: #a3a3a3;
-            letter-spacing: 1px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(197, 168, 128, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .salon-name { font-size: 3rem; }
-            .scissors-icon { width: 2.5rem; height: 2.5rem; }
-            .salon-card, .trends-section, .qr-section { padding: 1.5rem; }
-            .trends-title { font-size: 2rem; }
-            .qr-card { width: 170px; padding: 1rem; }
-            #salon-slideshow { height: 380px; }
-            .slide-caption h4 { font-size: 1.8rem; }
-            .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; }
-            .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; }
-            .info-hint { font-size: 0.8rem !important; }
-        }
-
-        @media (max-width: 480px) {
-            .salon-name { font-size: 2.2rem; }
-            #salon-slideshow { height: 300px; }
-        }
+        .trends-section, .qr-section, .music-section { background: var(--cream) !important; border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12), 0 0 0 2px var(--gold-dark) !important; padding: 2.5rem 2rem; backdrop-filter: blur(10px); margin-bottom: 2rem; }
+        .trends-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold-dark); text-align: center; }
+        .trends-subtitle { text-align: center; color: var(--text-light); margin-top: 0.5rem; margin-bottom: 1.5rem; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
+        .trends-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+        .trend-card { background: var(--cream-dark) !important; border-radius: 28px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1.5px solid rgba(122, 94, 36, 0.2); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); display: flex; flex-direction: column; }
+        .trend-img-wrapper { position: relative; width: 100%; padding-top: 110%; background-color: #f3eae0; overflow: hidden; }
+        .trend-img-wrapper img { position: absolute; top: 5%; left: 5%; width: 90%; height: 90%; object-fit: contain; border-radius: 16px; transition: transform 0.5s ease; display: block; }
+        .trend-card:hover .trend-img-wrapper img { transform: scale(1.04); }
+        .trend-badge { position: absolute !important; top: 15px !important; left: 15px !important; background: rgba(27, 94, 94, 0.95) !important; color: #ffffff !important; padding: 4px 12px !important; border-radius: 20px !important; font-size: 0.75rem !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 1px !important; z-index: 10 !important; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); }
+        .trend-info { padding: 1.2rem 1rem !important; text-align: center !important; background: var(--cream-dark) !important; }
+        .trend-name { font-family: 'Cormorant Garamond', serif !important; font-size: 1.4rem !important; font-weight: 700 !important; color: var(--gold-dark) !important; margin-top: 0.5rem !important; line-height: 1.3 !important; }
+        .qr-container { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
+        .qr-card { background: var(--cream-dark) !important; border: 2px solid var(--gold) !important; border-radius: 28px; padding: 1.5rem; width: 230px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: all 0.3s ease; text-align: center; }
+        .qr-card img { width: 100% !important; height: auto !important; max-width: 180px !important; margin: 0 auto !important; display: block !important; }
+        #salon-slideshow { position: relative; width: 100%; height: 440px; background: #111; border-radius: 36px; overflow: hidden; border: 2px solid var(--gold-dark); }
+        .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.02); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .slide.active { opacity: 1; z-index: 1; transform: scale(1); }
+        .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.65) 100%); z-index: 1; pointer-events: none; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1.4rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78)); color: white; z-index: 2; }
+        .slide-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.35rem; }
+        .slide--contain img { object-fit: contain; background: #1a1612; }
+        .slide--contain .slide-caption { background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88)); }
+        .visualizer { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 40px; margin: 1.2rem auto 0; overflow: hidden; width: fit-content; }
+        .bar { width: 4px; background: linear-gradient(to top, var(--gold), var(--gold-light)); border-radius: 2px; transition: height 0.1s ease; opacity: 0.85; height: 4px; }
+        .info-hint { margin-top: 15px; font-size: 13px; line-height: 1.6; text-align: center; padding: 15px; border-radius: 12px; background: linear-gradient(135deg, #141414, #1c1a17); border: 1px solid rgba(197, 168, 128, 0.25); color: #e6e6e6; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); }
+        .info-hint strong { color: #fcf6ba; font-weight: bold; }
+        .badge-pip { font-size: 0.85rem !important; font-weight: 700 !important; letter-spacing: 1px; padding: 0.4rem 1rem !important; background: rgba(27, 94, 94, 0.9) !important; border: 2px solid var(--teal-light) !important; color: #ffffff !important; border-radius: 30px; }
+        .play-btn-main { border: none; border-radius: 999px; padding: 0.7rem 1.4rem; cursor: pointer; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: transform 0.2s ease, filter 0.2s ease; }
+        .play-btn-main:hover { transform: translateY(-1px); filter: brightness(1.05); }
+        footer { margin-top: 30px; font-size: 12px; text-align: center; color: #a3a3a3; letter-spacing: 1px; padding-top: 10px; border-top: 1px solid rgba(197, 168, 128, 0.1); }
+        @media (max-width: 768px) { .brand-logo { max-width: 180px; } .salon-name { font-size: 3rem; } .scissors-icon { width: 2.5rem; height: 2.5rem; } .salon-card, .trends-section, .qr-section { padding: 1.5rem; } .trends-title { font-size: 2rem; } .qr-card { width: 170px; padding: 1rem; } #salon-slideshow { height: 380px; } .slide-caption h4 { font-size: 1.8rem; } .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; } .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; } .info-hint { font-size: 0.8rem !important; } }
+        @media (max-width: 480px) { .brand-logo { max-width: 150px; } .salon-name { font-size: 2.2rem; } #salon-slideshow { height: 300px; } }
     </style>
 </head>
 <body>
 <div class="main-wrapper">
     <div class="salon-card">
         <div class="salon-header">
-            <div class="salon-name">
-                <span>K</span>
-                <span class="scissors-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </span>
-                <span>L</span>
-                <span>A</span>
-            </div>
+            <img class="brand-logo" src="logo_kala.jpg" alt="KALA logo">
             <div class="gold-divider"></div>
             <div class="salon-tagline">frizerski atelier · iskonska elegancija</div>
             <div class="owner-badge">✂️ Vlasnica: <strong>Lara Faraguna</strong></div>
@@ -595,11 +125,7 @@
                     ✨ dobrodošli u salon s tradicijom ✨
                 </div>
                 <div class="map-container" id="mapContainer">
-                    <iframe
-                        src="https://www.google.com/maps?q=Rudarska%207%2C%2052220%20Labin&output=embed"
-                        title="Karta salona"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps?q=Rudarska%207%2C%2052220%20Labin&output=embed" title="Karta salona" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -635,21 +161,19 @@
         <div id="salon-slideshow">
             <div style="position:absolute; top:25px; right:25px; z-index:25; display:flex; align-items:center; gap:15px; flex-wrap:wrap;">
                 <span class="badge-pip">🔴 UŽIVO</span>
-                <audio id="bg-radio" preload="none" crossorigin="anonymous">
-                    <source src="https://shoutcast.pondi.hr:9000/;stream/1" type="audio/mpeg">
-                </audio>
+                <audio id="bg-radio" preload="none" crossorigin="anonymous"><source src="https://shoutcast.pondi.hr:9000/;stream/1" type="audio/mpeg"></audio>
                 <button id="playRadioBtn" class="play-btn-main" type="button">▶ POKRENI SALONSKI RADIO</button>
             </div>
 
-            <div class="slide active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Frizerski Atelier - Prednja strana vizitke"><div class="slide-caption"><h4>Frizerski Atelier KALA</h4><p>Prednja strana vizitke – prvi premium dojam.</p></div></div>
-            <div class="slide"><img src="Kala_frizerski_salon.jpeg" alt="Salon KALA Labin"><div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Prostor u kojem vaša kosa dobiva pažnju kakvu zaslužuje.</p></div></div>
+            <div class="slide active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Vizitkarta 1"><div class="slide-caption"><h4>Vizitkarta 1</h4><p>Prednja strana — prvi premium dojam.</p></div></div>
+            <div class="slide slide--contain"><img src="logo_kala.jpg" alt="KALA logo"><div class="slide-caption"><h4>Logo KALA</h4><p>Brending salona u najčišćoj formi.</p></div></div>
             <div class="slide"><img src="zenska_frizura_2026.jpg" alt="Ženske frizure 2026"><div class="slide-caption"><h4>Ženski Trendovi 2026</h4><p>Moderni rezovi, mekoća i elegancija za svaki dan.</p></div></div>
             <div class="slide"><img src="trend_2026_zenska_frizura.jpg" alt="Trendovi ženskih frizura 2026"><div class="slide-caption"><h4>Bezvremenski Rezovi</h4><p>Balayage, volumen i sofisticirana tekstura.</p></div></div>
             <div class="slide"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><div class="slide-caption"><h4>Muški Trendovi 2026</h4><p>Sharp look, fade i preciznost za jak barber dojam.</p></div></div>
             <div class="slide"><img src="muski_barber_2026.png" alt="Muški barber stil 2026"><div class="slide-caption"><h4>Precizni Fade & Barber Stilovi</h4><p>Čiste linije i vrhunski grooming u svakom detalju.</p></div></div>
             <div class="slide"><img src="blunt_bob.webp" alt="Blunt Bob trend"><div class="slide-caption"><h4>Blunt Bob Statement</h4><p>Moderna forma koja daje urednost i karakter.</p></div></div>
             <div class="slide"><img src="textured_crop_quiff.png" alt="Textured Crop Quiff"><div class="slide-caption"><h4>Textured Crop & Quiff</h4><p>Muška tekstura i volumen s premium završnicom.</p></div></div>
-            <div class="slide"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Frizerski Atelier - Stražnja strana vizitke"><div class="slide-caption"><h4>Rezervirajte Vaš Termin</h4><p>Stražnja strana vizitke – kontakt i radno vrijeme.</p></div></div>
+            <div class="slide slide--contain"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Vizitkarta 2"><div class="slide-caption"><h4>Vizitkarta 2</h4><p>Stražnja strana — kontakt i radno vrijeme.</p></div></div>
             <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); margin: 1rem 0;">Posebna Ponuda</h2><p style="color: #fff; max-width: 500px; margin: 0 auto;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p></div></div></div>
             <div class="slide"><img src="frizure_2026_trends.webp" alt="Frizure 2026 Trends"><div class="slide-caption"><h4>Trend Inspiracija</h4><p>Lookbook ideje i završni vizualni potpis salona.</p></div></div>
             <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin: 0 auto 1rem;">✂</div><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2><p style="color: rgba(255,255,255,0.9); max-width: 450px; margin: 0 auto;">Nazovite i osigurajte svoje vrijeme na stolici.</p></div></div></div>
