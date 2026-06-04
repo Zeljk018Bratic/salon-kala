@@ -407,12 +407,23 @@
             position: absolute;
             inset: 0;
             opacity: 0;
-            transition: opacity 0.8s ease;
+            transform: scale(1.02);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         .slide.active {
             opacity: 1;
             z-index: 1;
+            transform: scale(1);
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.65) 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .slide img {
@@ -428,8 +439,9 @@
             right: 0;
             bottom: 0;
             padding: 1.2rem 1.4rem;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78));
             color: white;
+            z-index: 2;
         }
 
         .slide-caption h4 {
@@ -459,15 +471,21 @@
         }
 
         .info-hint {
-            color: #ffffff !important;
-            font-size: 0.88rem !important;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-            display: block !important;
-            margin-top: 1.5rem !important;
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.6;
             text-align: center;
-            line-height: 1.5;
-            padding: 0 15px;
+            padding: 15px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #141414, #1c1a17);
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            color: #e6e6e6;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .info-hint strong {
+            color: #fcf6ba;
+            font-weight: bold;
         }
 
         .badge-pip {
@@ -499,15 +517,13 @@
         }
 
         footer {
+            margin-top: 30px;
+            font-size: 12px;
             text-align: center;
-            font-size: 0.85rem !important;
-            font-weight: 500;
-            color: var(--text) !important;
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(255, 253, 249, 0.9) !important;
-            border-radius: 20px;
-            border: 1px solid rgba(122, 94, 36, 0.15);
+            color: #a3a3a3;
+            letter-spacing: 1px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(197, 168, 128, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -537,7 +553,7 @@
                 <span>K</span>
                 <span class="scissors-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 6L18 18M6 18L18 6M6 10C7.10457 10 8 9.10457 8 8C8 6.89543 7.10457 6 6 6C4.89543 6 4 6.89543 4 8C4 9.10457 4.89543 10 6 10ZM6 18C7.10457 18 8 17.1046 8 16C8 14.8954 7.10457 14 6 14C4.89543 14 4 14.8954 4 16C4 17.1046 4.89543 18 6 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
                 <span>L</span>
@@ -593,45 +609,16 @@
         <h2 class="trends-title">Inspiracija & Trendovi</h2>
         <div class="trends-subtitle">2025 – 2026 | Najnovije frizure godine</div>
         <div class="trends-grid">
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="zenske_frizure_2026.png" alt="Ženske frizure 2026"><span class="trend-badge">hit sezone</span></div>
-                <div class="trend-info"><div class="trend-name">Ženske frizure 2026</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="top_zenske_frizure_2026.jpg" alt="Top ženske frizure"><span class="trend-badge">must have</span></div>
-                <div class="trend-info"><div class="trend-name">Top ženske frizure</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="trend_2026_zenska_frizura.jpg" alt="Trend 2026 ženska"><span class="trend-badge">elegantno</span></div>
-                <div class="trend-info"><div class="trend-name">Trend 2026</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="zenska_frizura_2026.jpg" alt="Ženska frizura 2026"><span class="trend-badge">svakodnevni</span></div>
-                <div class="trend-info"><div class="trend-name">Ženska frizura 2026</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><span class="trend-badge">barber style</span></div>
-                <div class="trend-info"><div class="trend-name">Muške frizure 2026</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="muske_frizure_2026.jpg" alt="Muški trendovi"><span class="trend-badge">sharp look</span></div>
-                <div class="trend-info"><div class="trend-name">Muški trendovi</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="muski_barber_2026.png" alt="Barber 2026"><span class="trend-badge">barber</span></div>
-                <div class="trend-info"><div class="trend-name">Barber 2026</div></div>
-            </div>
-            <div class="trend-card">
-                <div class="trend-img-wrapper"><img src="frizure_2026_trends.webp" alt="Frizure 2026 trends"><span class="trend-badge">inspiracija</span></div>
-                <div class="trend-info"><div class="trend-name">Frizure 2026 Trends</div></div>
-            </div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenske_frizure_2026.png" alt="Ženske frizure 2026"><span class="trend-badge">hit sezone</span></div><div class="trend-info"><div class="trend-name">Ženske frizure 2026</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="top_zenske_frizure_2026.jpg" alt="Top ženske frizure"><span class="trend-badge">must have</span></div><div class="trend-info"><div class="trend-name">Top ženske frizure</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="trend_2026_zenska_frizura.jpg" alt="Trend 2026 ženska"><span class="trend-badge">elegantno</span></div><div class="trend-info"><div class="trend-name">Trend 2026</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenska_frizura_2026.jpg" alt="Ženska frizura 2026"><span class="trend-badge">svakodnevni</span></div><div class="trend-info"><div class="trend-name">Ženska frizura 2026</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><span class="trend-badge">barber style</span></div><div class="trend-info"><div class="trend-name">Muške frizure 2026</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="muske_frizure_2026.jpg" alt="Muški trendovi"><span class="trend-badge">sharp look</span></div><div class="trend-info"><div class="trend-name">Muški trendovi</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="muski_barber_2026.png" alt="Barber 2026"><span class="trend-badge">barber</span></div><div class="trend-info"><div class="trend-name">Barber 2026</div></div></div>
+            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_2026_trends.webp" alt="Frizure 2026 trends"><span class="trend-badge">inspiracija</span></div><div class="trend-info"><div class="trend-name">Frizure 2026 Trends</div></div></div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <p style="font-size: 0.85rem; color: var(--gold-dark);">Više inspiracije:
-                <a href="https://www.glamour.de/artikel/bronde-hair-haarfarbe-fruehling-2026-stars-inspiration" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">Glamour</a> |
-                <a href="https://www.instyle.de/frisuren/trendfrisuren" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">InStyle</a>
-            </p>
-        </div>
+        <div style="text-align: center; margin-top: 2rem;"><p style="font-size: 0.85rem; color: var(--gold-dark);">Više inspiracije: <a href="https://www.glamour.de/artikel/bronde-hair-haarfarbe-fruehling-2026-stars-inspiration" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">Glamour</a> | <a href="https://www.instyle.de/frisuren/trendfrisuren" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">InStyle</a></p></div>
     </div>
 
     <div class="qr-section">
@@ -639,16 +626,8 @@
         <div class="gold-divider"></div>
         <p style="font-size: 0.85rem; text-align: center; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Olakšajte si boravak u salonu</p>
         <div class="qr-container">
-            <div class="qr-card">
-                <img src="qr_code_kala.png" alt="SCAN & EXPLORE">
-                <p>🌐 SCAN & EXPLORE</p>
-                <span>Otvori web stranicu i trendove</span>
-            </div>
-            <div class="qr-card">
-                <p style="font-size: 3rem; line-height: 1; margin-bottom: 0.7rem;">📶</p>
-                <p>📶 SCAN & CONNECT</p>
-                <span>Wi-Fi (uskoro)</span>
-            </div>
+            <div class="qr-card"><img src="qr_code_kala.png" alt="SCAN & EXPLORE"><p>🌐 SCAN & EXPLORE</p><span>Otvori web stranicu i trendove</span></div>
+            <div class="qr-card"><p style="font-size: 3rem; line-height: 1; margin-bottom: 0.7rem;">📶</p><p>📶 SCAN & CONNECT</p><span>Wi-Fi (uskoro)</span></div>
         </div>
     </div>
 
@@ -662,40 +641,18 @@
                 <button id="playRadioBtn" class="play-btn-main" type="button">▶ POKRENI SALONSKI RADIO</button>
             </div>
 
-            <div class="slide active">
-                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=800&fit=crop" alt="Salonska atmosfera">
-                <div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Prostor u kojem vaša kosa dobiva pažnju kakvu zaslužuje.</p></div>
-            </div>
-            <div class="slide">
-                <div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem;">
-                    <div>
-                        <span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span>
-                        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); margin: 1rem 0;">Posebna Ponuda</h2>
-                        <p style="color: #fff; max-width: 500px; margin: 0 auto;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&h=800&fit=crop" alt="Tretman kose">
-                <div class="slide-caption"><h4>Rituali Njege & Hidracije</h4><p>Premium salonska kozmetika za maksimalan sjaj.</p></div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=1200&h=800&fit=crop" alt="Frizerski alati">
-                <div class="slide-caption"><h4>Umetnost u Svakom Pokretu</h4><p>Precizni rezovi i stiliziranje po mjeri.</p></div>
-            </div>
-            <div class="slide">
-                <div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem;">
-                    <div>
-                        <div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin: 0 auto 1rem;">✂</div>
-                        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2>
-                        <p style="color: rgba(255,255,255,0.9); max-width: 450px; margin: 0 auto;">Nazovite i osigurajte svoje vrijeme na stolici.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&h=800&fit=crop" alt="Bojenje kose">
-                <div class="slide-caption"><h4>Profesionalna Koloristika</h4><p>Nijanse koje ističu vašu osobnost.</p></div>
-            </div>
+            <div class="slide active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Frizerski Atelier - Prednja strana vizitke"><div class="slide-caption"><h4>Frizerski Atelier KALA</h4><p>Prednja strana vizitke – prvi premium dojam.</p></div></div>
+            <div class="slide"><img src="Kala_frizerski_salon.jpeg" alt="Salon KALA Labin"><div class="slide-caption"><h4>Iskonska Elegancija</h4><p>Prostor u kojem vaša kosa dobiva pažnju kakvu zaslužuje.</p></div></div>
+            <div class="slide"><img src="zenska_frizura_2026.jpg" alt="Ženske frizure 2026"><div class="slide-caption"><h4>Ženski Trendovi 2026</h4><p>Moderni rezovi, mekoća i elegancija za svaki dan.</p></div></div>
+            <div class="slide"><img src="trend_2026_zenska_frizura.jpg" alt="Trendovi ženskih frizura 2026"><div class="slide-caption"><h4>Bezvremenski Rezovi</h4><p>Balayage, volumen i sofisticirana tekstura.</p></div></div>
+            <div class="slide"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><div class="slide-caption"><h4>Muški Trendovi 2026</h4><p>Sharp look, fade i preciznost za jak barber dojam.</p></div></div>
+            <div class="slide"><img src="muski_barber_2026.png" alt="Muški barber stil 2026"><div class="slide-caption"><h4>Precizni Fade & Barber Stilovi</h4><p>Čiste linije i vrhunski grooming u svakom detalju.</p></div></div>
+            <div class="slide"><img src="blunt_bob.webp" alt="Blunt Bob trend"><div class="slide-caption"><h4>Blunt Bob Statement</h4><p>Moderna forma koja daje urednost i karakter.</p></div></div>
+            <div class="slide"><img src="textured_crop_quiff.png" alt="Textured Crop Quiff"><div class="slide-caption"><h4>Textured Crop & Quiff</h4><p>Muška tekstura i volumen s premium završnicom.</p></div></div>
+            <div class="slide"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Frizerski Atelier - Stražnja strana vizitke"><div class="slide-caption"><h4>Rezervirajte Vaš Termin</h4><p>Stražnja strana vizitke – kontakt i radno vrijeme.</p></div></div>
+            <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); margin: 1rem 0;">Posebna Ponuda</h2><p style="color: #fff; max-width: 500px; margin: 0 auto;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p></div></div></div>
+            <div class="slide"><img src="frizure_2026_trends.webp" alt="Frizure 2026 Trends"><div class="slide-caption"><h4>Trend Inspiracija</h4><p>Lookbook ideje i završni vizualni potpis salona.</p></div></div>
+            <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin: 0 auto 1rem;">✂</div><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2><p style="color: rgba(255,255,255,0.9); max-width: 450px; margin: 0 auto;">Nazovite i osigurajte svoje vrijeme na stolici.</p></div></div></div>
         </div>
 
         <div class="visualizer" id="visualizer"></div>
@@ -785,7 +742,7 @@
             clearInterval(slideInterval);
             slideInterval = null;
         }
-        slideInterval = setInterval(nextSlide, 6500);
+        slideInterval = setInterval(nextSlide, 5800);
     }
 
     function stopSlideshow() {
