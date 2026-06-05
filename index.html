@@ -64,22 +64,21 @@
         .qr-card { background: var(--cream-dark) !important; border: 2px solid var(--gold) !important; border-radius: 28px; padding: 1.5rem; width: 230px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: all 0.3s ease; text-align: center; }
         .qr-card img { width: 100% !important; height: auto !important; max-width: 180px !important; margin: 0 auto !important; display: block !important; }
         #salon-slideshow { position: relative; width: 100%; height: 440px; background: #111; border-radius: 36px; overflow: hidden; border: 2px solid var(--gold-dark); }
-        .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.02); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .slide.active { opacity: 1; z-index: 1; transform: scale(1); }
-        .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.65) 100%); z-index: 1; pointer-events: none; }
+        .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
+        .slide.active { opacity: 1; z-index: 1; }
         .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1.4rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78)); color: white; z-index: 2; }
+        .slide-contain { background: #050505 !important; display: flex !important; align-items: center; justify-content: center; box-sizing: border-box; }
+        .slide-contain img { max-width: 80% !important; max-height: 75% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 6px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); margin: auto; }
+        .slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1.4rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75)); color: white; }
         .slide-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.35rem; }
-        .slide--contain img { object-fit: contain; background: #1a1612; }
-        .slide--contain .slide-caption { background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88)); }
         .visualizer { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 40px; margin: 1.2rem auto 0; overflow: hidden; width: fit-content; }
         .bar { width: 4px; background: linear-gradient(to top, var(--gold), var(--gold-light)); border-radius: 2px; transition: height 0.1s ease; opacity: 0.85; height: 4px; }
-        .info-hint { margin-top: 15px; font-size: 13px; line-height: 1.6; text-align: center; padding: 15px; border-radius: 12px; background: linear-gradient(135deg, #141414, #1c1a17); border: 1px solid rgba(197, 168, 128, 0.25); color: #e6e6e6; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); }
+        .info-hint { margin-top: 15px; font-size: 12px; line-height: 1.6; text-align: center; padding: 14px; border-radius: 10px; background: linear-gradient(135deg, #121212, #181614); border: 1px solid rgba(197, 168, 128, 0.2); color: #cccccc; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); }
         .info-hint strong { color: #fcf6ba; font-weight: bold; }
         .badge-pip { font-size: 0.85rem !important; font-weight: 700 !important; letter-spacing: 1px; padding: 0.4rem 1rem !important; background: rgba(27, 94, 94, 0.9) !important; border: 2px solid var(--teal-light) !important; color: #ffffff !important; border-radius: 30px; }
         .play-btn-main { border: none; border-radius: 999px; padding: 0.7rem 1.4rem; cursor: pointer; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: transform 0.2s ease, filter 0.2s ease; }
         .play-btn-main:hover { transform: translateY(-1px); filter: brightness(1.05); }
-        footer { margin-top: 30px; font-size: 12px; text-align: center; color: #a3a3a3; letter-spacing: 1px; padding-top: 10px; border-top: 1px solid rgba(197, 168, 128, 0.1); }
+        footer { margin-top: 35px; font-size: 11px; text-align: center; color: #9c8c70 !important; letter-spacing: 2.5px; padding: 15px 0 !important; background: #080808 !important; border-top: 1px solid rgba(197, 168, 128, 0.12) !important; text-transform: uppercase; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
         @media (max-width: 768px) { .brand-logo { max-width: 180px; } .salon-name { font-size: 3rem; } .scissors-icon { width: 2.5rem; height: 2.5rem; } .salon-card, .trends-section, .qr-section { padding: 1.5rem; } .trends-title { font-size: 2rem; } .qr-card { width: 170px; padding: 1rem; } #salon-slideshow { height: 380px; } .slide-caption h4 { font-size: 1.8rem; } .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; } .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; } .info-hint { font-size: 0.8rem !important; } }
         @media (max-width: 480px) { .brand-logo { max-width: 150px; } .salon-name { font-size: 2.2rem; } #salon-slideshow { height: 300px; } }
     </style>
@@ -165,15 +164,14 @@
                 <button id="playRadioBtn" class="play-btn-main" type="button">▶ POKRENI SALONSKI RADIO</button>
             </div>
 
-            <div class="slide active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Vizitkarta 1"><div class="slide-caption"><h4>Vizitkarta 1</h4><p>Prednja strana — prvi premium dojam.</p></div></div>
-            <div class="slide slide--contain"><img src="logo_kala.jpg" alt="KALA logo"><div class="slide-caption"><h4>Logo KALA</h4><p>Brending salona u najčišćoj formi.</p></div></div>
-            <div class="slide"><img src="zenska_frizura_2026.jpg" alt="Ženske frizure 2026"><div class="slide-caption"><h4>Ženski Trendovi 2026</h4><p>Moderni rezovi, mekoća i elegancija za svaki dan.</p></div></div>
-            <div class="slide"><img src="trend_2026_zenska_frizura.jpg" alt="Trendovi ženskih frizura 2026"><div class="slide-caption"><h4>Bezvremenski Rezovi</h4><p>Balayage, volumen i sofisticirana tekstura.</p></div></div>
-            <div class="slide"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><div class="slide-caption"><h4>Muški Trendovi 2026</h4><p>Sharp look, fade i preciznost za jak barber dojam.</p></div></div>
-            <div class="slide"><img src="muski_barber_2026.png" alt="Muški barber stil 2026"><div class="slide-caption"><h4>Precizni Fade & Barber Stilovi</h4><p>Čiste linije i vrhunski grooming u svakom detalju.</p></div></div>
-            <div class="slide"><img src="blunt_bob.webp" alt="Blunt Bob trend"><div class="slide-caption"><h4>Blunt Bob Statement</h4><p>Moderna forma koja daje urednost i karakter.</p></div></div>
+            <div class="slide slide-contain active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Vizitkarta 1"><div class="slide-caption"><h4>Frizerski Atelier KALA</h4><p>Prvi premium dojam i vizualni identitet našeg salona.</p></div></div>
+            <div class="slide"><img src="zenska_frizura_2026.jpg" alt="Ženski trendovi KALA"><div class="slide-caption"><h4>Ženski Trendovi 2026</h4><p>Moderni rezovi, mekoća i elegancija za svaki dan.</p></div></div>
+            <div class="slide"><img src="trend_2026_zenska_frizura.jpg" alt="Bezvremenski Rezovi"><div class="slide-caption"><h4>Bezvremenski Rezovi</h4><p>Balayage, volumen i sofisticirana tekstura.</p></div></div>
+            <div class="slide"><img src="frizure_muske_2026.jpg" alt="Muški trendovi KALA"><div class="slide-caption"><h4>Muški Trendovi 2026</h4><p>Sharp look, fade i preciznost za jak barber dojam.</p></div></div>
+            <div class="slide"><img src="muski_barber_2026.png" alt="Precizni Fade"><div class="slide-caption"><h4>Precizni Fade & Barber Stilovi</h4><p>Čiste linije i vrhunski grooming u svakom detalju.</p></div></div>
+            <div class="slide"><img src="blunt_bob.webp" alt="Blunt Bob Statement"><div class="slide-caption"><h4>Blunt Bob Statement</h4><p>Moderna forma koja daje urednost i karakter.</p></div></div>
             <div class="slide"><img src="textured_crop_quiff.png" alt="Textured Crop Quiff"><div class="slide-caption"><h4>Textured Crop & Quiff</h4><p>Muška tekstura i volumen s premium završnicom.</p></div></div>
-            <div class="slide slide--contain"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Vizitkarta 2"><div class="slide-caption"><h4>Vizitkarta 2</h4><p>Stražnja strana — kontakt i radno vrijeme.</p></div></div>
+            <div class="slide slide-contain"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Kontakt"><div class="slide-caption"><h4>Kontakt & Lokacija</h4><p>Informacije o terminima i adresa Rudarska 7, Labin.</p></div></div>
             <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); margin: 1rem 0;">Posebna Ponuda</h2><p style="color: #fff; max-width: 500px; margin: 0 auto;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p></div></div></div>
             <div class="slide"><img src="frizure_2026_trends.webp" alt="Frizure 2026 Trends"><div class="slide-caption"><h4>Trend Inspiracija</h4><p>Lookbook ideje i završni vizualni potpis salona.</p></div></div>
             <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin: 0 auto 1rem;">✂</div><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2><p style="color: rgba(255,255,255,0.9); max-width: 450px; margin: 0 auto;">Nazovite i osigurajte svoje vrijeme na stolici.</p></div></div></div>
@@ -194,7 +192,6 @@
 <script>
 (() => {
     'use strict';
-
     const radio = document.getElementById('bg-radio');
     const playBtn = document.getElementById('playRadioBtn');
     const visualizer = document.getElementById('visualizer');
@@ -202,213 +199,31 @@
     const mapBtn = document.getElementById('toggleMapBtn');
     const mapContainer = document.getElementById('mapContainer');
     const phoneLink = document.getElementById('phoneLink');
-
     let visualizerInterval = null;
     let slideInterval = null;
     let radioStarted = false;
     let currentSlide = Math.max(0, slides.findIndex(slide => slide.classList.contains('active')));
     if (currentSlide === -1) currentSlide = 0;
-
-    function ensureVisualizerBars() {
-        if (!visualizer) return;
-        if (visualizer.dataset.initialized === '1') return;
-        visualizer.dataset.initialized = '1';
-        visualizer.innerHTML = '';
-        for (let i = 0; i < 24; i++) {
-            const bar = document.createElement('div');
-            bar.className = 'bar';
-            visualizer.appendChild(bar);
-        }
-    }
-
-    function getBars() {
-        return Array.from(document.querySelectorAll('#visualizer .bar'));
-    }
-
-    function updateBars() {
-        const bars = getBars();
-        if (!radio || radio.paused) {
-            bars.forEach(bar => { bar.style.height = '4px'; });
-            return;
-        }
-        bars.forEach(bar => {
-            bar.style.height = (Math.random() * 35 + 4) + 'px';
-        });
-    }
-
-    function stopVisuals() {
-        if (visualizerInterval) {
-            clearInterval(visualizerInterval);
-            visualizerInterval = null;
-        }
-        updateBars();
-    }
-
-    function startVisuals() {
-        if (!visualizerInterval) {
-            visualizerInterval = setInterval(updateBars, 90);
-        }
-    }
-
-    function showSlide(index) {
-        if (!slides.length) return;
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (index + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    function startSlideshow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-            slideInterval = null;
-        }
-        slideInterval = setInterval(nextSlide, 5800);
-    }
-
-    function stopSlideshow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-            slideInterval = null;
-        }
-    }
-
-    function setRadioButtonState(isPlaying) {
-        if (!playBtn) return;
-        playBtn.innerHTML = isPlaying ? '⏸ PAUZIRAJ RADIO' : '▶ POKRENI SALONSKI RADIO';
-        playBtn.style.background = isPlaying
-            ? 'linear-gradient(135deg, #8c6a2b, #6b4f20)'
-            : 'linear-gradient(135deg, var(--gold), var(--gold-dark))';
-    }
-
-    async function startRadio() {
-        if (!radio || radioStarted) return;
-        radioStarted = true;
-        try {
-            radio.load();
-            await radio.play();
-            setRadioButtonState(true);
-            startSlideshow();
-            startVisuals();
-            updateBars();
-        } catch (err) {
-            radioStarted = false;
-            setRadioButtonState(false);
-            startSlideshow();
-            startVisuals();
-        }
-    }
-
-    function pauseRadio() {
-        if (!radio) return;
-        radio.pause();
-        radioStarted = false;
-        setRadioButtonState(false);
-        stopSlideshow();
-        stopVisuals();
-    }
-
-    function toggleRadio() {
-        if (!radio) return;
-        if (radio.paused) {
-            startRadio();
-        } else {
-            pauseRadio();
-        }
-    }
-
-    function toggleMap() {
-        if (!mapContainer) return;
-        mapContainer.style.display = mapContainer.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function highlightToday() {
-        const today = new Date().getDay();
-        document.querySelectorAll('#hoursTable p').forEach(row => {
-            if (parseInt(row.dataset.day, 10) === today) {
-                row.classList.add('today');
-                const span = row.querySelector('span:first-child');
-                if (span && !span.textContent.includes('☀️')) span.textContent += ' ☀️';
-            }
-        });
-    }
-
-    function copyNumber(e) {
-        e.preventDefault();
-        const num = '+385912512647';
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(num).then(() => {
-                const link = e.currentTarget;
-                const original = link.textContent;
-                link.textContent = '✅ Kopirano!';
-                setTimeout(() => { link.textContent = original; }, 2000);
-            }).catch(() => {
-                window.location.href = 'tel:' + num;
-            });
-        } else {
-            window.location.href = 'tel:' + num;
-        }
-    }
-
-    function bindEventsOnce() {
-        if (playBtn && !playBtn.dataset.bound) {
-            playBtn.dataset.bound = '1';
-            playBtn.addEventListener('click', toggleRadio);
-        }
-
-        if (mapBtn && !mapBtn.dataset.bound) {
-            mapBtn.dataset.bound = '1';
-            mapBtn.addEventListener('click', toggleMap);
-        }
-
-        if (phoneLink && !phoneLink.dataset.bound) {
-            phoneLink.dataset.bound = '1';
-            phoneLink.addEventListener('click', copyNumber);
-        }
-    }
-
-    function init() {
-        ensureVisualizerBars();
-        bindEventsOnce();
-        highlightToday();
-        updateBars();
-        if (!radio) return;
-
-        radio.addEventListener('ended', () => {
-            radioStarted = false;
-            setRadioButtonState(false);
-            stopSlideshow();
-            stopVisuals();
-        }, { once: false });
-
-        radio.addEventListener('pause', () => {
-            if (!radioStarted) {
-                stopSlideshow();
-                stopVisuals();
-            }
-        }, { once: false });
-
-        radio.addEventListener('playing', () => {
-            radioStarted = true;
-            setRadioButtonState(true);
-            startSlideshow();
-            startVisuals();
-        }, { once: false });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-    } else {
-        init();
-    }
-
-    window.addEventListener('pagehide', () => {
-        stopSlideshow();
-        stopVisuals();
-    }, { once: true });
+    function ensureVisualizerBars() { if (!visualizer || visualizer.dataset.initialized === '1') return; visualizer.dataset.initialized = '1'; visualizer.innerHTML = ''; for (let i = 0; i < 24; i++) { const bar = document.createElement('div'); bar.className = 'bar'; visualizer.appendChild(bar); } }
+    function getBars() { return Array.from(document.querySelectorAll('#visualizer .bar')); }
+    function updateBars() { const bars = getBars(); if (!radio || radio.paused) { bars.forEach(bar => { bar.style.height = '4px'; }); return; } bars.forEach(bar => { bar.style.height = (Math.random() * 35 + 4) + 'px'; }); }
+    function stopVisuals() { if (visualizerInterval) { clearInterval(visualizerInterval); visualizerInterval = null; } updateBars(); }
+    function startVisuals() { if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 90); }
+    function showSlide(index) { if (!slides.length) return; slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function startSlideshow() { if (slideInterval) { clearInterval(slideInterval); slideInterval = null; } slideInterval = setInterval(nextSlide, 5800); }
+    function stopSlideshow() { if (slideInterval) { clearInterval(slideInterval); slideInterval = null; } }
+    function setRadioButtonState(isPlaying) { if (!playBtn) return; playBtn.innerHTML = isPlaying ? '⏸ PAUZIRAJ RADIO' : '▶ POKRENI SALONSKI RADIO'; playBtn.style.background = isPlaying ? 'linear-gradient(135deg, #8c6a2b, #6b4f20)' : 'linear-gradient(135deg, var(--gold), var(--gold-dark))'; }
+    async function startRadio() { if (!radio || radioStarted) return; radioStarted = true; try { radio.load(); await radio.play(); setRadioButtonState(true); startSlideshow(); startVisuals(); updateBars(); } catch (err) { radioStarted = false; setRadioButtonState(false); startSlideshow(); startVisuals(); } }
+    function pauseRadio() { if (!radio) return; radio.pause(); radioStarted = false; setRadioButtonState(false); stopSlideshow(); stopVisuals(); }
+    function toggleRadio() { if (!radio) return; if (radio.paused) startRadio(); else pauseRadio(); }
+    function toggleMap() { if (!mapContainer) return; mapContainer.style.display = mapContainer.style.display === 'block' ? 'none' : 'block'; }
+    function highlightToday() { const today = new Date().getDay(); document.querySelectorAll('#hoursTable p').forEach(row => { if (parseInt(row.dataset.day, 10) === today) { row.classList.add('today'); const span = row.querySelector('span:first-child'); if (span && !span.textContent.includes('☀️')) span.textContent += ' ☀️'; } }); }
+    function copyNumber(e) { e.preventDefault(); const num = '+385912512647'; if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(num).then(() => { const link = e.currentTarget; const original = link.textContent; link.textContent = '✅ Kopirano!'; setTimeout(() => { link.textContent = original; }, 2000); }).catch(() => { window.location.href = 'tel:' + num; }); } else { window.location.href = 'tel:' + num; } }
+    function bindEventsOnce() { if (playBtn && !playBtn.dataset.bound) { playBtn.dataset.bound = '1'; playBtn.addEventListener('click', toggleRadio); } if (mapBtn && !mapBtn.dataset.bound) { mapBtn.dataset.bound = '1'; mapBtn.addEventListener('click', toggleMap); } if (phoneLink && !phoneLink.dataset.bound) { phoneLink.dataset.bound = '1'; phoneLink.addEventListener('click', copyNumber); } }
+    function init() { ensureVisualizerBars(); bindEventsOnce(); highlightToday(); updateBars(); if (!radio) return; radio.addEventListener('ended', () => { radioStarted = false; setRadioButtonState(false); stopSlideshow(); stopVisuals(); }, { once: false }); radio.addEventListener('pause', () => { if (!radioStarted) { stopSlideshow(); stopVisuals(); } }, { once: false }); radio.addEventListener('playing', () => { radioStarted = true; setRadioButtonState(true); startSlideshow(); startVisuals(); }, { once: false }); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else init();
+    window.addEventListener('pagehide', () => { stopSlideshow(); stopVisuals(); }, { once: true });
 })();
 </script>
 </body>
