@@ -23,10 +23,6 @@
         .salon-card::after { bottom: 1rem; right: 2rem; transform: rotate(45deg); }
         .salon-header { text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 2; }
         .brand-logo { max-width: 240px; width: 48vw; height: auto; display: block; margin: 0 auto 0.75rem; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
-        .salon-name { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; letter-spacing: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 0.2rem; flex-wrap: wrap; background: linear-gradient(145deg, var(--gold), var(--gold-dark)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .scissors-icon { display: inline-flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; color: var(--teal); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); transition: all 0.3s ease; transform: rotate(-60deg) scaleX(-1); cursor: pointer; }
-        .scissors-icon svg { width: 100%; height: 100%; }
-        .scissors-icon:hover { transform: rotate(-60deg) scaleX(-1) scale(1.1); }
         .gold-divider { width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); margin: 0.8rem auto; position: relative; }
         .gold-divider::before, .gold-divider::after { content: "•"; position: absolute; top: -8px; color: var(--gold); font-size: 1.2rem; }
         .gold-divider::before { left: 20px; }
@@ -68,7 +64,7 @@
         .slide.active { opacity: 1; z-index: 1; }
         .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .slide-contain { background: #050505 !important; display: flex !important; align-items: center; justify-content: center; box-sizing: border-box; }
-        .slide-contain img { max-width: 80% !important; max-height: 75% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 6px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); margin: auto; }
+        .slide-contain img { max-width: 72% !important; max-height: 70% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 6px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); margin: auto; }
         .slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1.4rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75)); color: white; }
         .slide-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.35rem; }
         .visualizer { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 40px; margin: 1.2rem auto 0; overflow: hidden; width: fit-content; }
@@ -79,7 +75,7 @@
         .play-btn-main { border: none; border-radius: 999px; padding: 0.7rem 1.4rem; cursor: pointer; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: transform 0.2s ease, filter 0.2s ease; }
         .play-btn-main:hover { transform: translateY(-1px); filter: brightness(1.05); }
         footer { margin-top: 35px; font-size: 11px; text-align: center; color: #9c8c70 !important; letter-spacing: 2.5px; padding: 15px 0 !important; background: #080808 !important; border-top: 1px solid rgba(197, 168, 128, 0.12) !important; text-transform: uppercase; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
-        @media (max-width: 768px) { .brand-logo { max-width: 180px; } .salon-name { font-size: 3rem; } .scissors-icon { width: 2.5rem; height: 2.5rem; } .salon-card, .trends-section, .qr-section { padding: 1.5rem; } .trends-title { font-size: 2rem; } .qr-card { width: 170px; padding: 1rem; } #salon-slideshow { height: 380px; } .slide-caption h4 { font-size: 1.8rem; } .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; } .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; } .info-hint { font-size: 0.8rem !important; } }
+        @media (max-width: 768px) { .brand-logo { max-width: 180px; } .salon-card, .trends-section, .qr-section { padding: 1.5rem; } .trends-title { font-size: 2rem; } .qr-card { width: 170px; padding: 1rem; } #salon-slideshow { height: 380px; } .slide-caption h4 { font-size: 1.8rem; } .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; } .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; } .info-hint { font-size: 0.8rem !important; } }
         @media (max-width: 480px) { .brand-logo { max-width: 150px; } .salon-name { font-size: 2.2rem; } #salon-slideshow { height: 300px; } }
     </style>
 </head>
