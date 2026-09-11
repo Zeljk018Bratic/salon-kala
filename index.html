@@ -3,279 +3,2470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
     <title>K ✂️ L A | Frizerski atelier Labin – Premium Lookbook</title>
-    <meta name="description" content="Frizerski salon KLA u Labinu – vrhunske frizure, najnoviji trendovi 2025./2026., muški i ženski styling, barber usluge. Iskonska elegancija.">
+
+    <meta name="description" content="Frizerski salon KALA u Labinu – vrhunske frizure, najnoviji trendovi 2025./2026., muški i ženski styling, barber usluge. Iskonska elegancija.">
+
     <meta name="theme-color" content="#b38f40">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --gold:#b38f40; --gold-light:#dbb46a; --gold-dark:#7a5e24; --teal:#1b5e5e; --teal-light:#3aa3a3; --cream:#fffdf9; --cream-dark:#fcf6eb; --text:#1a1815; --text-light:#59534c; }
-        body { background: linear-gradient(135deg, #e9e0d3 0%, #d6cbbc 50%, #e9e0d3 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite; font-family: 'Montserrat', sans-serif; padding: 2rem 1rem; min-height: 100vh; color: var(--text); }
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .main-wrapper { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem; }
-        .salon-card { background: rgba(255, 253, 249, 0.97); border-radius: 40px; box-shadow: 0 30px 60px -15px rgba(140, 106, 43, 0.25), 0 0 0 1px rgba(179, 143, 64, 0.2); padding: 2.5rem 2rem; position: relative; overflow: hidden; backdrop-filter: blur(10px); animation: fadeInUp 0.8s ease; }
-        .salon-card::before, .salon-card::after { content: "✦"; position: absolute; font-size: 4rem; color: var(--gold); opacity: 0.08; pointer-events: none; }
-        .salon-card::before { top: 1rem; left: 2rem; }
-        .salon-card::after { bottom: 1rem; right: 2rem; transform: rotate(45deg); }
-        .salon-header { text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 2; }
-        .brand-logo { max-width: 240px; width: 48vw; height: auto; display: block; margin: 0 auto 0.75rem; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
-        .gold-divider { width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); margin: 0.8rem auto; position: relative; }
-        .gold-divider::before, .gold-divider::after { content: "•"; position: absolute; top: -8px; color: var(--gold); font-size: 1.2rem; }
-        .gold-divider::before { left: 20px; }
-        .gold-divider::after { right: 20px; }
-        .salon-tagline { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-top: 0.5rem; }
-        .owner-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--cream-dark), #faf5ed); padding: 0.5rem 1.8rem; border-radius: 60px; font-size: 0.95rem; margin-top: 1rem; border: 1px solid rgba(179, 143, 64, 0.25); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-        .address-row { display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem auto; background: rgba(252, 247, 240, 0.9); width: fit-content; padding: 0.7rem 2rem; border-radius: 60px; border: 1px solid rgba(179, 143, 64, 0.25); font-weight: 500; }
-        .map-btn { background: none; border: 1.5px solid var(--gold); border-radius: 40px; padding: 0.3rem 1.2rem; cursor: pointer; color: var(--gold-dark); font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
-        .map-btn:hover { background: var(--gold); color: white; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0 0.5rem; }
-        .work-hours, .contact-details { background: var(--cream); padding: 1.8rem; border-radius: 28px; border: 1px solid rgba(179, 143, 64, 0.2); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03); transition: all 0.3s ease; }
-        .work-hours:hover, .contact-details:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
-        .work-hours h3, .contact-details h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold-dark); margin-bottom: 1.2rem; }
-        .hours-table p { display: flex; justify-content: space-between; margin: 0.6rem 0; font-size: 0.9rem; padding: 0.4rem 0; border-bottom: 1px dashed rgba(179, 143, 64, 0.2); }
-        .hours-table p:last-child { border-bottom: none; }
-        .today { background: linear-gradient(135deg, rgba(179, 143, 64, 0.15), rgba(179, 143, 64, 0.05)) !important; font-weight: 600; border-left: 4px solid var(--gold) !important; padding-left: 0.5rem !important; }
-        .phone { margin: 0.8rem 0; }
-        .phone a { background: linear-gradient(135deg, #efe2d0, #f3e9de); padding: 0.5rem 1.4rem; border-radius: 40px; color: var(--teal); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(179, 143, 64, 0.2); transition: all 0.3s ease; }
-        .phone a:hover { background: var(--teal); color: white; }
-        .appointment { background: linear-gradient(135deg, #e8ddcf, #ddd0c0); border-radius: 24px; padding: 0.7rem; text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text); font-weight: 500; }
-        .map-container { margin-top: 1.5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 2px solid rgba(179, 143, 64, 0.2); height: 200px; display: none; }
-        .map-container iframe { width: 100%; height: 100%; border: none; }
-        .trends-section, .qr-section, .music-section { background: var(--cream) !important; border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12), 0 0 0 2px var(--gold-dark) !important; padding: 2.5rem 2rem; backdrop-filter: blur(10px); margin-bottom: 2rem; }
-        .trends-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold-dark); text-align: center; }
-        .trends-subtitle { text-align: center; color: var(--text-light); margin-top: 0.5rem; margin-bottom: 1.5rem; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
-        .trends-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
-        .trend-card { background: var(--cream-dark) !important; border-radius: 28px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1.5px solid rgba(122, 94, 36, 0.2); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); display: flex; flex-direction: column; }
-        .trend-img-wrapper { position: relative; width: 100%; padding-top: 110%; background-color: #f3eae0; overflow: hidden; }
-        .trend-img-wrapper img { position: absolute; top: 5%; left: 5%; width: 90%; height: 90%; object-fit: contain; border-radius: 16px; transition: transform 0.5s ease; display: block; }
-        .trend-card:hover .trend-img-wrapper img { transform: scale(1.04); }
-        .trend-badge { position: absolute !important; top: 15px !important; left: 15px !important; background: rgba(27, 94, 94, 0.95) !important; color: #ffffff !important; padding: 4px 12px !important; border-radius: 20px !important; font-size: 0.75rem !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 1px !important; z-index: 10 !important; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); }
-        .trend-info { padding: 1.2rem 1rem !important; text-align: center !important; background: var(--cream-dark) !important; }
-        .trend-name { font-family: 'Cormorant Garamond', serif !important; font-size: 1.4rem !important; font-weight: 700 !important; color: var(--gold-dark) !important; margin-top: 0.5rem !important; line-height: 1.3 !important; }
-        .qr-container { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
-        .qr-card { background: var(--cream-dark) !important; border: 2px solid var(--gold) !important; border-radius: 28px; padding: 1.5rem; width: 230px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: all 0.3s ease; text-align: center; }
-        .qr-card img { width: 100% !important; height: auto !important; max-width: 180px !important; margin: 0 auto !important; display: block !important; }
-        #salon-slideshow { position: relative; width: 100%; height: 440px; background: #111; border-radius: 36px; overflow: hidden; border: 2px solid var(--gold-dark); }
-        .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
-        .slide.active { opacity: 1; z-index: 1; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .slide-contain { background: #050505 !important; display: flex !important; align-items: center; justify-content: center; box-sizing: border-box; }
-        .slide-contain img { max-width: 65% !important; max-height: 82% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 6px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); margin: auto; }
-        .slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.2rem 1.4rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75)); color: white; }
-        .slide-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.35rem; }
-        .visualizer { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 40px; margin: 1.2rem auto 0; overflow: hidden; width: fit-content; }
-        .bar { width: 4px; background: linear-gradient(to top, var(--gold), var(--gold-light)); border-radius: 2px; transition: height 0.1s ease; opacity: 0.85; height: 4px; }
-        .info-hint { margin-top: 15px; font-size: 12px; line-height: 1.6; text-align: center; padding: 14px; border-radius: 10px; background: linear-gradient(135deg, #121212, #181614); border: 1px solid rgba(197, 168, 128, 0.2); color: #cccccc; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); }
-        .info-hint strong { color: #fcf6ba; font-weight: bold; }
-        .badge-pip { font-size: 0.85rem !important; font-weight: 700 !important; letter-spacing: 1px; padding: 0.4rem 1rem !important; background: rgba(27, 94, 94, 0.9) !important; border: 2px solid var(--teal-light) !important; color: #ffffff !important; border-radius: 30px; }
-        .play-btn-main { border: none; border-radius: 999px; padding: 0.7rem 1.4rem; cursor: pointer; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: transform 0.2s ease, filter 0.2s ease; }
-        .play-btn-main:hover { transform: translateY(-1px); filter: brightness(1.05); }
-        footer { margin-top: 35px; font-size: 11px; text-align: center; color: #9c8c70 !important; letter-spacing: 2.5px; padding: 15px 0 !important; background: #080808 !important; border-top: 1px solid rgba(197, 168, 128, 0.12) !important; text-transform: uppercase; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
-        @media (max-width: 768px) { .brand-logo { max-width: 180px; } .salon-card, .trends-section, .qr-section { padding: 1.5rem; } .trends-title { font-size: 2rem; } .qr-card { width: 170px; padding: 1rem; } #salon-slideshow { height: 380px; } .slide-caption h4 { font-size: 1.8rem; } .badge-pip { font-size: 0.8rem !important; padding: 0.4rem 1rem !important; } .play-btn-main { font-size: 0.85rem !important; padding: 0.5rem 1.2rem !important; } .info-hint { font-size: 0.8rem !important; } }
-        @media (max-width: 480px) { .brand-logo { max-width: 150px; } .salon-name { font-size: 2.2rem; } #salon-slideshow { height: 300px; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #b38f40;
+            --gold-light: #dbb46a;
+            --gold-dark: #7a5e24;
+            --teal: #1b5e5e;
+            --teal-light: #3aa3a3;
+            --cream: #fffdf9;
+            --cream-dark: #fcf6eb;
+            --text: #1a1815;
+            --text-light: #59534c;
+        }
+
+        body {
+            background: linear-gradient(
+                135deg,
+                #e9e0d3 0%,
+                #d6cbbc 50%,
+                #e9e0d3 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            color: var(--text);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .salon-card {
+            background: rgba(255, 253, 249, 0.97);
+            border-radius: 40px;
+            box-shadow:
+                0 30px 60px -15px rgba(140, 106, 43, 0.25),
+                0 0 0 1px rgba(179, 143, 64, 0.2);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .salon-card::before,
+        .salon-card::after {
+            content: "✦";
+            position: absolute;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .salon-card::before {
+            top: 1rem;
+            left: 2rem;
+        }
+
+        .salon-card::after {
+            bottom: 1rem;
+            right: 2rem;
+            transform: rotate(45deg);
+        }
+
+        .salon-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-logo {
+            max-width: 240px;
+            width: 48vw;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.75rem;
+            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--gold),
+                var(--gold-light),
+                var(--gold),
+                transparent
+            );
+            margin: 0.8rem auto;
+            position: relative;
+        }
+
+        .gold-divider::before,
+        .gold-divider::after {
+            content: "•";
+            position: absolute;
+            top: -8px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .gold-divider::before {
+            left: 20px;
+        }
+
+        .gold-divider::after {
+            right: 20px;
+        }
+
+        .salon-tagline {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .owner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(
+                135deg,
+                var(--cream-dark),
+                #faf5ed
+            );
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            border: 1px solid rgba(179, 143, 64, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .address-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem auto;
+            background: rgba(252, 247, 240, 0.9);
+            width: fit-content;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            border: 1px solid rgba(179, 143, 64, 0.25);
+            font-weight: 500;
+        }
+
+        .map-btn {
+            background: none;
+            border: 1.5px solid var(--gold);
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            cursor: pointer;
+            color: var(--gold-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(280px, 1fr)
+            );
+            gap: 1.5rem;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .work-hours,
+        .contact-details {
+            background: var(--cream);
+            padding: 1.8rem;
+            border-radius: 28px;
+            border: 1px solid rgba(179, 143, 64, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .work-hours:hover,
+        .contact-details:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .work-hours h3,
+        .contact-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--gold-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .hours-table p {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.6rem 0;
+            font-size: 0.9rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed rgba(179, 143, 64, 0.2);
+        }
+
+        .hours-table p:last-child {
+            border-bottom: none;
+        }
+
+        .today {
+            background: linear-gradient(
+                135deg,
+                rgba(179, 143, 64, 0.15),
+                rgba(179, 143, 64, 0.05)
+            ) !important;
+            font-weight: 600;
+            border-left: 4px solid var(--gold) !important;
+            padding-left: 0.5rem !important;
+        }
+
+        .phone {
+            margin: 0.8rem 0;
+        }
+
+        .phone a {
+            background: linear-gradient(
+                135deg,
+                #efe2d0,
+                #f3e9de
+            );
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(179, 143, 64, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .phone a:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .appointment {
+            background: linear-gradient(
+                135deg,
+                #e8ddcf,
+                #ddd0c0
+            );
+            border-radius: 24px;
+            padding: 0.7rem;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .map-container {
+            margin-top: 1.5rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(179, 143, 64, 0.2);
+            height: 200px;
+            display: none;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .trends-section,
+        .qr-section,
+        .music-section {
+            background: var(--cream) !important;
+            border-radius: 40px;
+            box-shadow:
+                0 25px 50px -12px rgba(0,0,0,0.12),
+                0 0 0 2px var(--gold-dark) !important;
+            padding: 2.5rem 2rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        .trends-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            color: var(--gold-dark);
+            text-align: center;
+        }
+
+        .trends-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(240px, 1fr)
+            );
+            gap: 2rem;
+        }
+
+        .trend-card {
+            background: var(--cream-dark) !important;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            border: 1.5px solid rgba(122, 94, 36, 0.2);
+            transition: all 0.4s cubic-bezier(
+                0.165,
+                0.84,
+                0.44,
+                1
+            );
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trend-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 110%;
+            background-color: #f3eae0;
+            overflow: hidden;
+        }
+
+        .trend-img-wrapper img {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            border-radius: 16px;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .trend-card:hover .trend-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .trend-badge {
+            position: absolute !important;
+            top: 15px !important;
+            left: 15px !important;
+            background: rgba(27, 94, 94, 0.95) !important;
+            color: #ffffff !important;
+            padding: 4px 12px !important;
+            border-radius: 20px !important;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            z-index: 10 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .trend-info {
+            padding: 1.2rem 1rem !important;
+            text-align: center !important;
+            background: var(--cream-dark) !important;
+        }
+
+        .trend-name {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            color: var(--gold-dark) !important;
+            margin-top: 0.5rem !important;
+            line-height: 1.3 !important;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .qr-card {
+            background: var(--cream-dark) !important;
+            border: 2px solid var(--gold) !important;
+            border-radius: 28px;
+            padding: 1.5rem;
+            width: 230px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .qr-card img {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 180px !important;
+            margin: 0 auto !important;
+            display: block !important;
+        }
+
+        #salon-slideshow {
+            position: relative;
+            width: 100%;
+            height: 440px;
+            background: #111;
+            border-radius: 36px;
+            overflow: hidden;
+            border: 2px solid var(--gold-dark);
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-contain {
+            background: #050505 !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .slide-contain img {
+            max-width: 65% !important;
+            max-height: 82% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: contain !important;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            margin: auto;
+        }
+
+        .slide-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.2rem 1.4rem;
+            background: linear-gradient(
+                180deg,
+                transparent,
+                rgba(0,0,0,0.75)
+            );
+            color: white;
+        }
+
+        .slide-caption h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .visualizer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            height: 40px;
+            margin: 1.2rem auto 0;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .bar {
+            width: 4px;
+            background: linear-gradient(
+                to top,
+                var(--gold),
+                var(--gold-light)
+            );
+            border-radius: 2px;
+            transition: height 0.1s ease;
+            opacity: 0.85;
+            height: 4px;
+        }
+
+        .info-hint {
+            margin-top: 15px;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #121212,
+                #181614
+            );
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            color: #cccccc;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+        }
+
+        .info-hint strong {
+            color: #fcf6ba;
+            font-weight: bold;
+        }
+
+        .badge-pip {
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            padding: 0.4rem 1rem !important;
+            background: rgba(27, 94, 94, 0.9) !important;
+            border: 2px solid var(--teal-light) !important;
+            color: #ffffff !important;
+            border-radius: 30px;
+        }
+
+        .play-btn-main {
+            border: none;
+            border-radius: 999px;
+            padding: 0.7rem 1.4rem;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            background: linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold-dark)
+            );
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .play-btn-main:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+        }
+
+        footer {
+            margin-top: 35px;
+            font-size: 11px;
+            text-align: center;
+            color: #9c8c70 !important;
+            letter-spacing: 2.5px;
+            padding: 15px 0 !important;
+            background: #080808 !important;
+            border-top: 1px solid rgba(197, 168, 128, 0.12) !important;
+            text-transform: uppercase;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .brand-logo {
+                max-width: 180px;
+            }
+
+            .salon-card,
+            .trends-section,
+            .qr-section {
+                padding: 1.5rem;
+            }
+
+            .trends-title {
+                font-size: 2rem;
+            }
+
+            .qr-card {
+                width: 170px;
+                padding: 1rem;
+            }
+
+            #salon-slideshow {
+                height: 380px;
+            }
+
+            .slide-caption h4 {
+                font-size: 1.8rem;
+            }
+
+            .badge-pip {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 1rem !important;
+            }
+
+            .play-btn-main {
+                font-size: 0.85rem !important;
+                padding: 0.5rem 1.2rem !important;
+            }
+
+            .info-hint {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-logo {
+                max-width: 150px;
+            }
+
+            .salon-name {
+                font-size: 2.2rem;
+            }
+
+            #salon-slideshow {
+                height: 300px;
+            }
+        }
     </style>
 </head>
+
 <body>
+
 <div class="main-wrapper">
+
     <div class="salon-card">
+
         <div class="salon-header">
-            <img class="brand-logo" src="logo_kala.jpg" alt="KALA logo">
+
+            <img
+                class="brand-logo"
+                src="logo_kala.jpg"
+                alt="KALA logo"
+            >
+
             <div class="gold-divider"></div>
-            <div class="salon-tagline">frizerski atelier · iskonska elegancija</div>
-            <div class="owner-badge">✂️ Vlasnica: <strong>Lara Faraguna</strong></div>
+
+            <div class="salon-tagline">
+                frizerski atelier · iskonska elegancija
+            </div>
+
+            <div class="owner-badge">
+                ✂️ Vlasnica: <strong>Lara Faraguna</strong>
+            </div>
+
         </div>
+
 
         <div class="address-row">
+
             📍 Rudarska 7, 52220 Labin
-            <button class="map-btn" type="button" id="toggleMapBtn">🗺️ Karta</button>
+
+            <button
+                class="map-btn"
+                type="button"
+                id="toggleMapBtn"
+            >
+                🗺️ Karta
+            </button>
+
         </div>
+
 
         <div class="info-grid">
+
             <div class="work-hours">
+
                 <h3>🕘 Radno vrijeme</h3>
+
                 <div class="hours-table" id="hoursTable">
-                    <p data-day="1"><span>PONEDJELJAK</span><span>13:00 – 20:00</span></p>
-                    <p data-day="2"><span>UTORAK</span><span>08:00 – 15:00</span></p>
-                    <p data-day="3"><span>SRIJEDA</span><span>13:00 – 20:00</span></p>
-                    <p data-day="4"><span>ČETVRTAK</span><span>08:00 – 15:00</span></p>
-                    <p data-day="5"><span>PETAK</span><span>13:00 – 20:00</span></p>
-                    <p data-day="6"><span>SUBOTA</span><span>08:00 – 13:00</span></p>
-                    <p data-day="0"><span>NEDJELJA</span><span>zatvoreno</span></p>
+
+                    <p data-day="1">
+                        <span>PONEDJELJAK</span>
+                        <span>13:00 – 20:00</span>
+                    </p>
+
+                    <p data-day="2">
+                        <span>UTORAK</span>
+                        <span>08:00 – 15:00</span>
+                    </p>
+
+                    <p data-day="3">
+                        <span>SRIJEDA</span>
+                        <span>13:00 – 20:00</span>
+                    </p>
+
+                    <p data-day="4">
+                        <span>ČETVRTAK</span>
+                        <span>08:00 – 15:00</span>
+                    </p>
+
+                    <p data-day="5">
+                        <span>PETAK</span>
+                        <span>13:00 – 20:00</span>
+                    </p>
+
+                    <p data-day="6">
+                        <span>SUBOTA</span>
+                        <span>08:00 – 13:00</span>
+                    </p>
+
+                    <p data-day="0">
+                        <span>NEDJELJA</span>
+                        <span>zatvoreno</span>
+                    </p>
+
                 </div>
-                <div class="appointment">📞 +po dogovoru – nazovi i rezerviraj</div>
+
+                <div class="appointment">
+                    📞 +po dogovoru – nazovi i rezerviraj
+                </div>
+
             </div>
+
 
             <div class="contact-details">
+
                 <h3>📧 Kontakt</h3>
+
                 <div class="phone">
-                    📱 <a href="tel:+385912512647" id="phoneLink">+385 91 251 2647</a>
+
+                    📱
+
+                    <a
+                        href="tel:+385912512647"
+                        id="phoneLink"
+                    >
+                        +385 91 251 2647
+                    </a>
+
                 </div>
-                <p style="margin: 0.6rem 0; font-size: 0.9rem;">✂️ Lara Faraguna – frizerski majstor</p>
-                <p style="font-size: 0.9rem;">📍 Rudarska 7, Labin, Istra</p>
-                <div style="margin-top: 1rem; background: #f3eade; border-radius: 16px; padding: 0.6rem; font-size: 0.9rem; color: var(--gold-dark);">
+
+                <p style="margin: 0.6rem 0; font-size: 0.9rem;">
+                    ✂️ Lara Faraguna – frizerski majstor
+                </p>
+
+                <p style="font-size: 0.9rem;">
+                    📍 Rudarska 7, Labin, Istra
+                </p>
+
+                <div
+                    style="
+                        margin-top: 1rem;
+                        background: #f3eade;
+                        border-radius: 16px;
+                        padding: 0.6rem;
+                        font-size: 0.9rem;
+                        color: var(--gold-dark);
+                    "
+                >
                     ✨ dobrodošli u salon s tradicijom ✨
                 </div>
-                <div class="map-container" id="mapContainer">
-                    <iframe src="https://www.google.com/maps?q=Rudarska%207%2C%2052220%20Labin&output=embed" title="Karta salona" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+                <div
+                    class="map-container"
+                    id="mapContainer"
+                >
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Rudarska%207%2C%2052220%20Labin&output=embed"
+                        title="Karta salona"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 
     <div class="trends-section">
-        <h2 class="trends-title">Inspiracija & Trendovi</h2>
-        <div class="trends-subtitle">2025 – 2026 | Najnovije frizure godine</div>
+
+        <h2 class="trends-title">
+            Inspiracija & Trendovi
+        </h2>
+
+        <div class="trends-subtitle">
+            2025 – 2026 | Najnovije frizure godine
+        </div>
+
+
         <div class="trends-grid">
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenske_frizure_2026.png" alt="Ženske frizure 2026"><span class="trend-badge">hit sezone</span></div><div class="trend-info"><div class="trend-name">Ženske frizure 2026</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="top_zenske_frizure_2026.jpg" alt="Top ženske frizure"><span class="trend-badge">must have</span></div><div class="trend-info"><div class="trend-name">Top ženske frizure</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="trend_2026_zenska_frizura.jpg" alt="Trend 2026 ženska"><span class="trend-badge">elegantno</span></div><div class="trend-info"><div class="trend-name">Trend 2026</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="zenska_frizura_2026.jpg" alt="Ženska frizura 2026"><span class="trend-badge">svakodnevni</span></div><div class="trend-info"><div class="trend-name">Ženska frizura 2026</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_muske_2026.jpg" alt="Muške frizure 2026"><span class="trend-badge">barber style</span></div><div class="trend-info"><div class="trend-name">Muške frizure 2026</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="muske_frizure_2026.jpg" alt="Muški trendovi"><span class="trend-badge">sharp look</span></div><div class="trend-info"><div class="trend-name">Muški trendovi</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="muski_barber_2026.png" alt="Barber 2026"><span class="trend-badge">barber</span></div><div class="trend-info"><div class="trend-name">Barber 2026</div></div></div>
-            <div class="trend-card"><div class="trend-img-wrapper"><img src="frizure_2026_trends.webp" alt="Frizure 2026 trends"><span class="trend-badge">inspiracija</span></div><div class="trend-info"><div class="trend-name">Frizure 2026 Trends</div></div></div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;"><p style="font-size: 0.85rem; color: var(--gold-dark);">Više inspiracije: <a href="https://www.glamour.de/artikel/bronde-hair-haarfarbe-fruehling-2026-stars-inspiration" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">Glamour</a> | <a href="https://www.instyle.de/frisuren/trendfrisuren" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">InStyle</a></p></div>
-    </div>
-<!-- ✨ PREMIUM QR & SOCIAL SEKCIJA SALONA KALA -->
-<div class="qr-section" style="padding: 2rem 0; background-color: var(--bg-dark); border-top: 1px solid var(--gold-dark);">
-    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-dark); text-align:center;">✨ Scan & Connect</h3>
-    <div class="gold-divider" style="width: 60px; height: 2px; background-color: var(--gold-dark); margin: 0.5rem auto 1.5rem auto;"></div>
-    <p style="font-size: 0.85rem; text-align: center; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Olakšajte si boravak u salonu</p>
-    
-    <div class="qr-container" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
 
-        <!-- 1. KARTICA: WEB STRANICA SALONA -->
-        <div class="qr-card" style="text-align: center; background-color: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-            <img src="qr_code_kala.png" alt="SCAN & EXPLORE" style="width:150px; height:150px; display:block; margin:0 auto 1rem auto; border-radius: 8px;">
-            <p style="color: var(--gold-dark); font-weight: 600; margin-bottom: 0.3rem;">🌐 SCAN & EXPLORE</p>
-            <span style="color: var(--text-light); font-size: 0.8rem;">Otvori web stranicu i trendove</span>
-        </div>
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="zenske_frizure_2026.png"
+                        alt="Ženske frizure 2026"
+                    >
+                    <span class="trend-badge">
+                        hit sezone
+                    </span>
+                </div>
 
-        <!-- 2. KARTICA: WI-FI QR -->
-        <div class="qr-card" style="text-align: center; background-color: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-            <img src="Kala_Salon_Free_Wi_Fi.png" alt="SCAN & CONNECT" style="width:150px; height:150px; display:block; margin:0 auto 1rem auto; border-radius: 8px;">
-            <p style="color: var(--gold-dark); font-weight: 600; margin-bottom: 0.3rem;">📶 SCAN & CONNECT</p>
-            <span style="color: var(--teal); font-weight: 600; font-size: 0.75rem;">KALA_Salon_Free_WiFi</span>
-        </div>
-
-        <!-- 3. KARTICA: GOOGLE MAPS (ZLATNI QR - FIX) -->
-        <div class="qr-card" style="text-align: center; background-color: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-            <!-- URL je potpuno kodiran s parametrima za crne linije i zlatnu pozadinu kako bi odgovarao slici -->
-            <img src="https://quickchart.io"
-                 alt="SCAN & NAVIGATE"
-                 style="width:150px; height:150px; display:block; margin:0 auto 1rem auto; border-radius: 8px;">
-            <p style="color: var(--gold-dark); font-weight: 600; margin-bottom: 0.3rem;">📍 SCAN & NAVIGATE</p>
-            <span style="color: var(--text-light); font-size: 0.8rem;">Rudarska 7, Labin</span>
-        </div>
-
-
-   <!-- 🔗 DRUŠTVENE MREŽE S TOČNIM LINKOVIMA -->
-<div class="social-links" style="text-align: center; margin-top: 2rem;">
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-dark); margin-bottom: 0.8rem; font-weight: 600;">Pratite naš rad i trendove</p>
-
-    <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-
-        <!-- INSTAGRAM -->
-        <a href="https://instagram.com" target="_blank" rel="noopener"
-           style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: var(--text-light); font-size: 0.9rem; font-weight: 600; transition: color 0.3s;"
-           onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--text-light)'">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gold-dark);">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            @kala_salon_frizerski
-        </a>
-
-        <!-- FACEBOOK -->
-        <a href="https://www.facebook.com/profile.php?id=61590409544210" target="_blank" rel="noopener"
-           style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: var(--text-light); font-size: 0.9rem; font-weight: 600; transition: color 0.3s;"
-           onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--text-light)'">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gold-dark);">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-            </svg>
-            Salon Kala
-        </a>
-
-    </div>
-</div>
-
-    <div class="music-section">
-        <div id="salon-slideshow">
-            <div style="position:absolute; top:25px; right:25px; z-index:25; display:flex; align-items:center; gap:15px; flex-wrap:wrap;">
-                <span class="badge-pip">🔴 UŽIVO</span>
-                <audio id="bg-radio" preload="none" crossorigin="anonymous"><source src="https://shoutcast.pondi.hr:9000/;stream/1" type="audio/mpeg"></audio>
-                <button id="playRadioBtn" class="play-btn-main" type="button">▶ POKRENI SALONSKI RADIO</button>
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Ženske frizure 2026
+                    </div>
+                </div>
             </div>
 
-            <div class="slide slide-contain active"><img src="1_prednja_strana_vizitkarta.png" alt="KALA Vizitkarta 1"><div class="slide-caption"><h4>Frizerski Atelier KALA</h4><p>Prvi premium dojam i vizualni identitet našeg salona.</p></div></div>
-            <div class="slide"><img src="zenska_frizura_2026.jpg" alt="Ženski trendovi KALA"><div class="slide-caption"><h4>Ženski Trendovi 2026</h4><p>Moderni rezovi, mekoća i elegancija za svaki dan.</p></div></div>
-            <div class="slide"><img src="trend_2026_zenska_frizura.jpg" alt="Bezvremenski Rezovi"><div class="slide-caption"><h4>Bezvremenski Rezovi</h4><p>Balayage, volumen i sofisticirana tekstura.</p></div></div>
-            <div class="slide"><img src="frizure_muske_2026.jpg" alt="Muški trendovi KALA"><div class="slide-caption"><h4>Muški Trendovi 2026</h4><p>Sharp look, fade i preciznost za jak barber dojam.</p></div></div>
-            <div class="slide"><img src="muski_barber_2026.png" alt="Precizni Fade"><div class="slide-caption"><h4>Precizni Fade & Barber Stilovi</h4><p>Čiste linije i vrhunski grooming u svakom detalju.</p></div></div>
-            <div class="slide slide-contain slide-contain--tall"><img src="blunt_bob.webp" alt="Blunt Bob Statement"><div class="slide-caption"><h4>Blunt Bob Statement</h4><p>Moderna forma koja daje urednost i karakter.</p></div></div>
-            <div class="slide slide-contain slide-contain--tall"><img src="moderner_mullet_lange_haare.png" alt="Moderni Mullet"><div class="slide-caption"><h4>Moderni Mullet</h4><p>Editorijalni rez s puno teksture i stavom.</p></div></div>
-            <div class="slide slide-contain slide-contain--tall"><img src="classic_taper_fade,_buzz_cut.png" alt="Classic Taper Fade i Buzz Cut"><div class="slide-caption"><h4>Classic Taper Fade</h4><p>Čiste linije i oštra muška silueta.</p></div></div>
-            <div class="slide"><img src="textured_crop_quiff.png" alt="Textured Crop Quiff"><div class="slide-caption"><h4>Textured Crop & Quiff</h4><p>Muška tekstura i volumen s premium završnicom.</p></div></div>
-            <div class="slide slide-contain"><img src="2_straznja_strana_vizitkarta.png" alt="KALA Kontakt"><div class="slide-caption"><h4>Kontakt & Lokacija</h4><p>Informacije o terminima i adresa Rudarska 7, Labin.</p></div></div>
-            <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #161412, #2a2722); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><span style="color: var(--gold); font-size: 2rem;">✦ ✦ ✦</span><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); margin: 1rem 0;">Posebna Ponuda</h2><p style="color: #fff; max-width: 500px; margin: 0 auto;">Dubinska njega i rituali hidracije kose uključeni uz svaki estetski tretman kod Lare.</p></div></div></div>
-            <div class="slide"><img src="frizure_2026_trends.webp" alt="Frizure 2026 Trends"><div class="slide-caption"><h4>Trend Inspiracija</h4><p>Lookbook ideje i završni vizualni potpis salona.</p></div></div>
-            <div class="slide"><div style="width:100%; height:100%; background: linear-gradient(135deg, #0d3030, #141f1f); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing: border-box;"><div><div style="width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; margin: 0 auto 1rem;">✂</div><h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--cream); margin-bottom: 1rem;">Rezervirajte Termin</h2><p style="color: rgba(255,255,255,0.9); max-width: 450px; margin: 0 auto;">Nazovite i osigurajte svoje vrijeme na stolici.</p></div></div></div>
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="top_zenske_frizure_2026.jpg"
+                        alt="Top ženske frizure"
+                    >
+                    <span class="trend-badge">
+                        must have
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Top ženske frizure
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="trend_2026_zenska_frizura.jpg"
+                        alt="Trend 2026 ženska"
+                    >
+                    <span class="trend-badge">
+                        elegantno
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Trend 2026
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="zenska_frizura_2026.jpg"
+                        alt="Ženska frizura 2026"
+                    >
+                    <span class="trend-badge">
+                        svakodnevni
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Ženska frizura 2026
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="frizure_muske_2026.jpg"
+                        alt="Muške frizure 2026"
+                    >
+                    <span class="trend-badge">
+                        barber style
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Muške frizure 2026
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="muske_frizure_2026.jpg"
+                        alt="Muški trendovi"
+                    >
+                    <span class="trend-badge">
+                        sharp look
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Muški trendovi 2026
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="muski_barber_2026.png"
+                        alt="Barber 2026"
+                    >
+                    <span class="trend-badge">
+                        barber
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Barber 2026
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="trend-card">
+                <div class="trend-img-wrapper">
+                    <img
+                        src="frizure_2026_trends.webp"
+                        alt="Frizure 2026 trends"
+                    >
+                    <span class="trend-badge">
+                        inspiracija
+                    </span>
+                </div>
+
+                <div class="trend-info">
+                    <div class="trend-name">
+                        Frizure 2026 Trends
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="visualizer" id="visualizer"></div>
-        <div class="info-hint">
-            🎬 <strong>KLA TV</strong> automatski vrti ambijent i ponude |
-            👉 Kliknite gore desno na gumb <strong>“POKRENI SALONSKI RADIO”</strong> pokraj <strong style="color:#ff5a5a;">🔴 UŽIVO</strong> za pokretanje lounge radija!
+
+        <div
+            style="
+                text-align: center;
+                margin-top: 2rem;
+            "
+        >
+
+            <p
+                style="
+                    font-size: 0.85rem;
+                    color: var(--gold-dark);
+                "
+            >
+                Više inspiracije:
+
+                <a
+                    href="https://www.glamour.de/artikel/bronde-hair-haarfarbe-fruehling-2026-stars-inspiration"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--teal);"
+                >
+                    Glamour
+                </a>
+
+                |
+
+                <a
+                    href="https://www.instyle.de/frisuren/trendfrisuren"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--teal);"
+                >
+                    InStyle
+                </a>
+
+            </p>
+
         </div>
+
     </div>
+
+
+    <!-- PREMIUM QR & SOCIAL SEKCIJA SALONA KALA -->
+
+    <div
+        class="qr-section"
+        style="
+            padding: 2rem 0;
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--gold-dark);
+        "
+    >
+
+        <h3
+            style="
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2rem;
+                color: var(--gold-dark);
+                text-align: center;
+            "
+        >
+            ✨ Scan & Connect
+        </h3>
+
+
+        <div
+            class="gold-divider"
+            style="
+                width: 60px;
+                height: 2px;
+                background-color: var(--gold-dark);
+                margin: 0.5rem auto 1.5rem auto;
+            "
+        ></div>
+
+
+        <p
+            style="
+                font-size: 0.85rem;
+                text-align: center;
+                color: var(--text-light);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin-bottom: 1.5rem;
+            "
+        >
+            Olakšajte si boravak u salonu
+        </p>
+
+
+        <div
+            class="qr-container"
+            style="
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                margin-bottom: 2.5rem;
+            "
+        >
+
+
+            <!-- 1. KARTICA: WEB STRANICA SALONA -->
+
+            <div
+                class="qr-card"
+                style="
+                    text-align: center;
+                    background-color: var(--bg-light);
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                "
+            >
+
+                <img
+                    src="qr_code_kala.png"
+                    alt="SCAN & EXPLORE"
+                    style="
+                        width:150px;
+                        height:150px;
+                        display:block;
+                        margin:0 auto 1rem auto;
+                        border-radius:8px;
+                    "
+                >
+
+                <p
+                    style="
+                        color: var(--gold-dark);
+                        font-weight: 600;
+                        margin-bottom: 0.3rem;
+                    "
+                >
+                    🌐 SCAN & EXPLORE
+                </p>
+
+                <span
+                    style="
+                        color: var(--text-light);
+                        font-size: 0.8rem;
+                    "
+                >
+                    Otvori web stranicu i trendove
+                </span>
+
+            </div>
+
+
+            <!-- 2. KARTICA: WI-FI QR -->
+
+            <div
+                class="qr-card"
+                style="
+                    text-align: center;
+                    background-color: var(--bg-light);
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                "
+            >
+
+                <img
+                    src="Kala_Salon_Free_Wi_Fi.png"
+                    alt="SCAN & CONNECT"
+                    style="
+                        width:150px;
+                        height:150px;
+                        display:block;
+                        margin:0 auto 1rem auto;
+                        border-radius:8px;
+                    "
+                >
+
+                <p
+                    style="
+                        color: var(--gold-dark);
+                        font-weight: 600;
+                        margin-bottom: 0.3rem;
+                    "
+                >
+                    📶 SCAN & CONNECT
+                </p>
+
+                <span
+                    style="
+                        color: var(--teal);
+                        font-weight: 600;
+                        font-size: 0.75rem;
+                    "
+                >
+                    KALA_Salon_Free_WiFi
+                </span>
+
+            </div>
+
+
+            <!-- 3. KARTICA: GOOGLE MAPS -->
+
+            <div
+                class="qr-card"
+                style="
+                    text-align: center;
+                    background-color: var(--bg-light);
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                "
+            >
+
+                <a
+                    href="https://maps.app.goo.gl/5p8pZ8xqg7tq8Q2b7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="text-decoration:none;"
+                >
+
+                    <img
+                        src="https://quickchart.io/qr?text=https%3A%2F%2Fmaps.app.goo.gl%2F5p8pZ8xqg7tq8Q2b7&size=300&margin=2"
+                        alt="SCAN & NAVIGATE"
+                        style="
+                            width:150px;
+                            height:150px;
+                            display:block;
+                            margin:0 auto 1rem auto;
+                            border-radius:8px;
+                        "
+                    >
+
+                </a>
+
+                <p
+                    style="
+                        color: var(--gold-dark);
+                        font-weight: 600;
+                        margin-bottom: 0.3rem;
+                    "
+                >
+                    📍 SCAN & NAVIGATE
+                </p>
+
+                <a
+                    href="https://maps.app.goo.gl/5p8pZ8xqg7tq8Q2b7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="
+                        color: var(--text-light);
+                        font-size: 0.8rem;
+                        text-decoration: none;
+                    "
+                >
+                    Rudarska 7, Labin
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DRUŠTVENE MREŽE -->
+
+        <div
+            class="social-links"
+            style="
+                text-align: center;
+                margin-top: 2rem;
+            "
+        >
+
+            <p
+                style="
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 1.4rem;
+                    color: var(--gold-dark);
+                    margin-bottom: 0.8rem;
+                    font-weight: 600;
+                "
+            >
+                Pratite naš rad i trendove
+            </p>
+
+
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.5rem;
+                    align-items: center;
+                    flex-wrap: wrap;
+                "
+            >
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://instagram.com/larafaraguna/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: var(--text-light);
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        transition: color 0.3s;
+                    "
+                    onmouseover="this.style.color='var(--gold-dark)'"
+                    onmouseout="this.style.color='var(--text-light)'"
+                >
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="color: var(--gold-dark);"
+                    >
+                        <rect
+                            x="2"
+                            y="2"
+                            width="20"
+                            height="20"
+                            rx="5"
+                            ry="5"
+                        ></rect>
+
+                        <path
+                            d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                        ></path>
+
+                        <line
+                            x1="17.5"
+                            y1="6.5"
+                            x2="17.51"
+                            y2="6.5"
+                        ></line>
+
+                    </svg>
+
+                    @larafaraguna
+
+                </a>
+
+
+                <!-- FACEBOOK -->
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61590409544210"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: var(--text-light);
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        transition: color 0.3s;
+                    "
+                    onmouseover="this.style.color='var(--gold-dark)'"
+                    onmouseout="this.style.color='var(--text-light)'"
+                >
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="color: var(--gold-dark);"
+                    >
+                        <path
+                            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                        ></path>
+                    </svg>
+
+                    Salon Kala
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- KALA TV / SALONSKI RADIO -->
+
+    <div class="music-section">
+
+        <div id="salon-slideshow">
+
+
+            <div
+                style="
+                    position:absolute;
+                    top:25px;
+                    right:25px;
+                    z-index:25;
+                    display:flex;
+                    align-items:center;
+                    gap:15px;
+                    flex-wrap:wrap;
+                "
+            >
+
+                <span class="badge-pip">
+                    🔴 UŽIVO
+                </span>
+
+
+                <audio
+                    id="bg-radio"
+                    preload="none"
+                    crossorigin="anonymous"
+                >
+                    <source
+                        src="https://shoutcast.pondi.hr:9000/;stream/1"
+                        type="audio/mpeg"
+                    >
+                </audio>
+
+
+                <button
+                    id="playRadioBtn"
+                    class="play-btn-main"
+                    type="button"
+                >
+                    ▶ POKRENI SALONSKI RADIO
+                </button>
+
+            </div>
+
+
+            <div class="slide slide-contain active">
+
+                <img
+                    src="1_prednja_strana_vizitkarta.png"
+                    alt="KALA Vizitkarta 1"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Frizerski Atelier KALA
+                    </h4>
+
+                    <p>
+                        Prvi premium dojam i vizualni identitet našeg salona.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="zenska_frizura_2026.jpg"
+                    alt="Ženski trendovi KALA"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Ženski Trendovi 2026
+                    </h4>
+
+                    <p>
+                        Moderni rezovi, mekoća i elegancija za svaki dan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="trend_2026_zenska_frizura.jpg"
+                    alt="Bezvremenski Rezovi"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Bezvremenski Rezovi
+                    </h4>
+
+                    <p>
+                        Balayage, volumen i sofisticirana tekstura.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="frizure_muske_2026.jpg"
+                    alt="Muški trendovi KALA"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Muški Trendovi 2026
+                    </h4>
+
+                    <p>
+                        Sharp look, fade i preciznost za jak barber dojam.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="muski_barber_2026.png"
+                    alt="Precizni Fade"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Precizni Fade & Barber Stilovi
+                    </h4>
+
+                    <p>
+                        Čiste linije i vrhunski grooming u svakom detalju.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide slide-contain slide-contain--tall">
+
+                <img
+                    src="blunt_bob.webp"
+                    alt="Blunt Bob Statement"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Blunt Bob Statement
+                    </h4>
+
+                    <p>
+                        Moderna forma koja daje urednost i karakter.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide slide-contain slide-contain--tall">
+
+                <img
+                    src="moderner_mullet_lange_haare.png"
+                    alt="Moderni Mullet"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Moderni Mullet
+                    </h4>
+
+                    <p>
+                        Editorijalni rez s puno teksture i stavom.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide slide-contain slide-contain--tall">
+
+                <img
+                    src="classic_taper_fade,_buzz_cut.png"
+                    alt="Classic Taper Fade i Buzz Cut"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Classic Taper Fade
+                    </h4>
+
+                    <p>
+                        Čiste linije i oštra muška silueta.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="textured_crop_quiff.png"
+                    alt="Textured Crop Quiff"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Textured Crop & Quiff
+                    </h4>
+
+                    <p>
+                        Muška tekstura i volumen s premium završnicom.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide slide-contain">
+
+                <img
+                    src="2_straznja_strana_vizitkarta.png"
+                    alt="KALA Kontakt"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Kontakt & Lokacija
+                    </h4>
+
+                    <p>
+                        Informacije o terminima i adresa Rudarska 7, Labin.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <div
+                    style="
+                        width:100%;
+                        height:100%;
+                        background:linear-gradient(
+                            135deg,
+                            #161412,
+                            #2a2722
+                        );
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        text-align:center;
+                        padding:2rem;
+                        box-sizing:border-box;
+                    "
+                >
+
+                    <div>
+
+                        <span
+                            style="
+                                color:var(--gold);
+                                font-size:2rem;
+                            "
+                        >
+                            ✦ ✦ ✦
+                        </span>
+
+                        <h2
+                            style="
+                                font-family:'Cormorant Garamond', serif;
+                                font-size:2.8rem;
+                                color:var(--gold-light);
+                                margin:1rem 0;
+                            "
+                        >
+                            Posebna Ponuda
+                        </h2>
+
+                        <p
+                            style="
+                                color:#fff;
+                                max-width:500px;
+                                margin:0 auto;
+                            "
+                        >
+                            Dubinska njega i rituali hidracije kose uključeni
+                            uz svaki estetski tretman kod Lare.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <img
+                    src="frizure_2026_trends.webp"
+                    alt="Frizure 2026 Trends"
+                >
+
+                <div class="slide-caption">
+
+                    <h4>
+                        Trend Inspiracija
+                    </h4>
+
+                    <p>
+                        Lookbook ideje i završni vizualni potpis salona.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="slide">
+
+                <div
+                    style="
+                        width:100%;
+                        height:100%;
+                        background:linear-gradient(
+                            135deg,
+                            #0d3030,
+                            #141f1f
+                        );
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        text-align:center;
+                        padding:2rem;
+                        box-sizing:border-box;
+                    "
+                >
+
+                    <div>
+
+                        <div
+                            style="
+                                width:60px;
+                                height:60px;
+                                border:2px solid var(--gold);
+                                border-radius:50%;
+                                display:flex;
+                                align-items:center;
+                                justify-content:center;
+                                color:var(--gold);
+                                font-size:1.5rem;
+                                margin:0 auto 1rem;
+                            "
+                        >
+                            ✂
+                        </div>
+
+                        <h2
+                            style="
+                                font-family:'Cormorant Garamond', serif;
+                                font-size:2.5rem;
+                                color:var(--cream);
+                                margin-bottom:1rem;
+                            "
+                        >
+                            Rezervirajte Termin
+                        </h2>
+
+                        <p
+                            style="
+                                color:rgba(255,255,255,0.9);
+                                max-width:450px;
+                                margin:0 auto;
+                            "
+                        >
+                            Nazovite i osigurajte svoje vrijeme na stolici.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="visualizer"
+            id="visualizer"
+        ></div>
+
+
+        <div class="info-hint">
+
+            🎬 <strong>KALA TV</strong>
+            automatski vrti ambijent i ponude
+
+            |
+
+            👉 Kliknite gore desno na gumb
+            <strong>“POKRENI SALONSKI RADIO”</strong>
+            pokraj
+            <strong style="color:#ff5a5a;">
+                🔴 UŽIVO
+            </strong>
+            za pokretanje lounge radija!
+
+        </div>
+
+    </div>
+
 
     <footer>
         K ✂️ L A – Rudarska 7, Labin | lounge radio | trendovi 2025/2026
     </footer>
+
 </div>
 
+
 <script>
+
 (() => {
+
     'use strict';
-    const radio = document.getElementById('bg-radio');
-    const playBtn = document.getElementById('playRadioBtn');
-    const visualizer = document.getElementById('visualizer');
-    const slides = Array.from(document.querySelectorAll('#salon-slideshow .slide'));
-    const mapBtn = document.getElementById('toggleMapBtn');
-    const mapContainer = document.getElementById('mapContainer');
-    const phoneLink = document.getElementById('phoneLink');
+
+
+    const radio =
+        document.getElementById('bg-radio');
+
+    const playBtn =
+        document.getElementById('playRadioBtn');
+
+    const visualizer =
+        document.getElementById('visualizer');
+
+    const slides =
+        Array.from(
+            document.querySelectorAll(
+                '#salon-slideshow .slide'
+            )
+        );
+
+    const mapBtn =
+        document.getElementById('toggleMapBtn');
+
+    const mapContainer =
+        document.getElementById('mapContainer');
+
+    const phoneLink =
+        document.getElementById('phoneLink');
+
+
     let visualizerInterval = null;
+
     let slideInterval = null;
+
     let radioStarted = false;
-    let currentSlide = Math.max(0, slides.findIndex(slide => slide.classList.contains('active')));
-    if (currentSlide === -1) currentSlide = 0;
-    function ensureVisualizerBars() { if (!visualizer || visualizer.dataset.initialized === '1') return; visualizer.dataset.initialized = '1'; visualizer.innerHTML = ''; for (let i = 0; i < 24; i++) { const bar = document.createElement('div'); bar.className = 'bar'; visualizer.appendChild(bar); } }
-    function getBars() { return Array.from(document.querySelectorAll('#visualizer .bar')); }
-    function updateBars() { const bars = getBars(); if (!radio || radio.paused) { bars.forEach(bar => { bar.style.height = '4px'; }); return; } bars.forEach(bar => { bar.style.height = (Math.random() * 35 + 4) + 'px'; }); }
-    function stopVisuals() { if (visualizerInterval) { clearInterval(visualizerInterval); visualizerInterval = null; } updateBars(); }
-    function startVisuals() { if (!visualizerInterval) visualizerInterval = setInterval(updateBars, 90); }
-    function showSlide(index) { if (!slides.length) return; slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); }
-    function nextSlide() { showSlide(currentSlide + 1); }
-    function startSlideshow() { if (slideInterval) { clearInterval(slideInterval); slideInterval = null; } slideInterval = setInterval(nextSlide, 5800); }
-    function stopSlideshow() { if (slideInterval) { clearInterval(slideInterval); slideInterval = null; } }
-    function setRadioButtonState(isPlaying) { if (!playBtn) return; playBtn.innerHTML = isPlaying ? '⏸ PAUZIRAJ RADIO' : '▶ POKRENI SALONSKI RADIO'; playBtn.style.background = isPlaying ? 'linear-gradient(135deg, #8c6a2b, #6b4f20)' : 'linear-gradient(135deg, var(--gold), var(--gold-dark))'; }
-    async function startRadio() { if (!radio || radioStarted) return; radioStarted = true; try { radio.load(); await radio.play(); setRadioButtonState(true); startSlideshow(); startVisuals(); updateBars(); } catch (err) { radioStarted = false; setRadioButtonState(false); startSlideshow(); startVisuals(); } }
-    function pauseRadio() { if (!radio) return; radio.pause(); radioStarted = false; setRadioButtonState(false); stopSlideshow(); stopVisuals(); }
-    function toggleRadio() { if (!radio) return; if (radio.paused) startRadio(); else pauseRadio(); }
-    function toggleMap() { if (!mapContainer) return; mapContainer.style.display = mapContainer.style.display === 'block' ? 'none' : 'block'; }
-    function highlightToday() { const today = new Date().getDay(); document.querySelectorAll('#hoursTable p').forEach(row => { if (parseInt(row.dataset.day, 10) === today) { row.classList.add('today'); const span = row.querySelector('span:first-child'); if (span && !span.textContent.includes('☀️')) span.textContent += ' ☀️'; } }); }
-    function copyNumber(e) { e.preventDefault(); const num = '+385912512647'; if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(num).then(() => { const link = e.currentTarget; const original = link.textContent; link.textContent = '✅ Kopirano!'; setTimeout(() => { link.textContent = original; }, 2000); }).catch(() => { window.location.href = 'tel:' + num; }); } else { window.location.href = 'tel:' + num; } }
-    function bindEventsOnce() { if (playBtn && !playBtn.dataset.bound) { playBtn.dataset.bound = '1'; playBtn.addEventListener('click', toggleRadio); } if (mapBtn && !mapBtn.dataset.bound) { mapBtn.dataset.bound = '1'; mapBtn.addEventListener('click', toggleMap); } if (phoneLink && !phoneLink.dataset.bound) { phoneLink.dataset.bound = '1'; phoneLink.addEventListener('click', copyNumber); } }
-    function init() { ensureVisualizerBars(); bindEventsOnce(); highlightToday(); updateBars(); if (!radio) return; radio.addEventListener('ended', () => { radioStarted = false; setRadioButtonState(false); stopSlideshow(); stopVisuals(); }, { once: false }); radio.addEventListener('pause', () => { if (!radioStarted) { stopSlideshow(); stopVisuals(); } }, { once: false }); radio.addEventListener('playing', () => { radioStarted = true; setRadioButtonState(true); startSlideshow(); startVisuals(); }, { once: false }); }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else init();
-    window.addEventListener('pagehide', () => { stopSlideshow(); stopVisuals(); }, { once: true });
+
+
+    let currentSlide =
+        Math.max(
+            0,
+            slides.findIndex(
+                slide =>
+                    slide.classList.contains('active')
+            )
+        );
+
+
+    if (currentSlide === -1) {
+        currentSlide = 0;
+    }
+
+
+    function ensureVisualizerBars() {
+
+        if (
+            !visualizer ||
+            visualizer.dataset.initialized === '1'
+        ) {
+            return;
+        }
+
+        visualizer.dataset.initialized = '1';
+
+        visualizer.innerHTML = '';
+
+        for (let i = 0; i < 24; i++) {
+
+            const bar =
+                document.createElement('div');
+
+            bar.className = 'bar';
+
+            visualizer.appendChild(bar);
+
+        }
+
+    }
+
+
+    function getBars() {
+
+        return Array.from(
+            document.querySelectorAll(
+                '#visualizer .bar'
+            )
+        );
+
+    }
+
+
+    function updateBars() {
+
+        const bars = getBars();
+
+        if (!radio || radio.paused) {
+
+            bars.forEach(
+                bar => {
+                    bar.style.height = '4px';
+                }
+            );
+
+            return;
+        }
+
+
+        bars.forEach(
+            bar => {
+                bar.style.height =
+                    (Math.random() * 35 + 4) + 'px';
+            }
+        );
+
+    }
+
+
+    function stopVisuals() {
+
+        if (visualizerInterval) {
+
+            clearInterval(
+                visualizerInterval
+            );
+
+            visualizerInterval = null;
+
+        }
+
+        updateBars();
+
+    }
+
+
+    function startVisuals() {
+
+        if (!visualizerInterval) {
+
+            visualizerInterval =
+                setInterval(
+                    updateBars,
+                    90
+                );
+
+        }
+
+    }
+
+
+    function showSlide(index) {
+
+        if (!slides.length) {
+            return;
+        }
+
+        slides[currentSlide]
+            .classList
+            .remove('active');
+
+        currentSlide =
+            (index + slides.length) %
+            slides.length;
+
+        slides[currentSlide]
+            .classList
+            .add('active');
+
+    }
+
+
+    function nextSlide() {
+
+        showSlide(
+            currentSlide + 1
+        );
+
+    }
+
+
+    function startSlideshow() {
+
+        if (slideInterval) {
+
+            clearInterval(
+                slideInterval
+            );
+
+            slideInterval = null;
+
+        }
+
+        slideInterval =
+            setInterval(
+                nextSlide,
+                5800
+            );
+
+    }
+
+
+    function stopSlideshow() {
+
+        if (slideInterval) {
+
+            clearInterval(
+                slideInterval
+            );
+
+            slideInterval = null;
+
+        }
+
+    }
+
+
+    function setRadioButtonState(isPlaying) {
+
+        if (!playBtn) {
+            return;
+        }
+
+        playBtn.innerHTML =
+            isPlaying
+                ? '⏸ PAUZIRAJ RADIO'
+                : '▶ POKRENI SALONSKI RADIO';
+
+
+        playBtn.style.background =
+            isPlaying
+                ? 'linear-gradient(135deg, #8c6a2b, #6b4f20)'
+                : 'linear-gradient(135deg, var(--gold), var(--gold-dark))';
+
+    }
+
+
+    async function startRadio() {
+
+        if (!radio || radioStarted) {
+            return;
+        }
+
+        radioStarted = true;
+
+        try {
+
+            radio.load();
+
+            await radio.play();
+
+            setRadioButtonState(true);
+
+            startSlideshow();
+
+            startVisuals();
+
+            updateBars();
+
+        } catch (err) {
+
+            radioStarted = false;
+
+            setRadioButtonState(false);
+
+            startSlideshow();
+
+            startVisuals();
+
+        }
+
+    }
+
+
+    function pauseRadio() {
+
+        if (!radio) {
+            return;
+        }
+
+        radio.pause();
+
+        radioStarted = false;
+
+        setRadioButtonState(false);
+
+        stopSlideshow();
+
+        stopVisuals();
+
+    }
+
+
+    function toggleRadio() {
+
+        if (!radio) {
+            return;
+        }
+
+        if (radio.paused) {
+
+            startRadio();
+
+        } else {
+
+            pauseRadio();
+
+        }
+
+    }
+
+
+    function toggleMap() {
+
+        const mapsUrl =
+            'https://maps.app.goo.gl/5p8pZ8xqg7tq8Q2b7';
+
+
+        if (
+            mapContainer &&
+            mapContainer.style.display === 'block'
+        ) {
+
+            mapContainer.style.display = 'none';
+
+            return;
+
+        }
+
+
+        if (mapContainer) {
+
+            mapContainer.style.display = 'block';
+
+            mapContainer.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+
+        }
+
+
+        window.open(
+            mapsUrl,
+            '_blank',
+            'noopener,noreferrer'
+        );
+
+    }
+
+
+    function highlightToday() {
+
+        const today =
+            new Date().getDay();
+
+
+        document
+            .querySelectorAll(
+                '#hoursTable p'
+            )
+            .forEach(
+                row => {
+
+                    if (
+                        parseInt(
+                            row.dataset.day,
+                            10
+                        ) === today
+                    ) {
+
+                        row.classList.add('today');
+
+
+                        const span =
+                            row.querySelector(
+                                'span:first-child'
+                            );
+
+
+                        if (
+                            span &&
+                            !span.textContent.includes('☀️')
+                        ) {
+
+                            span.textContent +=
+                                ' ☀️';
+
+                        }
+
+                    }
+
+                }
+            );
+
+    }
+
+
+    function copyNumber(e) {
+
+        e.preventDefault();
+
+        const num =
+            '+385912512647';
+
+
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+            navigator.clipboard
+                .writeText(num)
+                .then(
+                    () => {
+
+                        const link =
+                            e.currentTarget;
+
+                        const original =
+                            link.textContent;
+
+                        link.textContent =
+                            '✅ Kopirano!';
+
+
+                        setTimeout(
+                            () => {
+
+                                link.textContent =
+                                    original;
+
+                            },
+                            2000
+                        );
+
+                    }
+                )
+                .catch(
+                    () => {
+
+                        window.location.href =
+                            'tel:' + num;
+
+                    }
+                );
+
+        } else {
+
+            window.location.href =
+                'tel:' + num;
+
+        }
+
+    }
+
+
+    function bindEventsOnce() {
+
+        if (
+            playBtn &&
+            !playBtn.dataset.bound
+        ) {
+
+            playBtn.dataset.bound = '1';
+
+            playBtn.addEventListener(
+                'click',
+                toggleRadio
+            );
+
+        }
+
+
+        if (
+            mapBtn &&
+            !mapBtn.dataset.bound
+        ) {
+
+            mapBtn.dataset.bound = '1';
+
+            mapBtn.addEventListener(
+                'click',
+                toggleMap
+            );
+
+        }
+
+
+        if (
+            phoneLink &&
+            !phoneLink.dataset.bound
+        ) {
+
+            phoneLink.dataset.bound = '1';
+
+            phoneLink.addEventListener(
+                'click',
+                copyNumber
+            );
+
+        }
+
+    }
+
+
+    function init() {
+
+        ensureVisualizerBars();
+
+        bindEventsOnce();
+
+        highlightToday();
+
+        updateBars();
+
+
+        if (!radio) {
+            return;
+        }
+
+
+        radio.addEventListener(
+            'ended',
+            () => {
+
+                radioStarted = false;
+
+                setRadioButtonState(false);
+
+                stopSlideshow();
+
+                stopVisuals();
+
+            }
+        );
+
+
+        radio.addEventListener(
+            'pause',
+            () => {
+
+                if (!radioStarted) {
+
+                    stopSlideshow();
+
+                    stopVisuals();
+
+                }
+
+            }
+        );
+
+
+        radio.addEventListener(
+            'playing',
+            () => {
+
+                radioStarted = true;
+
+                setRadioButtonState(true);
+
+                startSlideshow();
+
+                startVisuals();
+
+            }
+        );
+
+    }
+
+
+    if (
+        document.readyState === 'loading'
+    ) {
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            init,
+            { once: true }
+        );
+
+    } else {
+
+        init();
+
+    }
+
+
+    window.addEventListener(
+        'pagehide',
+        () => {
+
+            stopSlideshow();
+
+            stopVisuals();
+
+        },
+        { once: true }
+    );
+
+
 })();
+
 </script>
+
 </body>
 </html>
