@@ -256,6 +256,27 @@
             margin-bottom: 1.2rem;
         }
 
+        .holiday-banner {
+            margin-bottom: 0;
+            padding: 0;
+            border-radius: 16px;
+            background: rgba(179, 143, 64, 0.12);
+            border: 0 solid rgba(179, 143, 64, 0.28);
+            color: var(--gold-dark);
+            font-weight: 600;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .holiday-banner.active {
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-width: 1px;
+            max-height: 6rem;
+            opacity: 1;
+        }
+
         .hours-table p {
             display: flex;
             justify-content: space-between;
@@ -746,21 +767,11 @@
 
                 <div
                     id="holidayBanner"
+                    class="holiday-banner"
                     role="status"
                     aria-live="polite"
                     aria-atomic="true"
-                    style="
-                        margin-bottom: 0;
-                        padding: 0;
-                        border-radius: 16px;
-                        background: rgba(179, 143, 64, 0.12);
-                        border: 0 solid rgba(179, 143, 64, 0.28);
-                        color: var(--gold-dark);
-                        font-weight: 600;
-                        max-height: 0;
-                        opacity: 0;
-                        overflow: hidden;
-                    "
+                    aria-hidden="true"
                 ></div>
 
                 <div class="hours-table" id="hoursTable">
@@ -2381,33 +2392,20 @@
 
         if (holidays.includes(iso)) {
 
-            banner.style.marginBottom = '1rem';
-
-            banner.style.padding = '0.75rem 1rem';
-
-            banner.style.borderWidth = '1px';
-
-            banner.style.maxHeight = '6rem';
-
-            banner.style.opacity = '1';
-
             banner.textContent =
                 '🎉 Danas je državni praznik — salon je ZATVOREN';
 
+            banner.classList.add('active');
+
+            banner.setAttribute('aria-hidden', 'false');
 
         } else {
 
             banner.textContent = '';
 
-            banner.style.marginBottom = '0';
+            banner.classList.remove('active');
 
-            banner.style.padding = '0';
-
-            banner.style.borderWidth = '0';
-
-            banner.style.maxHeight = '0';
-
-            banner.style.opacity = '0';
+            banner.setAttribute('aria-hidden', 'true');
 
         }
 
