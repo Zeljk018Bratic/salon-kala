@@ -746,6 +746,8 @@
 
                 <div
                     id="holidayBanner"
+                    role="status"
+                    aria-live="polite"
                     style="
                         display: none;
                         margin-bottom: 1rem;
@@ -1895,6 +1897,103 @@
     ];
 
 
+    function formatLocalIsoDate(date) {
+
+        const year = date.getFullYear();
+
+        const month = String(
+            date.getMonth() + 1
+        ).padStart(2, '0');
+
+        const day = String(
+            date.getDate()
+        ).padStart(2, '0');
+
+
+        return `${year}-${month}-${day}`;
+
+    }
+
+
+    function getEasterSunday(year) {
+
+        const a = year % 19;
+
+        const b = Math.floor(year / 100);
+
+        const c = year % 100;
+
+        const d = Math.floor(b / 4);
+
+        const e = b % 4;
+
+        const f = Math.floor((b + 8) / 25);
+
+        const g = Math.floor((b - f + 1) / 3);
+
+        const h = (19 * a + b - d - g + 15) % 30;
+
+        const i = Math.floor(c / 4);
+
+        const k = c % 4;
+
+        const l = (32 + 2 * e + 2 * i - h - k) % 7;
+
+        const m = Math.floor((a + 11 * h + 22 * l) / 451);
+
+        const month = Math.floor((h + l - 7 * m + 114) / 31);
+
+        const day = ((h + l - 7 * m + 114) % 31) + 1;
+
+
+        return new Date(year, month - 1, day);
+
+    }
+
+
+    function addDays(date, days) {
+
+        const nextDate = new Date(date);
+
+        nextDate.setDate(nextDate.getDate() + days);
+
+
+        return nextDate;
+
+    }
+
+
+    function getCroatianHolidays(year) {
+
+        if (year === 2026) {
+            return CROATIAN_HOLIDAYS_2026;
+        }
+
+
+        const easterSunday =
+            getEasterSunday(year);
+
+
+        return [
+            `${year}-01-01`, // Nova godina
+            `${year}-01-06`, // Sveta tri kralja
+            formatLocalIsoDate(easterSunday), // Uskrs
+            formatLocalIsoDate(addDays(easterSunday, 1)), // Uskrsni ponedjeljak
+            `${year}-05-01`, // Praznik rada
+            `${year}-05-30`, // Dan državnosti
+            formatLocalIsoDate(addDays(easterSunday, 60)), // Tijelovo
+            `${year}-06-22`, // Dan antifašističke borbe
+            `${year}-08-05`, // Dan pobjede i domovinske zahvalnosti
+            `${year}-08-15`, // Velika Gospa
+            `${year}-11-01`, // Svi sveti
+            `${year}-11-18`, // Dan sjećanja na žrtve Domovinskog rata
+            `${year}-12-25`, // Božić
+            `${year}-12-26` // Sveti Stjepan
+        ];
+
+    }
+
+
     let visualizerInterval = null;
 
     let slideInterval = null;
@@ -2264,7 +2363,12 @@
 
         const today = new Date();
 
-        const iso = today.toISOString().split('T')[0];
+        const iso = formatLocalIsoDate(today);
+
+        const holidays =
+            getCroatianHolidays(
+                today.getFullYear()
+            );
 
         const banner = document.getElementById('holidayBanner');
 
@@ -2272,7 +2376,7 @@
         if (!banner) return;
 
 
-        if (CROATIAN_HOLIDAYS_2026.includes(iso)) {
+        if (holidays.includes(iso)) {
 
             banner.textContent =
                 '🎉 Danas je državni praznik — salon je ZATVOREN';
