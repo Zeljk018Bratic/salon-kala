@@ -748,15 +748,18 @@
                     id="holidayBanner"
                     role="status"
                     aria-live="polite"
+                    aria-atomic="true"
                     style="
-                        display: none;
-                        margin-bottom: 1rem;
-                        padding: 0.75rem 1rem;
+                        margin-bottom: 0;
+                        padding: 0;
                         border-radius: 16px;
                         background: rgba(179, 143, 64, 0.12);
-                        border: 1px solid rgba(179, 143, 64, 0.28);
+                        border: 0 solid rgba(179, 143, 64, 0.28);
                         color: var(--gold-dark);
                         font-weight: 600;
+                        max-height: 0;
+                        opacity: 0;
+                        overflow: hidden;
                     "
                 ></div>
 
@@ -2378,16 +2381,33 @@
 
         if (holidays.includes(iso)) {
 
+            banner.style.marginBottom = '1rem';
+
+            banner.style.padding = '0.75rem 1rem';
+
+            banner.style.borderWidth = '1px';
+
+            banner.style.maxHeight = '6rem';
+
+            banner.style.opacity = '1';
+
             banner.textContent =
                 '🎉 Danas je državni praznik — salon je ZATVOREN';
 
-            banner.style.display = 'block';
 
         } else {
 
             banner.textContent = '';
 
-            banner.style.display = 'none';
+            banner.style.marginBottom = '0';
+
+            banner.style.padding = '0';
+
+            banner.style.borderWidth = '0';
+
+            banner.style.maxHeight = '0';
+
+            banner.style.opacity = '0';
 
         }
 
