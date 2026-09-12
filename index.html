@@ -768,10 +768,6 @@
                 <div
                     id="holidayBanner"
                     class="holiday-banner"
-                    role="status"
-                    aria-live="polite"
-                    aria-atomic="true"
-                    aria-hidden="true"
                 ></div>
 
                 <div class="hours-table" id="hoursTable">
@@ -2397,7 +2393,11 @@
 
             banner.classList.add('active');
 
-            banner.setAttribute('aria-hidden', 'false');
+            banner.setAttribute('role', 'status');
+
+            banner.setAttribute('aria-live', 'polite');
+
+            banner.setAttribute('aria-atomic', 'true');
 
         } else {
 
@@ -2405,7 +2405,11 @@
 
             banner.classList.remove('active');
 
-            banner.setAttribute('aria-hidden', 'true');
+            banner.removeAttribute('role');
+
+            banner.removeAttribute('aria-live');
+
+            banner.removeAttribute('aria-atomic');
 
         }
 
