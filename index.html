@@ -256,27 +256,6 @@
             margin-bottom: 1.2rem;
         }
 
-        .holiday-banner {
-            margin-bottom: 0;
-            padding: 0;
-            border-radius: 16px;
-            background: rgba(179, 143, 64, 0.12);
-            border: 0 solid rgba(179, 143, 64, 0.28);
-            color: var(--gold-dark);
-            font-weight: 600;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-
-        .holiday-banner.active {
-            margin-bottom: 1rem;
-            padding: 0.75rem 1rem;
-            border-width: 1px;
-            max-height: 6rem;
-            opacity: 1;
-        }
-
         .hours-table p {
             display: flex;
             justify-content: space-between;
@@ -765,15 +744,6 @@
 
                 <h3>🕘 Radno vrijeme</h3>
 
-                <div
-                    id="holidayBanner"
-                    class="holiday-banner"
-                    role="status"
-                    aria-live="polite"
-                    aria-atomic="true"
-                    aria-hidden="true"
-                ></div>
-
                 <div class="hours-table" id="hoursTable">
 
                     <p data-day="1">
@@ -802,7 +772,7 @@
                     </p>
 
                     <p data-day="6">
-                        <span>SUBOTA ☀️</span>
+                        <span>SUBOTA</span>
                         <span>08:00 – 13:00</span>
                     </p>
 
@@ -815,17 +785,6 @@
 
                 <div class="appointment">
                     📞 +po dogovoru – nazovi i rezerviraj
-                </div>
-
-                <div class="appointment" style="margin-top: 0.6rem;">
-                    <a
-                        href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1btjguvLx3X5AuRFeS8odJlGXOvNkP3DnCT8lXkBJy4AP4q7yKH6KGd54wS7QqlDDvLwyfdbQi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style="color: inherit; text-decoration: none;"
-                    >
-                        📅 Rezerviraj Termin Online
-                    </a>
                 </div>
 
             </div>
@@ -1262,20 +1221,47 @@
                 <span style="color: var(--text-light); font-size: 0.8rem;">Rudarska 7, Labin</span>
             </div>
 
-             <!-- 4. KARTICA: REZERVACIJA ONLINE -->
+            <!-- 4. KARTICA: interim dok ne stigne pravi review link -->
             <div class="qr-card" style="text-align: center; background-color: var(--bg-light); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gold-dark);">
-                <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1btjguvLx3X5AuRFeS8odJlGXOvNkP3DnCT8lXkBJy4AP4q7yKH6KGd54wS7QqlDDvLwyfdbQi" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-                    <img src="https://quickchart.io/qr?text=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fu%2F0%2Fappointments%2Fschedules%2FAcZssZ1btjguvLx3X5AuRFeS8odJlGXOvNkP3DnCT8lXkBJy4AP4q7yKH6KGd54wS7QqlDDvLwyfdbQi&dark=1a1a1a&light=d4af37&ecLevel=H&size=300" alt="SCAN & BOOK" style="width:150px; height:150px; display:block; margin:0 auto 1rem auto; border-radius: 8px;">
-                </a>
-                <p style="color: var(--gold-dark); font-weight: 600; margin-bottom: 0.3rem;">📅 SCAN & BOOK</p>
-                <span style="color: var(--text-light); font-size: 0.8rem;">Rezerviraj termin online</span>
+                <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FKALA%2C%2Bobrt%2Bza%2Bfrizerske%2Busluge%2C%2Bvl.%2BLara%2BFaraguna%2F%4045.0923401%2C14.1204451%2C17z%2Fdata%3D%214m8%213m7%211s0x47634929554730c5%3A0xac67ad56fc66b5b%218m2%213d45.0920826%214d14.120488%219m1%211b1%2116s%252Fg%252F11zxjfxbxf%3Fhl%3Dde%26entry%3Dttu&dark=1a1a1a&light=d4af37&ecLevel=H&size=300" alt="VIDI NAS NA GOOGLE KARTI" style="width:150px; height:150px; display:block; margin:0 auto 1rem auto; border-radius: 8px;">
+                <p style="color: var(--gold-dark); font-weight: 600; margin-bottom: 0.3rem;">📍 VIDI NAS NA KARTI</p>
+                <span style="color: var(--text-light); font-size: 0.75rem;">Recenzije uskoro — čeka se g.page link</span>
             </div>
         </div>
 
-            <!-- DRUŠTVENE MREŽE -->
-        <div class="social-links" style="text-align: center; margin-top: 2rem;">
-            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-dark); margin-bottom: 0.8rem; font-weight: 600;">Pratite naš rad i trendove</p>
-            <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+        <!-- DRUŠTVENE MREŽE -->
+
+        <div
+            class="social-links"
+            style="
+                text-align: center;
+                margin-top: 2rem;
+            "
+        >
+
+            <p
+                style="
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 1.4rem;
+                    color: var(--gold-dark);
+                    margin-bottom: 0.8rem;
+                    font-weight: 600;
+                "
+            >
+                Pratite naš rad i trendove
+            </p>
+
+
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.5rem;
+                    align-items: center;
+                    flex-wrap: wrap;
+                "
+            >
+
 
 <!-- INSTAGRAM -->
 
@@ -1866,120 +1852,6 @@
     const phoneLink =
         document.getElementById('phoneLink');
 
-    const CROATIAN_HOLIDAYS_2026 = [
-        '2026-01-01', // Nova godina
-        '2026-01-06', // Sveta tri kralja
-        '2026-04-05', // Uskrs
-        '2026-04-06', // Uskrsni ponedjeljak
-        '2026-05-01', // Praznik rada
-        '2026-05-30', // Dan državnosti
-        '2026-06-04', // Tijelovo
-        '2026-06-22', // Dan antifašističke borbe
-        '2026-08-05', // Dan pobjede i domovinske zahvalnosti
-        '2026-08-15', // Velika Gospa
-        '2026-11-01', // Svi sveti
-        '2026-11-18', // Dan sjećanja na žrtve Domovinskog rata
-        '2026-12-25', // Božić
-        '2026-12-26'  // Sveti Stjepan
-    ];
-
-
-    function formatLocalIsoDate(date) {
-
-        const year = date.getFullYear();
-
-        const month = String(
-            date.getMonth() + 1
-        ).padStart(2, '0');
-
-        const day = String(
-            date.getDate()
-        ).padStart(2, '0');
-
-
-        return `${year}-${month}-${day}`;
-
-    }
-
-
-    function getEasterSunday(year) {
-
-        const a = year % 19;
-
-        const b = Math.floor(year / 100);
-
-        const c = year % 100;
-
-        const d = Math.floor(b / 4);
-
-        const e = b % 4;
-
-        const f = Math.floor((b + 8) / 25);
-
-        const g = Math.floor((b - f + 1) / 3);
-
-        const h = (19 * a + b - d - g + 15) % 30;
-
-        const i = Math.floor(c / 4);
-
-        const k = c % 4;
-
-        const l = (32 + 2 * e + 2 * i - h - k) % 7;
-
-        const m = Math.floor((a + 11 * h + 22 * l) / 451);
-
-        const month = Math.floor((h + l - 7 * m + 114) / 31);
-
-        const day = ((h + l - 7 * m + 114) % 31) + 1;
-
-
-        return new Date(year, month - 1, day);
-
-    }
-
-
-    function addDays(date, days) {
-
-        const nextDate = new Date(date);
-
-        nextDate.setDate(nextDate.getDate() + days);
-
-
-        return nextDate;
-
-    }
-
-
-    function getCroatianHolidays(year) {
-
-        if (year === 2026) {
-            return CROATIAN_HOLIDAYS_2026;
-        }
-
-
-        const easterSunday =
-            getEasterSunday(year);
-
-
-        return [
-            `${year}-01-01`, // Nova godina
-            `${year}-01-06`, // Sveta tri kralja
-            formatLocalIsoDate(easterSunday), // Uskrs
-            formatLocalIsoDate(addDays(easterSunday, 1)), // Uskrsni ponedjeljak
-            `${year}-05-01`, // Praznik rada
-            `${year}-05-30`, // Dan državnosti
-            formatLocalIsoDate(addDays(easterSunday, 60)), // Tijelovo
-            `${year}-06-22`, // Dan antifašističke borbe
-            `${year}-08-05`, // Dan pobjede i domovinske zahvalnosti
-            `${year}-08-15`, // Velika Gospa
-            `${year}-11-01`, // Svi sveti
-            `${year}-11-18`, // Dan sjećanja na žrtve Domovinskog rata
-            `${year}-12-25`, // Božić
-            `${year}-12-26` // Sveti Stjepan
-        ];
-
-    }
-
 
     let visualizerInterval = null;
 
@@ -2346,45 +2218,6 @@
     }
 
 
-    function checkPublicHoliday() {
-
-        const today = new Date();
-
-        const iso = formatLocalIsoDate(today);
-
-        const holidays =
-            getCroatianHolidays(
-                today.getFullYear()
-            );
-
-        const banner = document.getElementById('holidayBanner');
-
-
-        if (!banner) return;
-
-
-        if (holidays.includes(iso)) {
-
-            banner.textContent =
-                '🎉 Danas je državni praznik — salon je ZATVOREN';
-
-            banner.classList.add('active');
-
-            banner.setAttribute('aria-hidden', 'false');
-
-        } else {
-
-            banner.textContent = '';
-
-            banner.classList.remove('active');
-
-            banner.setAttribute('aria-hidden', 'true');
-
-        }
-
-    }
-
-
     function copyNumber(e) {
 
         e.preventDefault();
@@ -2500,8 +2333,6 @@
         bindEventsOnce();
 
         highlightToday();
-
-        checkPublicHoliday();
 
         updateBars();
 
