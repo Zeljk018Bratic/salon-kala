@@ -1,1 +1,818 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ogledni cjenik frizerskog ateliera KALA u Labinu. Ženske, muške, svečane i dječje frizerske usluge.">
+    <meta name="theme-color" content="#171a17">
+    <title>Cjenik | KALA Frizerski atelier Labin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --gold: #b38f40;
+            --gold-light: #dbb46a;
+            --gold-dark: #7a5e24;
+            --teal: #1b5e5e;
+            --teal-light: #3aa3a3;
+            --cream: #fffdf9;
+            --cream-dark: #fcf6eb;
+            --ink: #1a1815;
+            --ink-soft: #59534c;
+            --night: #171a17;
+            --line: rgba(179, 143, 64, 0.25);
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Montserrat', Arial, sans-serif;
+        }
 
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        body {
+            margin: 0;
+            background: #eee7dc;
+            color: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.94rem;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--teal-light);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            z-index: 5;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0.65rem 0.9rem;
+            transform: translateY(-160%);
+            background: var(--cream);
+            color: var(--ink);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .site-header {
+            position: sticky;
+            z-index: 4;
+            top: 0;
+            border-bottom: 1px solid rgba(219, 180, 106, 0.24);
+            background: rgba(23, 26, 23, 0.97);
+            color: var(--cream);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-inner {
+            width: min(1160px, calc(100% - 2.5rem));
+            min-height: 74px;
+            margin-inline: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.55rem;
+            color: var(--cream);
+            text-decoration: none;
+        }
+
+        .wordmark strong {
+            color: var(--gold-light);
+            font-family: var(--serif);
+            font-size: 1.9rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .wordmark span {
+            color: rgba(255, 253, 249, 0.7);
+            font-size: 0.65rem;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 2.25rem);
+        }
+
+        .nav-links a {
+            color: rgba(255, 253, 249, 0.83);
+            font-size: 0.76rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 160ms ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--gold-light);
+        }
+
+        .nav-links .home-link {
+            padding: 0.55rem 0.85rem;
+            border: 1px solid rgba(219, 180, 106, 0.55);
+            color: var(--gold-light);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(4.5rem, 9vw, 7.5rem) 1.25rem clamp(4rem, 8vw, 6rem);
+            background:
+                radial-gradient(ellipse at 80% 15%, rgba(58, 163, 163, 0.13), transparent 34%),
+                linear-gradient(125deg, #171a17 0%, #20231f 55%, #15201e 100%);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .hero::after {
+            position: absolute;
+            right: max(4vw, calc((100vw - 1160px) / 2));
+            bottom: -4.5rem;
+            width: 16rem;
+            height: 16rem;
+            border: 1px solid rgba(219, 180, 106, 0.16);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            width: min(720px, 100%);
+            margin-inline: auto;
+            animation: rise-in 700ms ease both;
+        }
+
+        .eyebrow {
+            display: block;
+            margin-bottom: 0.9rem;
+            color: var(--gold-light);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+        }
+
+        h1 {
+            margin-bottom: 0.65rem;
+            color: var(--cream);
+            font-size: clamp(3.4rem, 9vw, 6.5rem);
+            line-height: 0.95;
+        }
+
+        .hero p {
+            max-width: 540px;
+            margin: 1.1rem auto 0;
+            color: rgba(255, 253, 249, 0.76);
+            font-size: 0.9rem;
+        }
+
+        .hero-rule {
+            width: 74px;
+            height: 1px;
+            margin: 1.5rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+            width: min(1050px, calc(100% - 2.5rem));
+            margin: -1.5rem auto 0;
+            padding-bottom: 4rem;
+        }
+
+        .notice {
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(27, 94, 94, 0.24);
+            border-left: 3px solid var(--teal);
+            background: #f7f6ef;
+            color: #3c4944;
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .notice strong {
+            color: var(--teal);
+        }
+
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--line);
+            background: rgba(255, 253, 249, 0.92);
+        }
+
+        .category-nav a {
+            padding: 0.5rem 0.8rem;
+            color: var(--gold-dark);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 160ms ease, color 160ms ease;
+        }
+
+        .category-nav a:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .price-section {
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--line);
+            background: var(--cream);
+            box-shadow: 0 12px 32px rgba(35, 30, 21, 0.045);
+            animation: rise-in 650ms ease both;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.45rem 1.55rem 1.1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-heading .eyebrow {
+            margin-bottom: 0.3rem;
+            color: var(--teal);
+            font-size: 0.61rem;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            color: var(--gold-dark);
+            font-size: clamp(1.9rem, 4vw, 2.55rem);
+            line-height: 1;
+        }
+
+        .section-index {
+            color: rgba(122, 94, 36, 0.45);
+            font-family: var(--serif);
+            font-size: 2.1rem;
+            line-height: 1;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            scrollbar-color: var(--gold) var(--cream-dark);
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background: var(--cream-dark);
+        }
+
+        th {
+            padding: 0.75rem 1rem;
+            color: var(--ink-soft);
+            font-size: 0.64rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        th:first-child,
+        td:first-child {
+            padding-left: 1.55rem;
+        }
+
+        th:last-child,
+        td:last-child {
+            padding-right: 1.55rem;
+        }
+
+        th.price-col,
+        td.price-col {
+            width: 148px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        th.anchor-col,
+        td.anchor-col {
+            width: 220px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-top: 1px solid rgba(26, 24, 21, 0.075);
+            transition: background 150ms ease;
+        }
+
+        tbody tr:hover {
+            background: #f9f7f1;
+        }
+
+        td {
+            padding: 0.88rem 1rem;
+            vertical-align: middle;
+        }
+
+        .service-name {
+            display: block;
+            color: var(--ink);
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .service-detail {
+            display: block;
+            margin-top: 0.12rem;
+            color: var(--ink-soft);
+            font-size: 0.68rem;
+            font-weight: 400;
+        }
+
+        .current-price {
+            color: var(--gold-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .anchor-price {
+            color: var(--ink-soft);
+            font-size: 0.69rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .subsection-row td {
+            padding-top: 1rem;
+            padding-bottom: 0.45rem;
+            background: #fbfaf6;
+            color: var(--teal);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .subsection-row:hover {
+            background: transparent;
+        }
+
+        .pricing-note {
+            margin: 1.4rem 0 0;
+            padding: 1.3rem 1.5rem;
+            border: 1px solid rgba(179, 143, 64, 0.28);
+            background: rgba(255, 253, 249, 0.78);
+            color: var(--ink-soft);
+            font-size: 0.76rem;
+            line-height: 1.75;
+        }
+
+        .pricing-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pricing-note strong {
+            color: var(--gold-dark);
+        }
+
+        .pricing-note a {
+            color: var(--teal);
+            text-underline-offset: 3px;
+        }
+
+        .payment-note {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(219, 180, 106, 0.42);
+            background: var(--night);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .payment-note .eyebrow {
+            margin-bottom: 0.35rem;
+        }
+
+        .payment-note p {
+            margin: 0;
+            font-size: 0.82rem;
+        }
+
+        .payment-note strong {
+            color: var(--gold-light);
+        }
+
+        .site-footer {
+            padding: 1.5rem 1.25rem;
+            border-top: 1px solid rgba(219, 180, 106, 0.24);
+            background: var(--night);
+            color: rgba(255, 253, 249, 0.72);
+        }
+
+        .footer-inner {
+            width: min(1050px, 100%);
+            margin-inline: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        .footer-inner a {
+            color: var(--gold-light);
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @keyframes rise-in {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            .nav-inner {
+                width: calc(100% - 1.5rem);
+                min-height: 66px;
+                gap: 0.7rem;
+            }
+
+            .wordmark {
+                gap: 0.35rem;
+            }
+
+            .wordmark strong {
+                font-size: 1.65rem;
+            }
+
+            .wordmark span {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 0.75rem;
+            }
+
+            .nav-links a {
+                font-size: 0.68rem;
+            }
+
+            .nav-links .home-link {
+                padding: 0.45rem 0.55rem;
+            }
+
+            .hero {
+                padding-top: 4rem;
+                padding-bottom: 3.6rem;
+            }
+
+            main {
+                width: calc(100% - 1.25rem);
+            }
+
+            .notice {
+                padding: 0.85rem 0.9rem;
+                font-size: 0.73rem;
+            }
+
+            .category-nav {
+                justify-content: flex-start;
+                gap: 0.2rem;
+                padding: 0.55rem;
+            }
+
+            .category-nav a {
+                padding: 0.45rem 0.55rem;
+                font-size: 0.66rem;
+            }
+
+            .section-heading {
+                padding: 1.15rem 1rem 0.9rem;
+            }
+
+            th {
+                padding: 0.65rem 0.45rem;
+                font-size: 0.56rem;
+                letter-spacing: 0.035em;
+            }
+
+            th:first-child,
+            td:first-child {
+                padding-left: 0.8rem;
+            }
+
+            th:last-child,
+            td:last-child {
+                padding-right: 0.8rem;
+            }
+
+            th.price-col,
+            td.price-col {
+                width: 82px;
+            }
+
+            th.anchor-col,
+            td.anchor-col {
+                width: 132px;
+            }
+
+            td {
+                padding: 0.78rem 0.45rem;
+            }
+
+            .service-name {
+                font-size: 0.74rem;
+            }
+
+            .service-detail {
+                font-size: 0.64rem;
+            }
+
+            .current-price {
+                font-size: 0.73rem;
+            }
+
+            .anchor-price {
+                font-size: 0.61rem;
+            }
+
+            .subsection-row td {
+                padding-left: 0.8rem;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-links {
+                gap: 0.45rem;
+            }
+
+            .nav-links a {
+                font-size: 0.62rem;
+            }
+
+            th.anchor-col,
+            td.anchor-col {
+                width: 122px;
+            }
+
+            .anchor-price {
+                font-size: 0.57rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Preskoči na cjenik</a>
+
+    <header class="site-header">
+        <nav class="nav-inner" aria-label="Glavna navigacija">
+            <a class="wordmark" href="index.html" aria-label="KALA, početna stranica">
+                <strong>KALA</strong>
+                <span>FRIZERSKI ATELIER · LABIN</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="home-link">Početna</a>
+                <a href="#zenske-usluge">Cjenik</a>
+                <a href="tel:+385912512647">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+        <div class="hero-inner">
+            <span class="eyebrow">KALA · Labin · Lara Faraguna</span>
+            <h1 id="page-title">Cjenik</h1>
+            <p>Njega, preciznost i stil prilagođeni vašoj kosi. Za usluge koje ovise o dužini i utrošku materijala, konačnu cijenu potvrđujemo prije početka rada.</p>
+            <div class="hero-rule" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <aside class="notice" aria-label="Važna napomena o oglednim cijenama">
+            <strong>Ogledni cjenik:</strong> svi iznosi, nazivi i datumi u nastavku služe kao zamjenjivi primjeri, nisu potvrđene cijene salona niti dokaz cijena koje su stvarno vrijedile navedenog datuma. Zamijenite ih podacima salona prije objave.
+        </aside>
+
+        <nav class="category-nav" aria-label="Kategorije usluga">
+            <a href="#zenske-usluge">Ženske usluge</a>
+            <a href="#muske-usluge">Muške usluge</a>
+            <a href="#svecane-frizure">Svečane i vjenčane</a>
+            <a href="#djecje-usluge">Dječje usluge</a>
+        </nav>
+
+        <!-- Zamjenski iznosi: ažurirajte cijenu i pripadajući referentni podatak u svakom retku. -->
+        <section class="price-section" id="zenske-usluge" aria-labelledby="women-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">01 · njega i oblik</span>
+                    <h2 id="women-title">Ženske usluge</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">01</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene ženskih frizerskih usluga</caption>
+                    <thead>
+                        <tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="subsection-row"><td colspan="3">Šišanje i stiliziranje</td></tr>
+                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Kosa srednje dužine</span></td><td class="price-col"><span class="current-price">42,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 42,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">49,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 49,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Pranje i feniranje</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">20,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 20,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Pranje i feniranje</span><span class="service-detail">Srednja / duga kosa</span></td><td class="price-col"><span class="current-price">28,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 28,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Oblikovanje valova ili kovrča</span><span class="service-detail">Na opranu i osušenu kosu</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
+
+                        <tr class="subsection-row"><td colspan="3">Bojanje i tehnike posvjetljivanja</td></tr>
+                        <tr><td><span class="service-name">Bojanje izrasta</span><span class="service-detail">Do 2 cm izrasta, bez šišanja</span></td><td class="price-col"><span class="current-price">48,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 48,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">62,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 62,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Srednja kosa</span></td><td class="price-col"><span class="current-price">78,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 78,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">95,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 95,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Pramenovi folijom</span><span class="service-detail">Kratka do srednja kosa</span></td><td class="price-col"><span class="current-price">85,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 85,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Pramenovi folijom</span><span class="service-detail">Duga kosa / veća gustoća</span></td><td class="price-col"><span class="current-price">115,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 115,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Balayage ili airtouch</span><span class="service-detail">Početna cijena; ovisi o dužini i utrošku materijala</span></td><td class="price-col"><span class="current-price">od 130,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 130,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Preljev / toner</span><span class="service-detail">Dodatak uz tehniku bojanja</span></td><td class="price-col"><span class="current-price">32,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 32,00 €</span></td></tr>
+
+                        <tr class="subsection-row"><td colspan="3">Njega kose</td></tr>
+                        <tr><td><span class="service-name">Intenzivna maska i njega</span><span class="service-detail">Usluga uz pranje i feniranje</span></td><td class="price-col"><span class="current-price">18,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 18,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Obnavljajući salonski tretman</span><span class="service-detail">Njega vlasi i zaštita boje</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Dubinska njega / rekonstrukcija</span><span class="service-detail">Početna cijena, ovisno o dužini kose</span></td><td class="price-col"><span class="current-price">od 45,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 45,00 €</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="price-section" id="muske-usluge" aria-labelledby="men-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">02 · rez i grooming</span>
+                    <h2 id="men-title">Muške usluge</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">02</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene muških frizerskih usluga</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="service-name">Muško šišanje</span><span class="service-detail">Klasično šišanje škarama ili mašinicom</span></td><td class="price-col"><span class="current-price">22,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 22,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Fade šišanje</span><span class="service-detail">Precizno prijelazno šišanje</span></td><td class="price-col"><span class="current-price">25,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 25,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Muško šišanje i pranje</span><span class="service-detail">Pranje, šišanje i završno oblikovanje</span></td><td class="price-col"><span class="current-price">27,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 27,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Pranje i oblikovanje</span><span class="service-detail">Bez šišanja</span></td><td class="price-col"><span class="current-price">10,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 10,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Uređivanje brade</span><span class="service-detail">Oblikovanje i završna njega</span></td><td class="price-col"><span class="current-price">16,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 16,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Šišanje i uređivanje brade</span><span class="service-detail">Kompletan grooming</span></td><td class="price-col"><span class="current-price">36,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 36,00 €</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="price-section" id="svecane-frizure" aria-labelledby="event-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">03 · posebni trenuci</span>
+                    <h2 id="event-title">Svečane i vjenčane frizure</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">03</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene svečanih i vjenčanih frizura</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="service-name">Svečana frizura</span><span class="service-detail">Valovi, podignuta ili posebno oblikovana frizura</span></td><td class="price-col"><span class="current-price">55,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 55,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Vjenčana frizura – proba</span><span class="service-detail">Konzultacija i probno oblikovanje</span></td><td class="price-col"><span class="current-price">60,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 60,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Vjenčana frizura</span><span class="service-detail">Oblikovanje na dan vjenčanja, bez izlaska na lokaciju</span></td><td class="price-col"><span class="current-price">120,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 120,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Vjenčani paket</span><span class="service-detail">Proba i frizura na dan vjenčanja</span></td><td class="price-col"><span class="current-price">160,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 160,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Izlazak na lokaciju</span><span class="service-detail">Cijena se dogovara prema lokaciji i broju osoba</span></td><td class="price-col"><span class="current-price">od 40,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 40,00 €</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="price-section" id="djecje-usluge" aria-labelledby="kids-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">04 · do 10 godina</span>
+                    <h2 id="kids-title">Dječje usluge</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">04</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene dječjih frizerskih usluga do 10 godina</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="service-name">Djevojčice do 10 godina</span><span class="service-detail">Šišanje i jednostavno oblikovanje</span></td><td class="price-col"><span class="current-price">20,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 20,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Djevojčice do 10 godina</span><span class="service-detail">Šišanje duge kose</span></td><td class="price-col"><span class="current-price">25,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 25,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Dječaci do 10 godina</span><span class="service-detail">Klasično šišanje</span></td><td class="price-col"><span class="current-price">17,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 17,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Dječaci do 10 godina</span><span class="service-detail">Kratko šišanje mašinicom</span></td><td class="price-col\"><span class="current-price">14,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 14,00 €</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <aside class="pricing-note" aria-label="Napomene o cijenama">
+            <p><strong>* Referentna cijena u ovom prikazu je ogledna.</strong> Datum 10.09.2026. i navedeni iznosi nisu potvrđeni kao stvarne, primijenjene cijene te nisu pravna potvrda obveze objave sidrene cijene.</p>
+            <p>Navedeni <a href="https://dnevnik.hr/vijesti/hrvatska/na-snazi-odluka-o-objavi-dodatne-sidrene-cijene---913437.html" target="_blank" rel="noopener noreferrer">članak Dnevnik.hr-a</a> opisuje odluku koja se odnosi na propisane proizvode u trgovini na malo i navodi referentni datum 2. svibnja 2025.; ne potvrđuje primjenu tog pravila na frizerske usluge. Prije objave provjerite aktualne obveze i unesite cijene koje salon stvarno primjenjuje.</p>
+            <p>Cijene složenih tehnika mogu ovisiti o dužini i gustoći kose te količini utrošenog materijala. Konačnu cijenu potrebno je dogovoriti prije početka usluge.</p>
+        </aside>
+
+        <aside class="payment-note" aria-label="Načini plaćanja">
+            <span class="eyebrow">Načini plaćanja</span>
+            <p>Mogućnost plaćanja gotovinom i karticama. <strong>Gotovinskim plaćanjem ostvarujete 10% popusta.</strong></p>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span>2026</span> KALA | Frizerski atelier Labin · Lara Faraguna</p>
+            <a href="privatnost.html">Pravila privatnosti</a>
+        </div>
+    </footer>
+</body>
+</html>
