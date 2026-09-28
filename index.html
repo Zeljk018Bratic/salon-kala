@@ -7,691 +7,36 @@
     <title>K ✂️ L A | Frizerski atelier Labin – Premium Lookbook</title>
 
     <meta name="description" content="Frizerski salon KALA u Labinu – vrhunske frizure, najnoviji trendovi 2025./2026., muški i ženski styling, barber usluge. Iskonska elegancija.">
-
+    <meta property="og:title" content="KALA | Frizerski atelier Labin">
+    <meta property="og:description" content="Premium frizerski salon u Labinu – stil, rezovi, barber i luksuzna njega kose.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo_kala.jpg">
     <meta name="theme-color" content="#b38f40">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "HairSalon",
+          "name": "KALA Frizerski Atelier",
+          "telephone": "+385912512647",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rudarska 7",
+            "addressLocality": "Labin",
+            "postalCode": "52220",
+            "addressCountry": "HR"
+          },
+          "description": "Premium frizerski atelier u Labinu s modernim trendovima, barber stilovima i tretmanima njege kose.",
+          "url": "https://zeljk018bratic.github.io/salon-kala/",
+          "image": "logo_kala.jpg"
+        }
+    </script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #b38f40;
-            --gold-light: #dbb46a;
-            --gold-dark: #7a5e24;
-            --teal: #1b5e5e;
-            --teal-light: #3aa3a3;
-            --cream: #fffdf9;
-            --cream-dark: #fcf6eb;
-            --text: #1a1815;
-            --text-light: #59534c;
-        }
-
-        body {
-            background: linear-gradient(
-                135deg,
-                #e9e0d3 0%,
-                #d6cbbc 50%,
-                #e9e0d3 100%
-            );
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            font-family: 'Montserrat', sans-serif;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-            color: var(--text);
-        }
-
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .main-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .salon-card {
-            background: rgba(255, 253, 249, 0.97);
-            border-radius: 40px;
-            box-shadow:
-                0 30px 60px -15px rgba(140, 106, 43, 0.25),
-                0 0 0 1px rgba(179, 143, 64, 0.2);
-            padding: 2.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .salon-card::before,
-        .salon-card::after {
-            content: "✦";
-            position: absolute;
-            font-size: 4rem;
-            color: var(--gold);
-            opacity: 0.08;
-            pointer-events: none;
-        }
-
-        .salon-card::before {
-            top: 1rem;
-            left: 2rem;
-        }
-
-        .salon-card::after {
-            bottom: 1rem;
-            right: 2rem;
-            transform: rotate(45deg);
-        }
-
-        .salon-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .brand-logo {
-            max-width: 240px;
-            width: 48vw;
-            height: auto;
-            display: block;
-            margin: 0 auto 0.75rem;
-            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
-        }
-
-        .gold-divider {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--gold),
-                var(--gold-light),
-                var(--gold),
-                transparent
-            );
-            margin: 0.8rem auto;
-            position: relative;
-        }
-
-        .gold-divider::before,
-        .gold-divider::after {
-            content: "•";
-            position: absolute;
-            top: -8px;
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-
-        .gold-divider::before {
-            left: 20px;
-        }
-
-        .gold-divider::after {
-            right: 20px;
-        }
-
-        .salon-tagline {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold-dark);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .owner-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(
-                135deg,
-                var(--cream-dark),
-                #faf5ed
-            );
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            border: 1px solid rgba(179, 143, 64, 0.25);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .address-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1.5rem auto;
-            background: rgba(252, 247, 240, 0.9);
-            width: fit-content;
-            padding: 0.7rem 2rem;
-            border-radius: 60px;
-            border: 1px solid rgba(179, 143, 64, 0.25);
-            font-weight: 500;
-        }
-
-        .map-btn {
-            background: none;
-            border: 1.5px solid var(--gold);
-            border-radius: 40px;
-            padding: 0.3rem 1.2rem;
-            cursor: pointer;
-            color: var(--gold-dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .map-btn:hover {
-            background: var(--gold);
-            color: white;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(280px, 1fr)
-            );
-            gap: 1.5rem;
-            margin: 2rem 0 0.5rem;
-        }
-
-        .work-hours,
-        .contact-details {
-            background: var(--cream);
-            padding: 1.8rem;
-            border-radius: 28px;
-            border: 1px solid rgba(179, 143, 64, 0.2);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-        }
-
-        .work-hours:hover,
-        .contact-details:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-        }
-
-        .work-hours h3,
-        .contact-details h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--gold-dark);
-            margin-bottom: 1.2rem;
-        }
-
-        .hours-table p {
-            display: flex;
-            justify-content: space-between;
-            margin: 0.6rem 0;
-            font-size: 0.9rem;
-            padding: 0.4rem 0;
-            border-bottom: 1px dashed rgba(179, 143, 64, 0.2);
-        }
-
-        .hours-table p:last-child {
-            border-bottom: none;
-        }
-
-        .today {
-            background: linear-gradient(
-                135deg,
-                rgba(179, 143, 64, 0.15),
-                rgba(179, 143, 64, 0.05)
-            ) !important;
-            font-weight: 600;
-            border-left: 4px solid var(--gold) !important;
-            padding-left: 0.5rem !important;
-        }
-
-        .phone {
-            margin: 0.8rem 0;
-        }
-
-        .phone a {
-            background: linear-gradient(
-                135deg,
-                #efe2d0,
-                #f3e9de
-            );
-            padding: 0.5rem 1.4rem;
-            border-radius: 40px;
-            color: var(--teal);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(179, 143, 64, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .phone a:hover {
-            background: var(--teal);
-            color: white;
-        }
-
-        .appointment {
-            background: linear-gradient(
-                135deg,
-                #e8ddcf,
-                #ddd0c0
-            );
-            border-radius: 24px;
-            padding: 0.7rem;
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .map-container {
-            margin-top: 1.5rem;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(179, 143, 64, 0.2);
-            height: 200px;
-            display: none;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .trends-section,
-        .qr-section,
-        .music-section {
-            background: var(--cream) !important;
-            border-radius: 40px;
-            box-shadow:
-                0 25px 50px -12px rgba(0,0,0,0.12),
-                0 0 0 2px var(--gold-dark) !important;
-            padding: 2.5rem 2rem;
-            backdrop-filter: blur(10px);
-            margin-bottom: 2rem;
-        }
-
-        .trends-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            color: var(--gold-dark);
-            text-align: center;
-        }
-
-        .trends-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        .trends-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(240px, 1fr)
-            );
-            gap: 2rem;
-        }
-
-        .trend-card {
-            background: var(--cream-dark) !important;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-            border: 1.5px solid rgba(122, 94, 36, 0.2);
-            transition: all 0.4s cubic-bezier(
-                0.165,
-                0.84,
-                0.44,
-                1
-            );
-            display: flex;
-            flex-direction: column;
-        }
-
-        .trend-img-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 110%;
-            background-color: #f3eae0;
-            overflow: hidden;
-        }
-
-        .trend-img-wrapper img {
-            position: absolute;
-            top: 5%;
-            left: 5%;
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            border-radius: 16px;
-            transition: transform 0.5s ease;
-            display: block;
-        }
-
-        .trend-card:hover .trend-img-wrapper img {
-            transform: scale(1.04);
-        }
-
-        .trend-badge {
-            position: absolute !important;
-            top: 15px !important;
-            left: 15px !important;
-            background: rgba(27, 94, 94, 0.95) !important;
-            color: #ffffff !important;
-            padding: 4px 12px !important;
-            border-radius: 20px !important;
-            font-size: 0.75rem !important;
-            font-weight: 600 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            z-index: 10 !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .trend-info {
-            padding: 1.2rem 1rem !important;
-            text-align: center !important;
-            background: var(--cream-dark) !important;
-        }
-
-        .trend-name {
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: 1.4rem !important;
-            font-weight: 700 !important;
-            color: var(--gold-dark) !important;
-            margin-top: 0.5rem !important;
-            line-height: 1.3 !important;
-        }
-
-        .qr-container {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .qr-card {
-            background: var(--cream-dark) !important;
-            border: 2px solid var(--gold) !important;
-            border-radius: 28px;
-            padding: 1.5rem;
-            width: 230px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .qr-card img {
-            width: 100% !important;
-            height: auto !important;
-            max-width: 180px !important;
-            margin: 0 auto !important;
-            display: block !important;
-        }
-
-        #salon-slideshow {
-            position: relative;
-            width: 100%;
-            height: 440px;
-            background: #111;
-            border-radius: 36px;
-            overflow: hidden;
-            border: 2px solid var(--gold-dark);
-        }
-
-        .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-
-        .slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .slide-contain {
-            background: #050505 !important;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-        }
-
-        .slide-contain img {
-            max-width: 65% !important;
-            max-height: 82% !important;
-            width: auto !important;
-            height: auto !important;
-            object-fit: contain !important;
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            margin: auto;
-        }
-
-        .slide-caption {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 1.2rem 1.4rem;
-            background: linear-gradient(
-                180deg,
-                transparent,
-                rgba(0,0,0,0.75)
-            );
-            color: white;
-        }
-
-        .slide-caption h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .visualizer {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 4px;
-            height: 40px;
-            margin: 1.2rem auto 0;
-            overflow: hidden;
-            width: fit-content;
-        }
-
-        .bar {
-            width: 4px;
-            background: linear-gradient(
-                to top,
-                var(--gold),
-                var(--gold-light)
-            );
-            border-radius: 2px;
-            transition: height 0.1s ease;
-            opacity: 0.85;
-            height: 4px;
-        }
-
-        .info-hint {
-            margin-top: 15px;
-            font-size: 12px;
-            line-height: 1.6;
-            text-align: center;
-            padding: 14px;
-            border-radius: 10px;
-            background: linear-gradient(
-                135deg,
-                #121212,
-                #181614
-            );
-            border: 1px solid rgba(197, 168, 128, 0.2);
-            color: #cccccc;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-        }
-
-        .info-hint strong {
-            color: #fcf6ba;
-            font-weight: bold;
-        }
-
-        .badge-pip {
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 1px;
-            padding: 0.4rem 1rem !important;
-            background: rgba(27, 94, 94, 0.9) !important;
-            border: 2px solid var(--teal-light) !important;
-            color: #ffffff !important;
-            border-radius: 30px;
-        }
-
-        .play-btn-main {
-            border: none;
-            border-radius: 999px;
-            padding: 0.7rem 1.4rem;
-            cursor: pointer;
-            color: #fff;
-            font-weight: 700;
-            background: linear-gradient(
-                135deg,
-                var(--gold),
-                var(--gold-dark)
-            );
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
-
-        .play-btn-main:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.05);
-        }
-
-        footer {
-            margin-top: 35px;
-            font-size: 11px;
-            text-align: center;
-            color: #9c8c70 !important;
-            letter-spacing: 2.5px;
-            padding: 15px 0 !important;
-            background: #080808 !important;
-            border-top: 1px solid rgba(197, 168, 128, 0.12) !important;
-            text-transform: uppercase;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-        }
-
-        @media (max-width: 768px) {
-            .brand-logo {
-                max-width: 180px;
-            }
-
-            .salon-card,
-            .trends-section,
-            .qr-section {
-                padding: 1.5rem;
-            }
-
-            .trends-title {
-                font-size: 2rem;
-            }
-
-            .qr-card {
-                width: 170px;
-                padding: 1rem;
-            }
-
-            #salon-slideshow {
-                height: 380px;
-            }
-
-            .slide-caption h4 {
-                font-size: 1.8rem;
-            }
-
-            .badge-pip {
-                font-size: 0.8rem !important;
-                padding: 0.4rem 1rem !important;
-            }
-
-            .play-btn-main {
-                font-size: 0.85rem !important;
-                padding: 0.5rem 1.2rem !important;
-            }
-
-            .info-hint {
-                font-size: 0.8rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand-logo {
-                max-width: 150px;
-            }
-
-            .salon-name {
-                font-size: 2.2rem;
-            }
-
-            #salon-slideshow {
-                height: 300px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -726,10 +71,12 @@
     📍 Rudarska 7, 52220 Labin
 
     <a
+        id="toggleMapBtn"
         class="map-btn"
         href="https://www.google.com/maps/place/KALA,+obrt+za+frizerske+usluge,+vl.+Lara+Faraguna/@45.0920826,14.120488,17z/data=!3m1!4b1!4m6!3m5!1s0x47634929554730c5:0xac67ad56fc66b5b!8m2!3d45.0920826!4d14.120488!16s%2Fg%2F11zxjfxbxf?hl=de&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Prikaži lokaciju salona na karti"
         style="text-decoration:none;"
     >
         🗺️ Karta
@@ -849,6 +196,196 @@
 
     </div>
 
+    <div class="feature-strip" aria-label="Prednosti salona">
+        <div class="feature-card">
+            <div class="feature-icon">✂️</div>
+            <h3>Rezervacija</h3>
+            <p>Brzo i jednostavno dogovorite termin za novi look.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Premium styling</h3>
+            <p>Trendovi 2025/2026, preciznost i personalizirani styling.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Njega i tretmani</h3>
+            <p>Dubinska njega, hidratacija i njega kose u svakom detalju.</p>
+        </div>
+    </div>
+
+    <div class="cta-row">
+        <a class="cta-primary" href="tel:+385912512647">📞 Nazovi i rezerviraj</a>
+        <a class="cta-secondary" href="https://wa.me/385912512647?text=Zdravo%2C%20zelim%20rezervirati%20termin%20u%20salonu%20KALA." target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    </div>
+
+    <div class="booking-banner" aria-label="Premium booking banner">
+        <div class="booking-copy">
+            <span>✅ Premium termin</span>
+            <strong>Najljepši izgled započinje u KALA salonu.</strong>
+        </div>
+        <a href="tel:+385912512647">Rezerviraj odmah</a>
+    </div>
+
+    <div class="signature-strip">
+        <div class="signature-head">
+            <span class="eyebrow">KALA experience</span>
+            <h2>Zašto KALA?</h2>
+        </div>
+
+        <div class="service-grid">
+            <article class="service-card">
+                <div class="service-number">01</div>
+                <h3>Personaliziran styling</h3>
+                <p>Svaka frizura je oblikovana prema licu, načinu života i osobnom stilu.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-number">02</div>
+                <h3>Luxury finish</h3>
+                <p>Preciznost, tekstura i oblik koji ostavljaju dojam odmah po izlasku iz salona.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-number">03</div>
+                <h3>Njega i tretmani</h3>
+                <p>Hidracija, zaštita i dubinska njega za kosu koja izgleda zdravo i sjajno.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-number">04</div>
+                <h3>Brza komunikacija</h3>
+                <p>Rezervacija i dogovor s lakoćom – po telefonu ili preko WhatsAppa.</p>
+            </article>
+        </div>
+    </div>
+
+    <div class="proof-panel">
+        <div class="proof-header">
+            <span class="eyebrow">trusted by clients</span>
+            <h2>Premium rezultat, bez kompromisa</h2>
+        </div>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <div class="proof-stat">4.9/5</div>
+                <p>Ugodno iskustvo, personaliziran dojam i zadovoljstvo klijenata.</p>
+            </div>
+
+            <div class="proof-card">
+                <div class="proof-stat">2025/2026</div>
+                <p>Trendovi prilagođeni modernom, elegantnom i funkcionalnom looku.</p>
+            </div>
+
+            <div class="proof-card">
+                <div class="proof-stat">1:1</div>
+                <p>Pažnja posvećena svakom detalju – od pregleda do završne završnice.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonial-panel">
+        <div class="proof-header">
+            <span class="eyebrow">what clients say</span>
+            <h2>Priče naših klijenata</h2>
+        </div>
+
+        <div class="testimonial-grid">
+            <article class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“Savršeno! U salonu sam dobila frizuru koja mi je potpuno odgovarala, a atmosfera je bila vrlo sofisticirana i opuštajuća.”</p>
+                <strong>Ivana M.</strong>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“Lara je precizna, kreativna i zna baš što odgovara mom licu i stilu. Izgledao je premium od prvog trenutka.”</p>
+                <strong>Marko K.</strong>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“Vrlo brzo i jednostavno rezerviram, a rezultat je uvijek izniman. Osećaj je kao da ideš u pravi premium atelier.”</p>
+                <strong>Nika R.</strong>
+            </article>
+        </div>
+    </div>
+
+    <div class="mini-cta">
+        <div>
+            <span class="eyebrow">Rezerviraj sada</span>
+            <h3>Udobno, brzo i s povjerenjem</h3>
+        </div>
+        <a href="tel:+385912512647">📞 +385 91 251 2647</a>
+    </div>
+
+    <section class="reservation-panel" aria-labelledby="reservation-title">
+        <div class="reservation-header">
+            <span class="eyebrow">luxury booking</span>
+            <h2 id="reservation-title">Rezervacija termina</h2>
+            <p class="pages-ready">Static site ready for GitHub Pages publishing.</p>
+        </div>
+
+        <div class="reservation-grid">
+            <div class="reservation-copy">
+                <p>Frizerski atelier KALA kreira lookove s preciznošću, stilom i pažnjom do svakog detalja.</p>
+                <ul>
+                    <li>Premium individualni styling</li>
+                    <li>Barber i ženske frizure</li>
+                    <li>Hidracija i tretmani za kosu</li>
+                    <li>Brza i ugodna komunikacija</li>
+                </ul>
+            </div>
+
+            <form id="reservationForm" class="reservation-form" novalidate>
+                <div class="form-row">
+                    <label>
+                        <span>Ime i prezime</span>
+                        <input type="text" name="name" placeholder="Vaše ime" required>
+                    </label>
+                </div>
+
+                <div class="form-row two-col">
+                    <label>
+                        <span>Telefon</span>
+                        <input type="tel" name="phone" placeholder="+385 91 123 4567" required>
+                    </label>
+
+                    <label>
+                        <span>Usluga</span>
+                        <select name="service" required>
+                            <option value="">Odaberite uslugu</option>
+                            <option>Ženska frizura</option>
+                            <option>Muška frizura</option>
+                            <option>Barber styling</option>
+                            <option>Balayage / boja</option>
+                            <option>Njega i tretman</option>
+                            <option>Premium paket</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label>
+                        <span>Preferirani datum</span>
+                        <input type="date" name="date" required>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label>
+                        <span>Napomena</span>
+                        <textarea name="message" rows="4" placeholder="Dodatne želje ili napomena..."></textarea>
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-primary form-submit">📩 Pošalji rezervaciju</button>
+                <p id="formStatus" class="form-status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
 
     <div class="trends-section">
 
@@ -1251,6 +788,10 @@
                 Pratite naš rad i trendove
             </p>
 
+            <div class="cta-row cta-row-social">
+                <a class="cta-primary" href="https://www.instagram.com/kala.salon.labin" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+                <a class="cta-secondary" href="https://www.facebook.com/profile.php?id=61590409544210" target="_blank" rel="noopener noreferrer">👍 Facebook</a>
+            </div>
 
             <div
                 style="
@@ -1819,612 +1360,7 @@
 
 </div>
 
-
-<script>
-
-(() => {
-
-    'use strict';
-
-
-    const radio =
-        document.getElementById('bg-radio');
-
-    const playBtn =
-        document.getElementById('playRadioBtn');
-
-    const visualizer =
-        document.getElementById('visualizer');
-
-    const slides =
-        Array.from(
-            document.querySelectorAll(
-                '#salon-slideshow .slide'
-            )
-        );
-
-    const mapContainer =
-        document.getElementById('mapContainer');
-
-    const mapBtn =
-        document.getElementById('toggleMapBtn');
-
-    const phoneLink =
-        document.getElementById('phoneLink');
-
-
-    let visualizerInterval = null;
-
-    let slideInterval = null;
-
-    let radioStarted = false;
-
-
-    let currentSlide =
-        Math.max(
-            0,
-            slides.findIndex(
-                slide =>
-                    slide.classList.contains('active')
-            )
-        );
-
-
-    if (currentSlide === -1) {
-        currentSlide = 0;
-    }
-
-
-    function ensureVisualizerBars() {
-
-        if (
-            !visualizer ||
-            visualizer.dataset.initialized === '1'
-        ) {
-            return;
-        }
-
-        visualizer.dataset.initialized = '1';
-
-        visualizer.innerHTML = '';
-
-        for (let i = 0; i < 24; i++) {
-
-            const bar =
-                document.createElement('div');
-
-            bar.className = 'bar';
-
-            visualizer.appendChild(bar);
-
-        }
-
-    }
-
-
-    function getBars() {
-
-        return Array.from(
-            document.querySelectorAll(
-                '#visualizer .bar'
-            )
-        );
-
-    }
-
-
-    function updateBars() {
-
-        const bars = getBars();
-
-        if (!radio || radio.paused) {
-
-            bars.forEach(
-                bar => {
-                    bar.style.height = '4px';
-                }
-            );
-
-            return;
-        }
-
-
-        bars.forEach(
-            bar => {
-                bar.style.height =
-                    (Math.random() * 35 + 4) + 'px';
-            }
-        );
-
-    }
-
-
-    function stopVisuals() {
-
-        if (visualizerInterval) {
-
-            clearInterval(
-                visualizerInterval
-            );
-
-            visualizerInterval = null;
-
-        }
-
-        updateBars();
-
-    }
-
-
-    function startVisuals() {
-
-        if (!visualizerInterval) {
-
-            visualizerInterval =
-                setInterval(
-                    updateBars,
-                    90
-                );
-
-        }
-
-    }
-
-
-    function showSlide(index) {
-
-        if (!slides.length) {
-            return;
-        }
-
-        slides[currentSlide]
-            .classList
-            .remove('active');
-
-        currentSlide =
-            (index + slides.length) %
-            slides.length;
-
-        slides[currentSlide]
-            .classList
-            .add('active');
-
-    }
-
-
-    function nextSlide() {
-
-        showSlide(
-            currentSlide + 1
-        );
-
-    }
-
-
-    function startSlideshow() {
-
-        if (slideInterval) {
-
-            clearInterval(
-                slideInterval
-            );
-
-            slideInterval = null;
-
-        }
-
-        slideInterval =
-            setInterval(
-                nextSlide,
-                5800
-            );
-
-    }
-
-
-    function stopSlideshow() {
-
-        if (slideInterval) {
-
-            clearInterval(
-                slideInterval
-            );
-
-            slideInterval = null;
-
-        }
-
-    }
-
-
-    function setRadioButtonState(isPlaying) {
-
-        if (!playBtn) {
-            return;
-        }
-
-        playBtn.innerHTML =
-            isPlaying
-                ? '⏸ PAUZIRAJ RADIO'
-                : '▶ POKRENI SALONSKI RADIO';
-
-
-        playBtn.style.background =
-            isPlaying
-                ? 'linear-gradient(135deg, #8c6a2b, #6b4f20)'
-                : 'linear-gradient(135deg, var(--gold), var(--gold-dark))';
-
-    }
-
-
-    async function startRadio() {
-
-        if (!radio || radioStarted) {
-            return;
-        }
-
-        radioStarted = true;
-
-        try {
-
-            radio.load();
-
-            await radio.play();
-
-            setRadioButtonState(true);
-
-            startSlideshow();
-
-            startVisuals();
-
-            updateBars();
-
-        } catch (err) {
-
-            radioStarted = false;
-
-            setRadioButtonState(false);
-
-            startSlideshow();
-
-            startVisuals();
-
-        }
-
-    }
-
-
-    function pauseRadio() {
-
-        if (!radio) {
-            return;
-        }
-
-        radio.pause();
-
-        radioStarted = false;
-
-        setRadioButtonState(false);
-
-        stopSlideshow();
-
-        stopVisuals();
-
-    }
-
-
-    function toggleRadio() {
-
-        if (!radio) {
-            return;
-        }
-
-        if (radio.paused) {
-
-            startRadio();
-
-        } else {
-
-            pauseRadio();
-
-        }
-
-    }
-
-
-    function toggleMap() {
-
-        const mapsUrl =
-            'https://maps.app.goo.gl/5p8pZ8xqg7tq8Q2b7';
-
-
-        if (
-            mapContainer &&
-            mapContainer.style.display === 'block'
-        ) {
-
-            mapContainer.style.display = 'none';
-
-            return;
-
-        }
-
-
-        if (mapContainer) {
-
-            mapContainer.style.display = 'block';
-
-            mapContainer.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
-
-        }
-
-
-        window.open(
-            mapsUrl,
-            '_blank',
-            'noopener,noreferrer'
-        );
-
-    }
-
-
-    function highlightToday() {
-
-        const today =
-            new Date().getDay();
-
-
-        document
-            .querySelectorAll(
-                '#hoursTable p'
-            )
-            .forEach(
-                row => {
-
-                    if (
-                        parseInt(
-                            row.dataset.day,
-                            10
-                        ) === today
-                    ) {
-
-                        row.classList.add('today');
-
-
-                        const span =
-                            row.querySelector(
-                                'span:first-child'
-                            );
-
-
-                        if (
-                            span &&
-                            !span.textContent.includes('☀️')
-                        ) {
-
-                            span.textContent +=
-                                ' ☀️';
-
-                        }
-
-                    }
-
-                }
-            );
-
-    }
-
-
-    function copyNumber(e) {
-
-        e.preventDefault();
-
-        const num =
-            '+385912512647';
-
-
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
-
-            navigator.clipboard
-                .writeText(num)
-                .then(
-                    () => {
-
-                        const link =
-                            e.currentTarget;
-
-                        const original =
-                            link.textContent;
-
-                        link.textContent =
-                            '✅ Kopirano!';
-
-
-                        setTimeout(
-                            () => {
-
-                                link.textContent =
-                                    original;
-
-                            },
-                            2000
-                        );
-
-                    }
-                )
-                .catch(
-                    () => {
-
-                        window.location.href =
-                            'tel:' + num;
-
-                    }
-                );
-
-        } else {
-
-            window.location.href =
-                'tel:' + num;
-
-        }
-
-    }
-
-
-    function bindEventsOnce() {
-
-        if (
-            playBtn &&
-            !playBtn.dataset.bound
-        ) {
-
-            playBtn.dataset.bound = '1';
-
-            playBtn.addEventListener(
-                'click',
-                toggleRadio
-            );
-
-        }
-
-
-        if (
-            mapBtn &&
-            !mapBtn.dataset.bound
-        ) {
-
-            mapBtn.dataset.bound = '1';
-
-            mapBtn.addEventListener(
-                'click',
-                toggleMap
-            );
-
-        }
-
-
-        if (
-            phoneLink &&
-            !phoneLink.dataset.bound
-        ) {
-
-            phoneLink.dataset.bound = '1';
-
-            phoneLink.addEventListener(
-                'click',
-                copyNumber
-            );
-
-        }
-
-    }
-
-
-    function init() {
-
-        ensureVisualizerBars();
-
-        bindEventsOnce();
-
-        highlightToday();
-
-        updateBars();
-
-
-        if (!radio) {
-            return;
-        }
-
-
-        radio.addEventListener(
-            'ended',
-            () => {
-
-                radioStarted = false;
-
-                setRadioButtonState(false);
-
-                stopSlideshow();
-
-                stopVisuals();
-
-            }
-        );
-
-
-        radio.addEventListener(
-            'pause',
-            () => {
-
-                if (!radioStarted) {
-
-                    stopSlideshow();
-
-                    stopVisuals();
-
-                }
-
-            }
-        );
-
-
-        radio.addEventListener(
-            'playing',
-            () => {
-
-                radioStarted = true;
-
-                setRadioButtonState(true);
-
-                startSlideshow();
-
-                startVisuals();
-
-            }
-        );
-
-    }
-
-
-    if (
-        document.readyState === 'loading'
-    ) {
-
-        document.addEventListener(
-            'DOMContentLoaded',
-            init,
-            { once: true }
-        );
-
-    } else {
-
-        init();
-
-    }
-
-
-    window.addEventListener(
-        'pagehide',
-        () => {
-
-            stopSlideshow();
-
-            stopVisuals();
-
-        },
-        { once: true }
-    );
-
-
-})();
-
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
