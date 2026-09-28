@@ -139,6 +139,186 @@
             color: var(--gold-light);
         }
 
+        .site-menu-trigger,
+        .site-menu-close {
+            display: inline-grid;
+            place-items: center;
+            border: 1px solid rgba(219, 180, 106, 0.62);
+            background: var(--night);
+            color: var(--gold-light);
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .site-menu-trigger {
+            position: fixed;
+            z-index: 1001;
+            top: 1rem;
+            right: 1rem;
+            width: 54px;
+            height: 54px;
+            gap: 5px;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+        }
+
+        .site-menu-trigger:hover,
+        .site-menu-close:hover {
+            background: #292820;
+        }
+
+        .site-menu-glyph {
+            display: grid;
+            gap: 5px;
+        }
+
+        .site-menu-glyph span {
+            display: block;
+            width: 21px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .site-menu-trigger:focus-visible,
+        .site-menu-close:focus-visible,
+        .site-menu-link:focus-visible {
+            outline: 3px solid var(--teal-light);
+            outline-offset: 4px;
+        }
+
+        .site-menu-dialog {
+            position: fixed;
+            inset: 0 0 0 auto;
+            width: min(420px, calc(100vw - 1rem));
+            height: 100vh;
+            height: 100dvh;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+            border: 0;
+            border-left: 1px solid rgba(219, 180, 106, 0.35);
+            background: var(--night);
+            color: var(--cream);
+            box-shadow: -20px 0 70px rgba(0, 0, 0, 0.3);
+        }
+
+        .site-menu-dialog::backdrop {
+            background: rgba(8, 9, 8, 0.68);
+            backdrop-filter: blur(5px);
+        }
+
+        .site-menu-dialog[open] {
+            animation: site-menu-enter 260ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+        }
+
+        .site-menu-dialog.is-closing {
+            animation: site-menu-exit 220ms ease both;
+        }
+
+        .site-menu-inner {
+            display: flex;
+            min-height: 100%;
+            flex-direction: column;
+            padding: clamp(1.5rem, 5vw, 2.5rem);
+        }
+
+        .site-menu-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(219, 180, 106, 0.24);
+        }
+
+        .site-menu-kicker {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .site-menu-title {
+            margin: 0;
+            color: var(--cream);
+            font-family: var(--serif);
+            font-size: 2.6rem;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .site-menu-close {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.7rem;
+            line-height: 1;
+        }
+
+        .site-menu-links {
+            display: grid;
+            margin-top: 1.6rem;
+        }
+
+        .site-menu-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 76px;
+            border-bottom: 1px solid rgba(255, 253, 249, 0.1);
+            color: rgba(255, 253, 249, 0.86);
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: color 160ms ease, padding 160ms ease;
+        }
+
+        .site-menu-link span {
+            color: var(--gold-light);
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .site-menu-link:hover,
+        .site-menu-link[aria-current="page"] {
+            padding-left: 0.4rem;
+            color: var(--gold-light);
+        }
+
+        .site-menu-foot {
+            margin: auto 0 0;
+            padding-top: 2rem;
+            color: rgba(255, 253, 249, 0.55);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        @keyframes site-menu-enter {
+            from { opacity: 0; transform: translateX(24px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes site-menu-exit {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(24px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .site-menu-dialog[open],
+            .site-menu-dialog.is-closing {
+                animation-duration: 1ms;
+            }
+        }
+
         .hero {
             position: relative;
             overflow: hidden;
@@ -348,16 +528,8 @@
 
         th.price-col,
         td.price-col {
-            width: 148px;
+            width: 50%;
             text-align: right;
-            white-space: nowrap;
-        }
-
-        th.anchor-col,
-        td.anchor-col {
-            width: 220px;
-            text-align: right;
-            white-space: nowrap;
         }
 
         tbody tr {
@@ -576,12 +748,8 @@
 
             th.price-col,
             td.price-col {
-                width: 82px;
-            }
-
-            th.anchor-col,
-            td.anchor-col {
-                width: 132px;
+                width: 50%;
+                min-width: 160px;
             }
 
             td {
@@ -624,13 +792,8 @@
                 font-size: 0.62rem;
             }
 
-            th.anchor-col,
-            td.anchor-col {
-                width: 122px;
-            }
-
             .anchor-price {
-                font-size: 0.57rem;
+                font-size: 0.59rem;
             }
         }
 
@@ -650,18 +813,34 @@
     <a class="skip-link" href="#main-content">Preskoči na cjenik</a>
 
     <header class="site-header">
-        <nav class="nav-inner" aria-label="Glavna navigacija">
+        <div class="nav-inner">
             <a class="wordmark" href="index.html" aria-label="KALA, početna stranica">
                 <strong>KALA</strong>
                 <span>FRIZERSKI ATELIER · LABIN</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html" class="home-link">Početna</a>
-                <a href="#zenske-usluge">Cjenik</a>
-                <a href="index.html#phoneLink">Kontakt</a>
-            </div>
-        </nav>
+            <button class="site-menu-trigger" type="button" aria-label="Otvori izbornik" aria-controls="site-menu" aria-expanded="false">
+                <span class="site-menu-glyph" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
     </header>
+
+    <dialog class="site-menu-dialog" id="site-menu" aria-labelledby="site-menu-title">
+        <div class="site-menu-inner">
+            <div class="site-menu-head">
+                <div>
+                    <span class="site-menu-kicker">KALA · Labin</span>
+                    <h2 class="site-menu-title" id="site-menu-title">Izbornik</h2>
+                </div>
+                <button class="site-menu-close" type="button" aria-label="Zatvori izbornik" autofocus>&times;</button>
+            </div>
+            <nav class="site-menu-links" aria-label="Glavna navigacija">
+                <a class="site-menu-link" href="index.html">Početna <span>01</span></a>
+                <a class="site-menu-link" href="cjenik.html" aria-current="page">Cjenik <span>02</span></a>
+                <a class="site-menu-link" href="privatnost.html">Privatnost <span>03</span></a>
+            </nav>
+            <p class="site-menu-foot">Frizerski atelier · Iskonska elegancija</p>
+        </div>
+    </dialog>
 
     <section class="hero" aria-labelledby="page-title">
         <div class="hero-inner">
@@ -678,50 +857,58 @@
         </aside>
 
         <nav class="category-nav" aria-label="Kategorije usluga">
-            <a href="#zenske-usluge">Ženske usluge</a>
-            <a href="#muske-usluge">Muške usluge</a>
-            <a href="#svecane-frizure">Svečane i vjenčane</a>
+            <a href="#zenske-usluge">Žensko šišanje</a>
+            <a href="#bojanje-pramenovi">Bojanje i pramenovi</a>
+            <a href="#muske-usluge">Muške i barber</a>
+            <a href="#tretmani-njega">Tretmani njege</a>
             <a href="#djecje-usluge">Dječje usluge</a>
         </nav>
 
-        <!-- Zamjenski iznosi: ažurirajte cijenu i pripadajući referentni podatak u svakom retku. -->
+        <!-- Zamjenski iznosi: ažurirajte obje cijene u svakom retku kada stigne službeni cjenik. -->
         <section class="price-section" id="zenske-usluge" aria-labelledby="women-title">
             <header class="section-heading">
                 <div>
-                    <span class="eyebrow">01 · njega i oblik</span>
-                    <h2 id="women-title">Ženske usluge</h2>
+                    <span class="eyebrow">01 · rez i oblik</span>
+                    <h2 id="women-title">Žensko šišanje i frizura</h2>
                 </div>
                 <span class="section-index" aria-hidden="true">01</span>
             </header>
             <div class="table-scroll">
                 <table>
-                    <caption class="visually-hidden">Ogledne cijene ženskih frizerskih usluga</caption>
+                    <caption class="visually-hidden">Ogledne cijene ženskog šišanja i frizura</caption>
                     <thead>
-                        <tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr>
+                        <tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena (referentna cijena*)</th></tr>
                     </thead>
                     <tbody>
-                        <tr class="subsection-row"><td colspan="3">Šišanje i stiliziranje</td></tr>
-                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Kosa srednje dužine</span></td><td class="price-col"><span class="current-price">42,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 42,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Žensko šišanje, pranje i frizura</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">49,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 49,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Pranje i feniranje</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">20,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 20,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Pranje i feniranje</span><span class="service-detail">Srednja / duga kosa</span></td><td class="price-col"><span class="current-price">28,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 28,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Oblikovanje valova ili kovrča</span><span class="service-detail">Na opranu i osušenu kosu</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Šišanje i frizura</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">32,00 €</span> <span class="anchor-price">(10.09.2026. – 32,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Šišanje i frizura</span><span class="service-detail">Poluduga kosa</span></td><td class="price-col"><span class="current-price">38,00 €</span> <span class="anchor-price">(10.09.2026. – 38,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Šišanje i frizura</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">45,00 €</span> <span class="anchor-price">(10.09.2026. – 45,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Šišanje i frizura</span><span class="service-detail">Full duga kosa</span></td><td class="price-col"><span class="current-price">52,00 €</span> <span class="anchor-price">(10.09.2026. – 52,00 €)</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                        <tr class="subsection-row"><td colspan="3">Bojanje i tehnike posvjetljivanja</td></tr>
-                        <tr><td><span class="service-name">Bojanje izrasta</span><span class="service-detail">Do 2 cm izrasta, bez šišanja</span></td><td class="price-col"><span class="current-price">48,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 48,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">62,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 62,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Srednja kosa</span></td><td class="price-col"><span class="current-price">78,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 78,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Bojanje cijele kose</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">95,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 95,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Pramenovi folijom</span><span class="service-detail">Kratka do srednja kosa</span></td><td class="price-col"><span class="current-price">85,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 85,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Pramenovi folijom</span><span class="service-detail">Duga kosa / veća gustoća</span></td><td class="price-col"><span class="current-price">115,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 115,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Balayage ili airtouch</span><span class="service-detail">Početna cijena; ovisi o dužini i utrošku materijala</span></td><td class="price-col"><span class="current-price">od 130,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 130,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Preljev / toner</span><span class="service-detail">Dodatak uz tehniku bojanja</span></td><td class="price-col"><span class="current-price">32,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 32,00 €</span></td></tr>
-
-                        <tr class="subsection-row"><td colspan="3">Njega kose</td></tr>
-                        <tr><td><span class="service-name">Intenzivna maska i njega</span><span class="service-detail">Usluga uz pranje i feniranje</span></td><td class="price-col"><span class="current-price">18,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 18,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Obnavljajući salonski tretman</span><span class="service-detail">Njega vlasi i zaštita boje</span></td><td class="price-col"><span class="current-price">35,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 35,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Dubinska njega / rekonstrukcija</span><span class="service-detail">Početna cijena, ovisno o dužini kose</span></td><td class="price-col"><span class="current-price">od 45,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 45,00 €</span></td></tr>
+        <section class="price-section" id="bojanje-pramenovi" aria-labelledby="color-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">02 · boja i svjetlo</span>
+                    <h2 id="color-title">Bojanje i pramenovi</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">02</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene bojanja i pramenova</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena (referentna cijena*)</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="service-name">Bojanje trajnom bojom</span><span class="service-detail">Izrast</span></td><td class="price-col"><span class="current-price">55,00 €</span> <span class="anchor-price">(10.09.2026. – 55,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje trajnom bojom</span><span class="service-detail">Kratka kosa</span></td><td class="price-col"><span class="current-price">68,00 €</span> <span class="anchor-price">(10.09.2026. – 68,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje trajnom bojom</span><span class="service-detail">Poluduga kosa</span></td><td class="price-col"><span class="current-price">82,00 €</span> <span class="anchor-price">(10.09.2026. – 82,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Bojanje trajnom bojom</span><span class="service-detail">Duga kosa</span></td><td class="price-col"><span class="current-price">96,00 €</span> <span class="anchor-price">(10.09.2026. – 96,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Pramenovi folijom</span><span class="service-detail">Cijela glava</span></td><td class="price-col"><span class="current-price">118,00 €</span> <span class="anchor-price">(10.09.2026. – 118,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Balayage tehnika</span><span class="service-detail">Personalizirano posvjetljivanje i toniranje</span></td><td class="price-col"><span class="current-price">145,00 €</span> <span class="anchor-price">(10.09.2026. – 145,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Airtouch tehnika</span><span class="service-detail">Napredna tehnika posvjetljivanja</span></td><td class="price-col"><span class="current-price">165,00 €</span> <span class="anchor-price">(10.09.2026. – 165,00 €)</span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -730,45 +917,43 @@
         <section class="price-section" id="muske-usluge" aria-labelledby="men-title">
             <header class="section-heading">
                 <div>
-                    <span class="eyebrow">02 · rez i grooming</span>
-                    <h2 id="men-title">Muške usluge</h2>
-                </div>
-                <span class="section-index" aria-hidden="true">02</span>
-            </header>
-            <div class="table-scroll">
-                <table>
-                    <caption class="visually-hidden">Ogledne cijene muških frizerskih usluga</caption>
-                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
-                    <tbody>
-                        <tr><td><span class="service-name">Muško šišanje</span><span class="service-detail">Klasično šišanje škarama ili mašinicom</span></td><td class="price-col"><span class="current-price">22,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 22,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Fade šišanje</span><span class="service-detail">Precizno prijelazno šišanje</span></td><td class="price-col"><span class="current-price">25,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 25,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Muško šišanje i pranje</span><span class="service-detail">Pranje, šišanje i završno oblikovanje</span></td><td class="price-col"><span class="current-price">27,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 27,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Pranje i oblikovanje</span><span class="service-detail">Bez šišanja</span></td><td class="price-col"><span class="current-price">10,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 10,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Uređivanje brade</span><span class="service-detail">Oblikovanje i završna njega</span></td><td class="price-col"><span class="current-price">16,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 16,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Šišanje i uređivanje brade</span><span class="service-detail">Kompletan grooming</span></td><td class="price-col"><span class="current-price">36,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 36,00 €</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="price-section" id="svecane-frizure" aria-labelledby="event-title">
-            <header class="section-heading">
-                <div>
-                    <span class="eyebrow">03 · posebni trenuci</span>
-                    <h2 id="event-title">Svečane i vjenčane frizure</h2>
+                    <span class="eyebrow">03 · rez i grooming</span>
+                    <h2 id="men-title">Muške usluge i barber stilovi</h2>
                 </div>
                 <span class="section-index" aria-hidden="true">03</span>
             </header>
             <div class="table-scroll">
                 <table>
-                    <caption class="visually-hidden">Ogledne cijene svečanih i vjenčanih frizura</caption>
-                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
+                    <caption class="visually-hidden">Ogledne cijene muškog šišanja i barber usluga</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena (referentna cijena*)</th></tr></thead>
                     <tbody>
-                        <tr><td><span class="service-name">Svečana frizura</span><span class="service-detail">Valovi, podignuta ili posebno oblikovana frizura</span></td><td class="price-col"><span class="current-price">55,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 55,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Vjenčana frizura – proba</span><span class="service-detail">Konzultacija i probno oblikovanje</span></td><td class="price-col"><span class="current-price">60,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 60,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Vjenčana frizura</span><span class="service-detail">Oblikovanje na dan vjenčanja, bez izlaska na lokaciju</span></td><td class="price-col"><span class="current-price">120,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 120,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Vjenčani paket</span><span class="service-detail">Proba i frizura na dan vjenčanja</span></td><td class="price-col"><span class="current-price">160,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 160,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Izlazak na lokaciju</span><span class="service-detail">Cijena se dogovara prema lokaciji i broju osoba</span></td><td class="price-col"><span class="current-price">od 40,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – od 40,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Muško šišanje</span><span class="service-detail">Klasično šišanje škarama ili mašinicom</span></td><td class="price-col"><span class="current-price">24,00 €</span> <span class="anchor-price">(10.09.2026. – 24,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Muško šišanje i pranje</span><span class="service-detail">Pranje, šišanje i završno oblikovanje</span></td><td class="price-col"><span class="current-price">28,00 €</span> <span class="anchor-price">(10.09.2026. – 28,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Fade / skin fade</span><span class="service-detail">Precizno prijelazno šišanje</span></td><td class="price-col"><span class="current-price">30,00 €</span> <span class="anchor-price">(10.09.2026. – 30,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Uređenje brade</span><span class="service-detail">Oblikovanje i završna njega</span></td><td class="price-col"><span class="current-price">18,00 €</span> <span class="anchor-price">(10.09.2026. – 18,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Grooming paket</span><span class="service-detail">Šišanje i uređivanje brade</span></td><td class="price-col"><span class="current-price">40,00 €</span> <span class="anchor-price">(10.09.2026. – 40,00 €)</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="price-section" id="tretmani-njega" aria-labelledby="treatment-title">
+            <header class="section-heading">
+                <div>
+                    <span class="eyebrow">04 · rituali njege</span>
+                    <h2 id="treatment-title">Tretmani i dubinska njega</h2>
+                </div>
+                <span class="section-index" aria-hidden="true">04</span>
+            </header>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Ogledne cijene tretmana i dubinske njege kose</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena (referentna cijena*)</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="service-name">Ritual hidratacije</span><span class="service-detail">Dubinska hidracija i mekoća kose</span></td><td class="price-col"><span class="current-price">38,00 €</span> <span class="anchor-price">(10.09.2026. – 38,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Tretman obnove vlasi</span><span class="service-detail">Njega oštećene i kemijski tretirane kose</span></td><td class="price-col"><span class="current-price">58,00 €</span> <span class="anchor-price">(10.09.2026. – 58,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Dubinska rekonstrukcija</span><span class="service-detail">Obnavljajući salonski tretman</span></td><td class="price-col"><span class="current-price">75,00 €</span> <span class="anchor-price">(10.09.2026. – 75,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Tretman vlasišta</span><span class="service-detail">Čišćenje i osvježavajuća njega</span></td><td class="price-col"><span class="current-price">42,00 €</span> <span class="anchor-price">(10.09.2026. – 42,00 €)</span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -777,20 +962,18 @@
         <section class="price-section" id="djecje-usluge" aria-labelledby="kids-title">
             <header class="section-heading">
                 <div>
-                    <span class="eyebrow">04 · do 10 godina</span>
-                    <h2 id="kids-title">Dječje usluge</h2>
+                    <span class="eyebrow">05 · do 10 godina</span>
+                    <h2 id="kids-title">Dječje šišanje</h2>
                 </div>
-                <span class="section-index" aria-hidden="true">04</span>
+                <span class="section-index" aria-hidden="true">05</span>
             </header>
             <div class="table-scroll">
                 <table>
-                    <caption class="visually-hidden">Ogledne cijene dječjih frizerskih usluga do 10 godina</caption>
-                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena</th><th scope="col" class="anchor-col">Referentna cijena*</th></tr></thead>
+                    <caption class="visually-hidden">Ogledne cijene dječjeg šišanja do 10 godina</caption>
+                    <thead><tr><th scope="col">Usluga</th><th scope="col" class="price-col">Cijena (referentna cijena*)</th></tr></thead>
                     <tbody>
-                        <tr><td><span class="service-name">Djevojčice do 10 godina</span><span class="service-detail">Šišanje i jednostavno oblikovanje</span></td><td class="price-col"><span class="current-price">20,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 20,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Djevojčice do 10 godina</span><span class="service-detail">Šišanje duge kose</span></td><td class="price-col"><span class="current-price">25,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 25,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Dječaci do 10 godina</span><span class="service-detail">Klasično šišanje</span></td><td class="price-col"><span class="current-price">17,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 17,00 €</span></td></tr>
-                        <tr><td><span class="service-name">Dječaci do 10 godina</span><span class="service-detail">Kratko šišanje mašinicom</span></td><td class="price-col"><span class="current-price">14,00 €</span></td><td class="anchor-col"><span class="anchor-price">10.09.2026. – 14,00 €</span></td></tr>
+                        <tr><td><span class="service-name">Dječaci do 10 godina</span><span class="service-detail">Šišanje i završno oblikovanje</span></td><td class="price-col"><span class="current-price">16,00 €</span> <span class="anchor-price">(10.09.2026. – 16,00 €)</span></td></tr>
+                        <tr><td><span class="service-name">Djevojčice do 10 godina</span><span class="service-detail">Šišanje i završno oblikovanje</span></td><td class="price-col"><span class="current-price">19,00 €</span> <span class="anchor-price">(10.09.2026. – 19,00 €)</span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -814,5 +997,54 @@
             <a href="privatnost.html">Pravila privatnosti</a>
         </div>
     </footer>
+    <script>
+        (() => {
+            const menuTrigger = document.querySelector('.site-menu-trigger');
+            const menuDialog = document.getElementById('site-menu');
+            const menuClose = menuDialog?.querySelector('.site-menu-close');
+
+            if (!menuTrigger || !menuDialog) {
+                return;
+            }
+
+            const closeMenu = () => {
+                if (menuDialog.open) {
+                    menuDialog.classList.add('is-closing');
+                }
+            };
+
+            menuTrigger.addEventListener('click', () => {
+                menuDialog.classList.remove('is-closing');
+                menuDialog.showModal();
+                menuTrigger.setAttribute('aria-expanded', 'true');
+            });
+
+            menuClose?.addEventListener('click', closeMenu);
+
+            menuDialog.addEventListener('click', (event) => {
+                if (event.target === menuDialog) {
+                    closeMenu();
+                }
+            });
+
+            menuDialog.addEventListener('cancel', (event) => {
+                event.preventDefault();
+                closeMenu();
+            });
+
+            menuDialog.addEventListener('animationend', (event) => {
+                if (event.target === menuDialog && menuDialog.classList.contains('is-closing')) {
+                    menuDialog.classList.remove('is-closing');
+                    menuTrigger.setAttribute('aria-expanded', 'false');
+                    menuDialog.close();
+                }
+            });
+
+            menuDialog.addEventListener('close', () => {
+                menuTrigger.setAttribute('aria-expanded', 'false');
+                menuDialog.classList.remove('is-closing');
+            });
+        })();
+    </script>
 </body>
 </html>
