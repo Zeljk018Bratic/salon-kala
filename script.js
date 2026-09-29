@@ -10,6 +10,9 @@
     const phoneLink = document.getElementById('phoneLink');
     const reservationForm = document.getElementById('reservationForm');
     const formStatus = document.getElementById('formStatus');
+    const menuTrigger = document.querySelector('.site-menu-trigger');
+    const menuDialog = document.getElementById('site-menu');
+    const menuClose = menuDialog?.querySelector('.site-menu-close');
 
     let visualizerInterval = null;
     let slideInterval = null;
@@ -157,13 +160,7 @@
         }
     }
 
-    function toggleMap(event) {
-        const mapsUrl = 'https://maps.app.goo.gl/5p8pZ8xqg7tq8Q2b7';
-
-        if (event) {
-            event.preventDefault();
-        }
-
+    function toggleMap() {
         if (mapContainer && mapContainer.style.display === 'block') {
             mapContainer.style.display = 'none';
             return;
@@ -173,8 +170,6 @@
             mapContainer.style.display = 'block';
             mapContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        window.open(mapsUrl, '_blank', 'noopener,noreferrer');
     }
 
     function highlightToday() {
@@ -217,6 +212,57 @@
     }
 
     function bindEventsOnce() {
+        if (menuTrigger && menuDialog && !menuTrigger.dataset.bound) {
+            menuTrigger.dataset.bound = '1';
+
+            const finishMenuClose = () => {
+                if (!menuDialog.open || !menuDialog.classList.contains('is-closing')) {
+                    return;
+                }
+
+                menuDialog.classList.remove('is-closing');
+                menuTrigger.setAttribute('aria-expanded', 'false');
+                menuDialog.close();
+            };
+
+            const closeMenu = () => {
+                if (menuDialog.open && !menuDialog.classList.contains('is-closing')) {
+                    menuDialog.classList.add('is-closing');
+                    window.setTimeout(finishMenuClose, 260);
+                }
+            };
+
+            menuTrigger.addEventListener('click', () => {
+                menuDialog.classList.remove('is-closing');
+                menuDialog.showModal();
+                menuTrigger.setAttribute('aria-expanded', 'true');
+            });
+
+            menuClose?.addEventListener('click', closeMenu);
+
+            menuDialog.addEventListener('click', (event) => {
+                if (event.target === menuDialog) {
+                    closeMenu();
+                }
+            });
+
+            menuDialog.addEventListener('cancel', (event) => {
+                event.preventDefault();
+                closeMenu();
+            });
+
+            menuDialog.addEventListener('animationend', (event) => {
+                if (event.target === menuDialog && menuDialog.classList.contains('is-closing')) {
+                    finishMenuClose();
+                }
+            });
+
+            menuDialog.addEventListener('close', () => {
+                menuTrigger.setAttribute('aria-expanded', 'false');
+                menuDialog.classList.remove('is-closing');
+            });
+        }
+
         if (playBtn && !playBtn.dataset.bound) {
             playBtn.dataset.bound = '1';
             playBtn.addEventListener('click', toggleRadio);
